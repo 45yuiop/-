@@ -1,0 +1,449 @@
+
+.container.data-v-9e838c74 {
+  padding: 20rpx;
+  background: #f8f8f8;
+  min-height: 100vh;
+  padding-top: 120rpx; /* 为自定义导航栏留出空间 */
+}
+
+/* 自定义导航栏样式 */
+.custom-navbar.data-v-9e838c74 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: #fff;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+.navbar-content.data-v-9e838c74 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 88rpx;
+  padding: 0 30rpx;
+  padding-top: 25px;
+}
+.navbar-left.data-v-9e838c74 {
+  display: flex;
+  align-items: center;
+  padding: 10rpx 0;
+}
+.back-icon.data-v-9e838c74 {
+  font-size: 40rpx;
+  color: #333;
+  margin-right: 8rpx;
+  font-weight: bold;
+}
+.back-text.data-v-9e838c74 {
+  font-size: 28rpx;
+  color: #333;
+}
+.navbar-title.data-v-9e838c74 {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+.navbar-right.data-v-9e838c74 {
+  width: 100rpx;
+}
+.form-container.data-v-9e838c74 {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+}
+.form-item.data-v-9e838c74 {
+  margin-bottom: 30rpx;
+}
+.form-item.data-v-9e838c74:last-child {
+  margin-bottom: 0;
+}
+.label.data-v-9e838c74 {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 15rpx;
+}
+.input.data-v-9e838c74 {
+  width: 100%;
+  height: 80rpx;
+  border: 2rpx solid #e5e5e5;
+  border-radius: 8rpx;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  color: #333;
+  box-sizing: border-box;
+}
+.input.data-v-9e838c74:focus {
+  border-color: #9C27B0;
+}
+.picker.data-v-9e838c74 {
+  width: 100%;
+  height: 80rpx;
+  border: 2rpx solid #e5e5e5;
+  border-radius: 8rpx;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.arrow.data-v-9e838c74 {
+  color: #999;
+  font-size: 24rpx;
+}
+
+/* 老师选择器样式 */
+.teacher-selector.data-v-9e838c74 {
+  width: 100%;
+  min-height: 80rpx;
+  border: 2rpx solid #e5e5e5;
+  border-radius: 8rpx;
+  padding: 15rpx 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background: #fff;
+}
+.teacher-display.data-v-9e838c74 {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.placeholder.data-v-9e838c74 {
+  font-size: 28rpx;
+  color: #999;
+}
+.selected-teacher.data-v-9e838c74 {
+  display: flex;
+  align-items: center;
+  background: #9C27B0;
+  color: #fff;
+  padding: 8rpx 12rpx;
+  border-radius: 6rpx;
+  font-size: 24rpx;
+}
+.teacher-text.data-v-9e838c74 {
+  margin-right: 8rpx;
+}
+
+/* 学生列表样式 */
+.label-container.data-v-9e838c74 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15rpx;
+}
+.add-student-container.data-v-9e838c74 {
+  display: flex;
+  justify-content: flex-end;
+}
+.add-student-btn.data-v-9e838c74 {
+  background: #4FC3F7;
+  color: #fff;
+  border: none;
+  border-radius: 6rpx;
+  padding: 8rpx 16rpx;
+  font-size: 24rpx;
+}
+.add-btn-text.data-v-9e838c74 {
+  color: #fff;
+}
+.student-list-container.data-v-9e838c74 {
+  width: 100%;
+  min-height: 80rpx;
+  border: 2rpx solid #e5e5e5;
+  border-radius: 8rpx;
+  padding: 15rpx 20rpx;
+  box-sizing: border-box;
+  background: #fafafa;
+}
+.student-item.data-v-9e838c74 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10rpx 0;
+  border-bottom: 1rpx solid #eee;
+}
+.student-item.data-v-9e838c74:last-child {
+  border-bottom: none;
+}
+.student-info.data-v-9e838c74 {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.student-name.data-v-9e838c74 {
+  font-size: 26rpx;
+  color: #fff;
+  background: #9C27B0;
+  padding: 2rpx 6rpx;
+  border-radius: 3rpx;
+  margin-bottom: 3rpx;
+  display: inline-block;
+  width: -webkit-fit-content;
+  width: fit-content;
+}
+.student-id.data-v-9e838c74 {
+  font-size: 24rpx;
+  color: #999;
+}
+.remove-student-btn.data-v-9e838c74 {
+  color: #ff6b6b;
+  font-size: 24rpx;
+  padding: 8rpx 12rpx;
+  border-radius: 4rpx;
+  background: #fff5f5;
+}
+.no-students.data-v-9e838c74 {
+  text-align: center;
+  padding: 20rpx 0;
+}
+.no-students-text.data-v-9e838c74 {
+  font-size: 26rpx;
+  color: #999;
+}
+
+/* 老师选择弹窗样式 */
+.teacher-modal.data-v-9e838c74 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40rpx;
+}
+.teacher-modal-content.data-v-9e838c74 {
+  background: #fff;
+  border-radius: 16rpx;
+  width: 100%;
+  max-height: 80vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.modal-header.data-v-9e838c74 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+.modal-title.data-v-9e838c74 {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+.close-btn.data-v-9e838c74 {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.close-icon.data-v-9e838c74 {
+  font-size: 32rpx;
+  color: #999;
+}
+.modal-body.data-v-9e838c74 {
+  padding: 20rpx 30rpx;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* 搜索框样式 */
+.search-container.data-v-9e838c74 {
+  padding: 0 0 20rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+.search-input.data-v-9e838c74 {
+  width: 100%;
+  height: 70rpx;
+  border: 2rpx solid #e5e5e5;
+  border-radius: 8rpx;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  color: #333;
+  box-sizing: border-box;
+}
+.search-input.data-v-9e838c74:focus {
+  border-color: #9C27B0;
+}
+.teacher-list.data-v-9e838c74 {
+  display: flex;
+  flex-direction: column;
+  gap: 15rpx;
+  padding: 10rpx 0;
+}
+.teacher-item.data-v-9e838c74 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx;
+  border: 2rpx solid #e5e5e5;
+  border-radius: 8rpx;
+  background: #fff;
+  transition: all 0.3s;
+}
+.teacher-item.selected.data-v-9e838c74 {
+  border-color: #9C27B0;
+  background: #f3e5f5;
+}
+.teacher-name.data-v-9e838c74 {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: bold;
+}
+.check-icon.data-v-9e838c74 {
+  font-size: 24rpx;
+  color: #9C27B0;
+  font-weight: bold;
+}
+
+/* 空老师提示样式 */
+.empty-teacher-tip.data-v-9e838c74 {
+  padding: 40rpx;
+  text-align: center;
+}
+.empty-text.data-v-9e838c74 {
+  font-size: 28rpx;
+  color: #999;
+}
+.modal-footer.data-v-9e838c74 {
+  display: flex;
+  padding: 30rpx;
+  gap: 20rpx;
+  border-top: 1rpx solid #f0f0f0;
+}
+.cancel-btn.data-v-9e838c74,
+.confirm-btn.data-v-9e838c74 {
+  flex: 1;
+  height: 80rpx;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  border: none;
+}
+.cancel-btn.data-v-9e838c74 {
+  background: #f0f0f0;
+  color: #666;
+}
+.confirm-btn.data-v-9e838c74 {
+  background: #9C27B0;
+  color: #fff;
+}
+
+/* 删除按钮容器 */
+.delete-button-container.data-v-9e838c74 {
+  position: fixed;
+  bottom: 30rpx;
+  right: 30rpx;
+  z-index: 100;
+}
+.delete-btn.data-v-9e838c74 {
+  width: 100rpx;
+  height: 100rpx;
+  transition: all 0.3s ease;
+}
+.delete-btn.data-v-9e838c74:active {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+}
+
+/* 添加学生弹窗样式 */
+.add-student-modal.data-v-9e838c74 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40rpx;
+}
+.add-student-modal-content.data-v-9e838c74 {
+  background: #fff;
+  border-radius: 16rpx;
+  width: 100%;
+  max-height: 80vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.student-selection-list.data-v-9e838c74 {
+  display: flex;
+  flex-direction: column;
+  gap: 15rpx;
+  padding: 10rpx 0;
+}
+.student-selection-item.data-v-9e838c74 {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  border: 2rpx solid #e5e5e5;
+  border-radius: 8rpx;
+  background: #fff;
+  transition: all 0.3s;
+}
+.student-selection-item.selected.data-v-9e838c74 {
+  border-color: #4FC3F7;
+  background: #f0f8ff;
+}
+.student-avatar.data-v-9e838c74 {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  background: #4FC3F7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20rpx;
+}
+.avatar-text.data-v-9e838c74 {
+  font-size: 24rpx;
+  color: #fff;
+  font-weight: bold;
+}
+.student-details.data-v-9e838c74 {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 3rpx;
+}
+.selection-indicator.data-v-9e838c74 {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  background: #4FC3F7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.check-icon.data-v-9e838c74 {
+  font-size: 20rpx;
+  color: #fff;
+  font-weight: bold;
+}
+.no-result.data-v-9e838c74 {
+  padding: 40rpx;
+  text-align: center;
+}
+.no-result-text.data-v-9e838c74 {
+  font-size: 28rpx;
+  color: #999;
+}
+

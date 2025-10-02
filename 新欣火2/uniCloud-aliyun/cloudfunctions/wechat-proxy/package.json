@@ -1,0 +1,10 @@
+{
+  "name": "wechat-proxy",
+  "version": "1.0.0",
+  "description": "微信API代理服务，使用固定IP调用微信API",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC"
+}

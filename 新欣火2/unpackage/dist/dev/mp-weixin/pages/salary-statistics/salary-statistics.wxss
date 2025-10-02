@@ -1,0 +1,229 @@
+
+.statistics-page {
+	padding: 40rpx;
+	padding-top: calc(env(safe-area-inset-top) + 80rpx);
+	background: #f4f6f8;
+	min-height: 100vh;
+	box-sizing: border-box;
+	position: relative; /* 为返回按钮定位 */
+}
+
+/* 返回按钮样式 */
+.back-btn-container {
+	position: absolute;
+	top: calc(env(safe-area-inset-top) + 90rpx);
+	left: 40rpx;
+	z-index: 100;
+}
+.back-btn {
+	background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); /* 修改为与保存按钮相同的绿色渐变 */
+	border: none;
+	border-radius: 50%;
+	width: 80rpx;
+	height: 80rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 8rpx 25rpx rgba(67, 233, 123, 0.4);
+	transition: all 0.3s ease;
+	padding: 0;
+	line-height: 1;
+}
+.back-btn:active {
+	-webkit-transform: scale(0.95);
+	        transform: scale(0.95);
+	box-shadow: 0 4rpx 15rpx rgba(67, 233, 123, 0.3);
+}
+.back-btn-icon {
+	color: #ffffff;
+	font-size: 40rpx;
+	font-weight: bold;
+}
+.main-content {
+	margin-top: 100rpx;
+}
+.page-title {
+	font-size: 48rpx;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 40rpx;
+	color: #333;
+}
+.form-section, .action-buttons {
+	margin-bottom: 30rpx;
+}
+.form-item {
+	margin-bottom: 20rpx;
+}
+.search-input {
+	width: 100%;
+	height: 80rpx;
+	background-color: #fff;
+	border-radius: 40rpx;
+	padding: 0 40rpx;
+	box-sizing: border-box;
+	font-size: 28rpx;
+	box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+	margin-bottom: 20rpx;
+	border: 1rpx solid #e0e0e0;
+}
+.picker-display {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: #ffffff;
+	padding: 25rpx 40rpx;
+	border-radius: 40rpx;
+	box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+	font-size: 30rpx;
+	color: #333;
+	border: 1rpx solid #e0e0e0;
+}
+.picker-arrow {
+	color: #999;
+}
+.action-buttons {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin-bottom: 40rpx;
+	gap: 30rpx;
+}
+.query-btn {
+	flex: 1;
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	color: #fff;
+	font-weight: bold;
+	border-radius: 50rpx;
+	box-shadow: 0 8rpx 25rpx rgba(102, 126, 234, 0.3);
+	font-size: 30rpx;
+	padding: 18rpx 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 12rpx;
+	min-width: 0;
+}
+.btn-icon {
+	font-size: 32rpx;
+}
+.all-btn {
+	background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+	box-shadow: 0 8rpx 25rpx rgba(67, 233, 123, 0.2);
+}
+.all-btn:active {
+	box-shadow: 0 4rpx 15rpx rgba(67, 233, 123, 0.15);
+}
+.card-bg {
+	background: #fff;
+	border-radius: 28rpx;
+	box-shadow: 0 8rpx 40rpx rgba(0,0,0,0.07);
+	padding: 32rpx 20rpx 24rpx 20rpx;
+	margin-bottom: 32rpx;
+}
+.results-section {
+	background: #fff;
+	padding: 32rpx 20rpx 24rpx 20rpx;
+	border-radius: 28rpx;
+	margin-top: 0;
+	box-shadow: 0 8rpx 40rpx rgba(0, 0, 0, 0.07);
+	margin-bottom: 32rpx;
+}
+.results-title {
+	font-size: 34rpx;
+	font-weight: bold;
+	margin-bottom: 40rpx;
+	text-align: center;
+	color: #333;
+}
+.results-grid {
+	display: flex;
+	justify-content: space-around;
+	text-align: center;
+}
+.result-item {
+	padding: 10rpx;
+}
+.result-value {
+	font-size: 52rpx;
+	font-weight: bold;
+	color: #667eea;
+	margin-bottom: 10rpx;
+}
+.result-label {
+	font-size: 26rpx;
+	color: #666;
+}
+
+/* 为不同课程类型设置不同颜色 */
+.one-to-one-value {
+	color: #FF6B6B; /* 红色 */
+}
+.group-class-value {
+	color: #4ECDC4; /* 青色 */
+}
+.full-time-value {
+	color: #FFD166; /* 黄色 */
+}
+.one-to-one-label {
+	color: #FF6B6B;
+}
+.group-class-label {
+	color: #4ECDC4;
+}
+.full-time-label {
+	color: #FFD166;
+}
+.empty-state {
+	text-align: center;
+	color: #999;
+	margin-top: 80rpx;
+	font-size: 30rpx;
+}
+
+/* 新增全员统计表格样式 */
+.all-table {
+	margin-top: 30rpx;
+	width: 100%;
+}
+.all-table-header, .all-table-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 18rpx 0;
+	border-bottom: 1rpx solid #e0e0e0;
+}
+.all-table-header {
+	font-weight: bold;
+	background: #f7f7fa;
+}
+.all-th, .all-td {
+	flex: 1;
+	text-align: center;
+	font-size: 28rpx;
+	color: #333;
+}
+.all-td {
+	color: #4a67d6;
+}
+
+/* 教师姓名颜色 */
+.teacher-name {
+	color: #1976D2; /* 蓝色 */
+	font-weight: bold;
+}
+
+/* 不同课程类型的数字颜色 */
+.one-to-one-hours {
+	color: #FF6B6B; /* 红色 */
+	font-weight: bold;
+}
+.group-class-hours {
+	color: #4ECDC4; /* 青色 */
+	font-weight: bold;
+}
+.full-time-hours {
+	color: #FFD166; /* 黄色 */
+	font-weight: bold;
+}
+

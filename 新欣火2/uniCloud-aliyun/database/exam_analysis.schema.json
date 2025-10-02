@@ -1,0 +1,101 @@
+{
+  "bsonType": "object",
+  "required": ["year", "month", "examType", "examImages", "difficultyRating", "studentPerformance", "userId", "userName", "studentId", "studentName", "grade"],
+  "permission": {
+    "read": "doc.userId == auth.uid || auth.role.includes('管理员')",
+    "create": "auth.uid != null",
+    "update": "doc.userId == auth.uid || auth.role.includes('管理员')",
+    "delete": "doc.userId == auth.uid || auth.role.includes('管理员')"
+  },
+  "properties": {
+    "_id": {
+      "description": "ID，系统自动生成"
+    },
+    "year": {
+      "bsonType": "string",
+      "description": "年份",
+      "title": "年份"
+    },
+    "month": {
+      "bsonType": "string",
+      "description": "月份",
+      "title": "月份"
+    },
+    "examType": {
+      "bsonType": "string",
+      "description": "考试类型",
+      "title": "考试类型"
+    },
+    "examImages": {
+      "bsonType": "array",
+      "description": "试卷图片",
+      "title": "试卷图片",
+      "items": {
+        "bsonType": "string"
+      }
+    },
+    "analysisText": {
+      "bsonType": "string",
+      "description": "试卷分析文本",
+      "title": "试卷分析文本",
+      "maxLength": 2000
+    },
+    "analysisImages": {
+      "bsonType": "array",
+      "description": "分析图片",
+      "title": "分析图片",
+      "items": {
+        "bsonType": "string"
+      }
+    },
+    "difficultyRating": {
+      "bsonType": "int",
+      "description": "考试难度评分",
+      "title": "考试难度评分",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "studentPerformance": {
+      "bsonType": "int",
+      "description": "学生答题效果评分",
+      "title": "学生答题效果评分",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "userId": {
+      "bsonType": "string",
+      "description": "用户ID",
+      "title": "用户ID"
+    },
+    "userName": {
+      "bsonType": "string",
+      "description": "用户姓名",
+      "title": "用户姓名"
+    },
+    "studentId": {
+      "bsonType": "string",
+      "description": "学生ID",
+      "title": "学生ID"
+    },
+    "studentName": {
+      "bsonType": "string",
+      "description": "学生姓名",
+      "title": "学生姓名"
+    },
+    "grade": {
+      "bsonType": "string",
+      "description": "年级",
+      "title": "年级"
+    },
+    "createTime": {
+      "bsonType": "timestamp",
+      "description": "创建时间",
+      "title": "创建时间"
+    },
+    "updateTime": {
+      "bsonType": "timestamp",
+      "description": "更新时间",
+      "title": "更新时间"
+    }
+  }
+} 

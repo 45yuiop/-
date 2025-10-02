@@ -1,0 +1,168 @@
+{
+	"bsonType": "object",
+	"permission": {
+		"read": true,
+		"create": true,
+		"update": true,
+		"delete": true
+	},
+	"properties": {
+		"uid": {
+			"bsonType": "string",
+			"description": "用户ID",
+			"foreignKey": "uni-id-users._id"
+		},
+		"username": {
+			"bsonType": "string",
+			"description": "用户名"
+		},
+		"course_date": {
+			"bsonType": "date",
+			"description": "课程日期"
+		},
+		"course_slot_1": {
+			"bsonType": "string",
+			"description": "第1节课"
+		},
+		"course_slot_1_type": {
+			"bsonType": "string",
+			"description": "第1节课类型"
+		},
+		"course_slot_1_location": {
+			"bsonType": "string",
+			"description": "第1节课地点"
+		},
+		"course_slot_1_class": {
+			"bsonType": "string",
+			"description": "第1节课班级"
+		},
+		"course_slot_1_remark": {
+			"bsonType": "string",
+			"description": "第1节课备注"
+		},
+		"course_slot_2": {
+			"bsonType": "string",
+			"description": "第2节课"
+		},
+		"course_slot_2_type": {
+			"bsonType": "string",
+			"description": "第2节课类型"
+		},
+		"course_slot_2_location": {
+			"bsonType": "string",
+			"description": "第2节课地点"
+		},
+		"course_slot_2_class": {
+			"bsonType": "string",
+			"description": "第2节课班级"
+		},
+		"course_slot_2_remark": {
+			"bsonType": "string",
+			"description": "第2节课备注"
+		},
+		"course_slot_3": {
+			"bsonType": "string",
+			"description": "第3节课"
+		},
+		"course_slot_3_type": {
+			"bsonType": "string",
+			"description": "第3节课类型"
+		},
+		"course_slot_3_location": {
+			"bsonType": "string",
+			"description": "第3节课地点"
+		},
+		"course_slot_3_class": {
+			"bsonType": "string",
+			"description": "第3节课班级"
+		},
+		"course_slot_3_remark": {
+			"bsonType": "string",
+			"description": "第3节课备注"
+		},
+		"course_slot_4": {
+			"bsonType": "string",
+			"description": "第4节课"
+		},
+		"course_slot_4_type": {
+			"bsonType": "string",
+			"description": "第4节课类型"
+		},
+		"course_slot_4_location": {
+			"bsonType": "string",
+			"description": "第4节课地点"
+		},
+		"course_slot_4_class": {
+			"bsonType": "string",
+			"description": "第4节课班级"
+		},
+		"course_slot_4_remark": {
+			"bsonType": "string",
+			"description": "第4节课备注"
+		},
+		"course_slot_5": {
+			"bsonType": "string",
+			"description": "第5节课"
+		},
+		"course_slot_5_type": {
+			"bsonType": "string",
+			"description": "第5节课类型"
+		},
+		"course_slot_5_location": {
+			"bsonType": "string",
+			"description": "第5节课地点"
+		},
+		"course_slot_5_class": {
+			"bsonType": "string",
+			"description": "第5节课班级"
+		},
+		"course_slot_6": {
+			"bsonType": "string",
+			"description": "第6节课"
+		},
+		"course_slot_6_type": {
+			"bsonType": "string",
+			"description": "第6节课类型"
+		},
+		"course_slot_6_location": {
+			"bsonType": "string",
+			"description": "第6节课地点"
+		},
+		"course_slot_6_class": {
+			"bsonType": "string",
+			"description": "第6节课班级"
+		},
+		"course_slot_7": {
+			"bsonType": "string",
+			"description": "第7节课"
+		},
+		"course_slot_7_type": {
+			"bsonType": "string",
+			"description": "第7节课类型"
+		},
+		"course_slot_7_location": {
+			"bsonType": "string",
+			"description": "第7节课地点"
+		},
+		"course_slot_7_class": {
+			"bsonType": "string",
+			"description": "第7节课班级"
+		},
+		"course_slot_8": {
+			"bsonType": "string",
+			"description": "第8节课"
+		},
+		"course_slot_8_type": {
+			"bsonType": "string",
+			"description": "第8节课类型"
+		},
+		"course_slot_8_location": {
+			"bsonType": "string",
+			"description": "第8节课地点"
+		},
+		"course_slot_8_class": {
+			"bsonType": "string",
+			"description": "第8节课班级"
+		}
+	}
+} 

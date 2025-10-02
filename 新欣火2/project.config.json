@@ -1,0 +1,54 @@
+{
+  "setting": {
+    "es6": true,
+    "postcss": true,
+    "minified": true,
+    "uglifyFileName": false,
+    "enhance": true,
+    "packNpmRelationList": [],
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useCompilerPlugins": false,
+    "minifyWXML": true,
+    "compileWorklet": false,
+    "uploadWithSourceMap": true,
+    "packNpmManually": false,
+    "minifyWXSS": true,
+    "localPlugins": false,
+    "disableUseStrict": false,
+    "condition": {
+      "miniprogram": {
+        "list": [
+          {
+            "name": "pages/index/index",
+            "path": "pages/index/index",
+            "query": "",
+            "scene": null
+          }
+        ]
+      }
+    },
+    "swc": false,
+    "disableSWC": true
+  },
+  "compileType": "miniprogram",
+  "simulatorPluginLibVersion": {},
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "appid": "wx9f7a595a2467a31d",
+  "editorSetting": {},
+  "libVersion": "3.8.9",
+  "uniCloud": {
+    "provider": "aliyun",
+    "spaceId": "mp-9670c93e-7aef-46ce-bbba-401692257cfc",
+    "spaceName": "account",
+    "isLocal": false,
+    "version": "1.0.1"
+  },
+  "cloudfunctionRoot": "uniCloud-aliyun/cloudfunctions/"
+}

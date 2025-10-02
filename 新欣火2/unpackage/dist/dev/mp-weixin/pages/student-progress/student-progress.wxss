@@ -1,0 +1,310 @@
+
+.container.data-v-ad9f9134 {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+.nav-bar.data-v-ad9f9134 {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+  text-align: center;
+  padding-top: 55px;
+  position: relative;
+}
+.nav-title.data-v-ad9f9134 {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+.back-btn.data-v-ad9f9134 {
+  position: absolute;
+  left: 16px;
+  top: 55px;
+  color: white;
+  font-size: 16px;
+  z-index: 10;
+}
+.tab-bar.data-v-ad9f9134 {
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  height: 44px;
+  align-items: center;
+}
+.tab-item.data-v-ad9f9134 {
+  flex: 1;
+  text-align: center;
+  font-size: 16px;
+  color: #666;
+  padding: 10px 0;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+.tab-item.active.data-v-ad9f9134 {
+  color: #667eea;
+  font-weight: bold;
+  border-bottom: 2px solid #667eea;
+  background: #f0f4ff;
+}
+.main-content.data-v-ad9f9134 {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.sidebar.data-v-ad9f9134 {
+  flex-shrink: 0;
+  width: 50px;
+  background: #fff;
+  border-right: 1px solid #eee;
+  padding: 6px 0 6px 0;
+}
+.sidebar-item.data-v-ad9f9134 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px 0;
+  font-size: 13px;
+  color: #333;
+  cursor: pointer;
+  border-radius: 0 20px 20px 0;
+  margin-bottom: 8px;
+  background: transparent;
+  transition: background 0.2s, color 0.2s;
+}
+.sidebar-item.active.data-v-ad9f9134 {
+  background: #f0f4ff;
+  color: #667eea;
+  font-weight: bold;
+}
+.class-name.data-v-ad9f9134 {
+  font-size: 14px;
+  display: block;
+  line-height: 1.2em;
+  margin-bottom: 2px;
+}
+.class-grade.data-v-ad9f9134, .class-subject.data-v-ad9f9134, .class-type.data-v-ad9f9134 {
+  font-size: 14px;
+  line-height: 1.2em;
+  text-align: left;
+  min-height: 1.2em;
+}
+.class-count.data-v-ad9f9134 {
+  font-size: 12px;
+  color: #999;
+  margin-top: 2px;
+}
+.content-area.data-v-ad9f9134 {
+  flex: 1;
+  min-width: 0;
+  margin-left: 0px;
+  padding-right: 12px;
+}
+.my-class-progress.data-v-ad9f9134 {
+  background: white;
+  margin: 10px;
+  border-radius: 8px;
+  padding: 20px;
+}
+.section-title.data-v-ad9f9134 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #667eea;
+  margin-bottom: 10px;
+}
+.student-progress-row.data-v-ad9f9134 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+.student-progress-row.data-v-ad9f9134:last-child {
+  border-bottom: none;
+}
+.stu-name.data-v-ad9f9134 { font-size: 15px; color: #333; width: 80px;
+}
+/* 新增颜色样式 */
+.stu-name-colored.data-v-ad9f9134 { color: #2a4fa7; font-weight: bold;
+}
+.score.data-v-ad9f9134 { font-size: 13px; color: #666; width: 80px;
+}
+.score-first.data-v-ad9f9134 { color: #555;
+}
+.score-second.data-v-ad9f9134 { color: #3f51b5;
+}
+/* 蓝色 */
+.progress-rate.data-v-ad9f9134 { font-size: 15px; font-weight: bold; width: 80px; text-align: right;
+}
+.progress-rate.positive.data-v-ad9f9134 { color: #4caf50;
+}
+.progress-rate.negative.data-v-ad9f9134 { color: #f44336;
+}
+.progress-count.data-v-ad9f9134 { color: #2a4fa7; font-weight: bold;
+}
+.total-count.data-v-ad9f9134 { color: #ff9800; font-weight: bold;
+}
+.loading.data-v-ad9f9134 { text-align: center; color: #999; margin-top: 40px;
+}
+.class-avg-row.data-v-ad9f9134 {
+  background: #f8fafd;
+  border-top: 1px solid #eee;
+}
+.class-avg-info.data-v-ad9f9134 {
+  color: #444;
+  font-size: 13px;
+  margin: 0 0 10px 0;
+  padding-left: 10px;
+}
+.progress-summary-card.data-v-ad9f9134 {
+  background: #f8fafd;
+  border-radius: 10px;
+  margin: 18px 0 10px 0;
+  padding: 12px 10px 8px 10px;
+  box-shadow: 0 2px 8px rgba(102,126,234,0.06);
+}
+.progress-title.data-v-ad9f9134 {
+  font-size: 15px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 12px;
+}
+.progress-rate-box.data-v-ad9f9134 {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+.progress-card.data-v-ad9f9134 {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(102,126,234,0.04);
+  padding: 10px 12px 8px 12px;
+  min-width: 120px;
+  max-width: 180px;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.progress-card-title.data-v-ad9f9134 {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 6px;
+}
+.progress-card-value.data-v-ad9f9134 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.progress-count-info.data-v-ad9f9134 {
+  font-size: 13px;
+  margin-bottom: 2px;
+}
+.progress-count.data-v-ad9f9134 {
+  color: #2a4fa7;
+  font-weight: bold;
+}
+.progress-slash.data-v-ad9f9134 {
+  color: #888;
+}
+.total-count.data-v-ad9f9134 {
+  color: #ff9800;
+  font-weight: bold;
+}
+.progress-tip.data-v-ad9f9134 {
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 2px;
+}
+.progress-count-info-inline.data-v-ad9f9134 {
+  font-size: 13px;
+  margin-bottom: 2px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.progress-tip-inline.data-v-ad9f9134 {
+  font-size: 12px;
+  color: #aaa;
+  margin-left: 6px;
+  display: block;
+  text-align: left;
+  line-height: 1.4;
+  max-width: 90%;
+  word-break: break-all;
+  white-space: pre-line;
+}
+.progress-tip-multiline.data-v-ad9f9134 {
+  white-space: pre-line;
+}
+.progress-avg-info.data-v-ad9f9134 {
+  font-size: 13px;
+  color: #888;
+  margin-top: 2px;
+  text-align: left;
+}
+.avg-label.data-v-ad9f9134 {
+  color: #888;
+}
+.avg-value.data-v-ad9f9134 {
+  color: #2a4fa7;
+  font-weight: bold;
+  margin-right: 2px;
+}
+@media (max-width: 350px) {
+.progress-rate-box.data-v-ad9f9134 {
+    flex-direction: column;
+    gap: 8px;
+}
+.progress-card.data-v-ad9f9134 {
+    max-width: 100%;
+    width: 100%;
+}
+}
+.main-content.data-v-ad9f9134, .progress-content.data-v-ad9f9134, .progress-main.data-v-ad9f9134, .main-panel.data-v-ad9f9134 {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+/* 表头样式 */
+.student-progress-header.data-v-ad9f9134 {
+  display: flex;
+  align-items: center;
+  padding: 6px 12px 6px 0;
+  font-size: 13px;
+  color: #888;
+  font-weight: bold;
+}
+/* 表格行样式 */
+.student-progress-row.data-v-ad9f9134 {
+  display: flex;
+  align-items: center;
+  padding: 12px 12px 12px 0;
+  border-bottom: 1px solid #eee;
+}
+.student-progress-row.data-v-ad9f9134:last-child {
+  border-bottom: none;
+}
+/* 列宽和对齐设置 */
+.student-progress-header text.data-v-ad9f9134,
+.student-progress-row text.data-v-ad9f9134 {
+  display: inline-block;
+  text-align: center;
+  font-size: 15px;
+  width: 84px;
+  flex-shrink: 0;
+}
+/* 最后一列（提升率）右对齐 */
+.student-progress-header text.data-v-ad9f9134:last-child,
+.student-progress-row text.data-v-ad9f9134:last-child {
+  width: 88px;
+  text-align: right;
+  white-space: nowrap;
+}
+/* 移除之前的margin设置，确保列连续对齐 */
+.score-first.data-v-ad9f9134,
+.score-second.data-v-ad9f9134 {
+  margin-right: 0;
+}
+

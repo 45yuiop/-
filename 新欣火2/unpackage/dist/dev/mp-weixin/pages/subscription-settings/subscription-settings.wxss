@@ -1,0 +1,140 @@
+
+.page-container.data-v-2075e12e {
+	height: 100vh;
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	display: flex;
+	flex-direction: column;
+}
+.status-bar.data-v-2075e12e {
+	height: 25px;
+	background: transparent;
+}
+.top-bar.data-v-2075e12e {
+	background: rgba(255, 255, 255, 0.95);
+	-webkit-backdrop-filter: blur(10px);
+	        backdrop-filter: blur(10px);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.top-nav.data-v-2075e12e {
+	display: flex;
+	align-items: center;
+	padding: 20rpx 30rpx;
+	position: relative;
+}
+.back-btn.data-v-2075e12e {
+	display: flex;
+	align-items: center;
+	color: #333;
+	font-size: 16px;
+	cursor: pointer;
+}
+.back-icon.data-v-2075e12e {
+	font-size: 20px;
+	margin-right: 8rpx;
+}
+.page-title.data-v-2075e12e {
+	position: absolute;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	        transform: translateX(-50%);
+	font-size: 18px;
+	font-weight: bold;
+	color: #333;
+}
+.content.data-v-2075e12e {
+	flex: 1;
+	padding: 30rpx;
+	overflow-y: auto;
+}
+
+/* 通用区域样式 */
+.subscription-section.data-v-2075e12e,
+.wechat-section.data-v-2075e12e,
+.test-section.data-v-2075e12e {
+	background: rgba(255, 255, 255, 0.95);
+	border-radius: 20rpx;
+	padding: 40rpx;
+	margin-bottom: 30rpx;
+	box-shadow: 0 10rpx 40rpx rgba(0, 0, 0, 0.1);
+	-webkit-backdrop-filter: blur(10px);
+	        backdrop-filter: blur(10px);
+}
+.section-title.data-v-2075e12e {
+	font-size: 22px;
+	font-weight: bold;
+	color: #333;
+	margin-bottom: 15rpx;
+}
+.section-desc.data-v-2075e12e {
+	font-size: 14px;
+	color: #666;
+	margin-bottom: 30rpx;
+	line-height: 1.6;
+}
+
+/* 开关容器样式 */
+.switch-container.data-v-2075e12e {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20rpx 0;
+}
+.switch-label.data-v-2075e12e {
+	flex: 1;
+}
+.switch-text.data-v-2075e12e {
+	font-size: 16px;
+	color: #333;
+	font-weight: 500;
+	display: block;
+	margin-bottom: 8rpx;
+}
+.switch-status.data-v-2075e12e {
+	font-size: 12px;
+	color: #999;
+}
+.subscription-switch.data-v-2075e12e {
+	-webkit-transform: scale(1.2);
+	        transform: scale(1.2);
+}
+
+/* 按钮样式 */
+.wechat-action.data-v-2075e12e,
+.test-action.data-v-2075e12e {
+	display: flex;
+	justify-content: center;
+}
+.wechat-btn.data-v-2075e12e,
+.test-btn.data-v-2075e12e {
+	width: 280rpx;
+	height: 70rpx;
+	border: none;
+	border-radius: 35rpx;
+	font-size: 16px;
+	font-weight: 500;
+	transition: all 0.3s ease;
+}
+.wechat-btn.data-v-2075e12e {
+	background: linear-gradient(135deg, #52C41A, #73D13D);
+	color: white;
+	box-shadow: 0 6rpx 20rpx rgba(82, 196, 26, 0.3);
+}
+.wechat-btn.bound.data-v-2075e12e {
+	background: linear-gradient(135deg, #52C41A, #389E0D);
+	box-shadow: 0 6rpx 20rpx rgba(82, 196, 26, 0.4);
+}
+.test-btn.data-v-2075e12e {
+	background: linear-gradient(135deg, #1890FF, #096DD9);
+	color: white;
+	box-shadow: 0 6rpx 20rpx rgba(24, 144, 255, 0.3);
+}
+.wechat-btn.data-v-2075e12e:active,
+.test-btn.data-v-2075e12e:active {
+	-webkit-transform: scale(0.95);
+	        transform: scale(0.95);
+}
+.wechat-btn.data-v-2075e12e::after,
+.test-btn.data-v-2075e12e::after {
+	border: none;
+}
+

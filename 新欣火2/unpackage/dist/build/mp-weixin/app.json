@@ -1,0 +1,92 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/index/index",
+    "pages/home/home",
+    "pages/service/service",
+    "pages/my/my",
+    "pages/register/register",
+    "pages/account-manage/account-manage",
+    "pages/schedule-manage/schedule-manage",
+    "pages/teacher-schedule/teacher-schedule",
+    "pages/salary-statistics/salary-statistics",
+    "pages/teacher-courses/teacher-courses",
+    "pages/admin-teacher-schedule/admin-teacher-schedule",
+    "pages/system-setting/system-setting",
+    "pages/permission-assign/index",
+    "pages/permission-assign/add",
+    "pages/permission-assign/delete",
+    "pages/permission-assign/permission-assign",
+    "pages/news-detail/news-detail",
+    "pages/news-edit/news-edit",
+    "pages/schedule-tab/schedule-tab",
+    "pages/search-page/search-page",
+    "pages/about/about",
+    "pages/change-password/change-password",
+    "pages/change-password/new-password",
+    "pages/apply-change-course/apply-change-course",
+    "pages/course-change-approval/course-change-approval",
+    "pages/my-class/my-class",
+    "pages/message/message",
+    "pages/exam-scores/exam-scores",
+    "pages/subscription-settings/subscription-settings",
+    "pages/student-progress/student-progress",
+    "pages/classroom/classroom",
+    "pages/faculty-strength/faculty-strength",
+    "pages/exam-analysis/exam-analysis",
+    "pages/exam-analysis/exam-analysis-list",
+    "pages/exam-analysis/exam-analysis-detail",
+    "pages/class-management/class-management",
+    "pages/student-input/student-input",
+    "pages/archive/archive",
+    "pages/student-detail/student-detail",
+    "pages/class-detail/class-detail"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "新欣火",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#4FC3F7",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "static/gongju.png",
+        "selectedIconPath": "static/gongju.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/service/service",
+        "iconPath": "static/a.png",
+        "selectedIconPath": "static/a.png",
+        "text": "服务"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "iconPath": "static/ee (2).png",
+        "selectedIconPath": "static/b3318194914f809af324de8884bd906(2).png",
+        "text": "消息"
+      },
+      {
+        "pagePath": "pages/schedule-tab/schedule-tab",
+        "iconPath": "static/aa.png",
+        "selectedIconPath": "static/aa.png",
+        "text": "课表"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "static/user.png",
+        "selectedIconPath": "static/user.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

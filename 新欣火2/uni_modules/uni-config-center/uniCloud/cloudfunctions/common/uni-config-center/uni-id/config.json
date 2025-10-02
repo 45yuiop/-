@@ -1,0 +1,17 @@
+{
+  "passwordSecret": [
+    {
+      "type": "hmac-sha256",
+      "version": 1,
+      "value": "b18b323c-ca84-468d-8126-11f84b6c31a3"
+    }
+  ],
+  "tokenSecret": "b18b323c-ca84-468d-8126-11f84b6c31a3",
+  "tokenExpiresIn": 7200,
+  "tokenExpiresThreshold": 3600,
+  "passwordStrength": "medium",
+  "web": {
+    "tokenExpiresIn": 7200,
+    "tokenExpiresThreshold": 3600
+  }
+} 

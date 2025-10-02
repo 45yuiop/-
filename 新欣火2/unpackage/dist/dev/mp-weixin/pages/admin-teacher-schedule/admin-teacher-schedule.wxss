@@ -1,0 +1,1326 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 基本样式重置和页面容器 */
+.schedule-page-container.data-v-18c29074 {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	background-color: #f8f9fa;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.status-bar.data-v-18c29074 {
+	height: 25px;
+	width: 100%;
+	background-color: #FFFFFF;
+}
+/* 顶部区域 */
+.top-bar.data-v-18c29074 {
+	background-color: #6B55D3;
+	color: white;
+	flex-shrink: 0;
+}
+.top-nav.data-v-18c29074 {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px 15px;
+	background-color: #FFFFFF;
+	color: #000;
+}
+.back-btn.data-v-18c29074 {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	padding: 8px 12px;
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	border-radius: 20px;
+	color: white;
+	font-size: 14px;
+	box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+	transition: all 0.3s ease;
+}
+.back-btn.data-v-18c29074:active {
+	-webkit-transform: translateY(1px);
+	        transform: translateY(1px);
+	box-shadow: 0 1px 4px rgba(102, 126, 234, 0.3);
+}
+.back-icon.data-v-18c29074 {
+	font-size: 18px;
+	font-weight: bold;
+}
+.back-text.data-v-18c29074 {
+	font-size: 14px;
+	font-weight: 500;
+}
+.teacher-selector.data-v-18c29074 {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+}
+.picker-display.data-v-18c29074 {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+}
+.page-title.data-v-18c29074 {
+	font-size: 18px;
+	font-weight: bold;
+	color: #333;
+}
+.dropdown-arrow-title.data-v-18c29074 {
+	font-size: 14px;
+	margin-left: 8px;
+}
+/* 搜索区域样式 */
+.search-container.data-v-18c29074 {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	flex-shrink: 0;
+}
+.teacher-name-display.data-v-18c29074 {
+	background-color: #f5f5f5;
+	padding: 6px 12px;
+	border-radius: 15px;
+	border: 1px solid #e0e0e0;
+	min-width: 80px;
+	text-align: center;
+}
+.teacher-name-text.data-v-18c29074 {
+	font-size: 14px;
+	color: #666;
+	font-weight: 500;
+}
+.search-input-wrapper.data-v-18c29074 {
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+.search-input.data-v-18c29074 {
+	width: 120px;
+	height: 32px;
+	padding: 0 30px 0 12px;
+	border: 1px solid #e0e0e0;
+	border-radius: 16px;
+	font-size: 14px;
+	background-color: #f9f9f9;
+	transition: all 0.3s ease;
+}
+.search-input.data-v-18c29074:focus {
+	border-color: #667eea;
+	background-color: #fff;
+	box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+}
+.search-icon.data-v-18c29074 {
+	position: absolute;
+	right: 8px;
+	font-size: 14px;
+	color: #999;
+	pointer-events: none;
+}
+/* 周选择器 */
+.week-selector-bar.data-v-18c29074 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 12px 15px;
+	gap: 20px;
+}
+.week-btn.data-v-18c29074 {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	color: white;
+	border: none;
+	border-radius: 25px;
+	padding: 12px 20px;
+	font-size: 14px;
+	font-weight: 500;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+	transition: all 0.2s ease-in-out;
+	justify-content: center;
+}
+.week-btn.data-v-18c29074:active {
+	-webkit-transform: translateY(2px);
+	        transform: translateY(2px);
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+.prev-btn.data-v-18c29074 {
+	background: #6D6AEC;
+}
+.next-btn.data-v-18c29074 {
+	background: linear-gradient(135deg, #F87D9A 0%, #F5576C 100%);
+}
+.week-btn-icon.data-v-18c29074 {
+	font-size: 12px;
+	font-weight: bold;
+}
+.week-btn-text.data-v-18c29074 {
+	font-size: 14px;
+	font-weight: 500;
+}
+.today-btn.data-v-18c29074 {
+	background: linear-gradient(135deg, #44E5FC 0%, #00D7FF 100%);
+	color: white;
+	border: none;
+	border-radius: 50%;
+	font-size: 16px;
+	font-weight: 500;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+	transition: all 0.2s ease-in-out;
+	width: 60px;
+	height: 60px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0;
+}
+.today-btn.data-v-18c29074:active {
+	-webkit-transform: translateY(2px);
+	        transform: translateY(2px);
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+/* 课程表容器 */
+.schedule-container.data-v-18c29074 {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	min-height: 0;
+	height: 100%;
+}
+/* 固定的头部行 */
+.fixed-header.data-v-18c29074 {
+	display: flex;
+	flex-shrink: 0;
+	background-color: #fff;
+	border-bottom: 1px solid #EAEAEA;
+	z-index: 10;
+}
+/* 可滚动的内容区域 */
+.scrollable-content.data-v-18c29074 {
+	flex: 1;
+	min-height: 0;
+	overflow-y: auto;
+}
+/* 课程表网格 */
+.schedule-grid.data-v-18c29074 {
+	display: flex;
+	height: 100%;
+}
+/* 时间和月份列 */
+.time-column.data-v-18c29074 {
+	display: flex;
+	flex-direction: column;
+	width: 40px;
+	flex-shrink: 0;
+	background-color: #fff;
+	height: 100%;
+	border-right: 1px solid #EAEAEA; /* 添加右边框，与日期列分隔 */
+	justify-content: flex-start; /* 确保从顶部开始排列 */
+}
+.month-cell.data-v-18c29074 {
+	height: 50px;
+	line-height: 50px;
+	font-size: 16px;
+	color: #333;
+	background-color: #6B55D3;
+	color: white;
+	box-sizing: border-box;
+	flex-shrink: 0; /* 防止压缩 */
+	text-align: center;
+	width: 40px;
+}
+/* 固定头部中的月份单元格 */
+.fixed-header .month-cell.data-v-18c29074 {
+	width: 40px;
+	flex-shrink: 0;
+}
+/* 固定头部中的日期头部 */
+.fixed-header .day-header.data-v-18c29074 {
+	flex: 1;
+	text-align: center;
+	padding: 8px 0;
+	font-size: 14px;
+	height: 50px;
+	box-sizing: border-box;
+	background-color: #6B55D3;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-left: 1px solid #EAEAEA;
+}
+.fixed-header .day-header.data-v-18c29074:first-child {
+	border-left: none;
+}
+.fixed-header .day-header.is-today.data-v-18c29074 {
+	background-color: #18B5A5;
+}
+.time-slot.data-v-18c29074 {
+	flex: 1 1 0%;
+	display: flex;
+	align-items: center; /* 改为居中对齐，让时间标签显示在单元格中央 */
+	justify-content: center;
+	border-top: 1px solid #EAEAEA;
+	box-sizing: border-box;
+	height: 80px; /* 固定每个时间段的高度，避免表格过高 */
+	padding: 0; /* 移除顶部内边距，让时间标签完全居中 */
+	position: relative; /* 添加相对定位，确保子元素定位正确 */
+	min-height: 80px; /* 确保最小高度，与课程列保持一致 */
+	max-height: 80px; /* 确保最大高度，与课程列保持一致 */
+}
+.days-container.data-v-18c29074 {
+	display: flex;
+	flex-grow: 1;
+	height: 100%;
+}
+/* 星期列 */
+.day-column.data-v-18c29074 {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	border-left: 1px solid #EAEAEA;
+	height: 100%;
+	min-width: 0; /* 确保列可以正确收缩 */
+}
+.day-column.data-v-18c29074:first-child {
+	border-left: none;
+}
+.day-name.data-v-18c29074 {
+	font-size: 15px;
+}
+.day-date.data-v-18c29074 {
+	font-size: 12px;
+}
+.course-slots-container.data-v-18c29074 {
+	position: relative;
+	height: 100%;
+	flex-grow: 1;
+	min-height: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start; /* 确保从顶部开始排列，与时间列保持一致 */
+}
+.course-placeholder.data-v-18c29074 {
+	flex: 1 1 0%;
+	border-top: 1px solid #EAEAEA;
+	border-right: 1px solid #EAEAEA; /* 添加垂直分割线 */
+	box-sizing: border-box;
+	background: transparent;
+	height: 80px; /* 固定每个时间段的高度，与时间列保持一致 */
+	position: relative; /* 添加相对定位，确保课程块定位正确 */
+	min-height: 80px; /* 确保最小高度，与时间列保持一致 */
+	max-height: 80px; /* 确保最大高度，与时间列保持一致 */
+}
+/* 最后一列不需要右边框 */
+.day-column:last-child .course-placeholder.data-v-18c29074 {
+	border-right: none;
+}
+/* 课程块 */
+.course-block.data-v-18c29074 {
+	position: absolute;
+	left: 1px; /* 减少左边距，确保不超出单元格 */
+	right: 1px; /* 减少右边距，确保不超出单元格 */
+	margin: 0;
+	padding: 4px; /* 减少内边距，确保内容不超出 */
+	border-radius: 4px; /* 减少圆角，与减少的内边距匹配 */
+	font-size: 12px;
+	overflow: hidden;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	font-weight: bold;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+	min-height: 0; /* 移除固定最小高度，让课程块完全根据计算的高度显示 */
+	border: 1px solid rgba(0,0,0,0.15); /* 减少边框厚度，避免超出 */
+	background: rgba(255,255,255,0.95); /* 半透明背景 */
+	z-index: 5; /* 确保课程块在网格之上 */
+	/* 移除默认的top值，让课程块根据计算的位置显示 */
+}
+/* 调课申请按钮 */
+.change-course-btn.data-v-18c29074 {
+	background-color: #ff9800;
+	color: white;
+	font-size: 10px;
+	padding: 2px 6px;
+	border-radius: 10px;
+	margin-top: 4px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+.change-course-btn.data-v-18c29074:hover {
+	background-color: #f57c00;
+}
+/* 加载状态 */
+.loading-overlay.data-v-18c29074 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(255, 255, 255, 0.8);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 10;
+}
+.loading-text.data-v-18c29074 {
+	font-size: 16px;
+	color: #6B55D3;
+}
+/* 悬浮保存排课按钮样式 */
+.save-schedule-btn.data-v-18c29074 {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100vw;
+	height: 60px;
+	background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+	color: #fff;
+	font-size: 18px;
+	z-index: 9999;
+	border-radius: 0;
+	border: none;
+	margin: 0;
+	box-shadow: 0 -2px 8px rgba(0,0,0,0.08);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+/* 预留底部空间，避免内容被按钮遮挡 */
+.page-container.data-v-18c29074 {
+	height: 100vh;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 0 !important;
+	margin-bottom: 0 !important;
+	box-sizing: border-box;
+}
+/* 页面容器高度拉满 */
+page.data-v-18c29074, .uni-page-body.data-v-18c29074, .uni-app-view.data-v-18c29074, .uni-page.data-v-18c29074 {
+	height: 100vh;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+.schedule-grid.data-v-18c29074 {
+	flex: 1;
+	min-height: 0;
+	height: 100%;
+	display: flex;
+	padding-bottom: 0 !important;
+	margin-bottom: 0 !important;
+	box-sizing: border-box;
+}
+/* 整体滚动条样式 */
+.scrollable-content.data-v-18c29074::-webkit-scrollbar {
+	width: 8px;
+}
+.scrollable-content.data-v-18c29074::-webkit-scrollbar-track {
+	background: #f1f1f1;
+	border-radius: 4px;
+}
+.scrollable-content.data-v-18c29074::-webkit-scrollbar-thumb {
+	background: #c1c1c1;
+	border-radius: 4px;
+}
+.scrollable-content.data-v-18c29074::-webkit-scrollbar-thumb:hover {
+	background: #a8a8a8;
+}
+/* 删除底部保存排课按钮样式和结构 */
+/* .bottom-btn-bar, .bottom-btn { display: none !important; } */
+.course-remark-show.data-v-18c29074 {
+	color: #333;
+	font-size: 11px;
+	margin: 2px 0 0 0;
+	line-height: 1.4;
+	word-break: break-all;
+}
+/* 可点击图片样式 */
+.clickable-image.data-v-18c29074 {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 220rpx;
+	height: 220rpx;
+	z-index: 999;
+	cursor: pointer;
+	-webkit-transform: translate(0, 0);
+	        transform: translate(0, 0);
+	-webkit-user-select: none;
+	user-select: none;
+	-webkit-touch-callout: none;
+	-webkit-tap-highlight-color: transparent;
+}
+/* 机器人对话气泡样式 */
+.assistant-bubble.data-v-18c29074 {
+	position: fixed;
+	left: 0;
+	top: 0;
+	max-width: 68vw;
+	background: linear-gradient(135deg,#ffffff 0%,#f6fbff 100%);
+	border: 1rpx solid #e0f0ff;
+	box-shadow: 0 10rpx 26rpx rgba(25,118,210,0.08);
+	border-radius: 22rpx;
+	padding: 22rpx 26rpx;
+	z-index: 1000;
+	color: #333;
+	font-size: 28rpx;
+	line-height: 1.6;
+	-webkit-transform: translate(0,0);
+	        transform: translate(0,0);
+}
+/* 新的卡通圆角对话框样式（非长方） */
+.assistant-bubble.pretty.data-v-18c29074 {
+	border-radius: 26rpx 26rpx 10rpx 26rpx; /* 左下角收尖，气泡在机器人上方 */
+}
+.pretty-tail.data-v-18c29074 {
+	position: absolute;
+	bottom: -8rpx;
+	left: 36rpx;
+	width: 18rpx; height: 18rpx;
+	background: #ffffff;
+	border-right: 1rpx solid #e0f0ff;
+	border-bottom: 1rpx solid #e0f0ff;
+	-webkit-transform: rotate(45deg);
+	        transform: rotate(45deg);
+	box-shadow: 2rpx 2rpx 6rpx rgba(25,118,210,0.06);
+}
+.pretty-tail-2.data-v-18c29074 {
+	bottom: -14rpx;
+	left: 22rpx;
+	width: 12rpx; height: 12rpx;
+	opacity: 0.8;
+}
+/* 气泡在机器人下方时的样式 */
+.assistant-bubble.bubble-below.data-v-18c29074 {
+	border-radius: 10rpx 26rpx 26rpx 26rpx; /* 左上角收尖，气泡在机器人下方 */
+}
+.assistant-bubble.bubble-below .pretty-tail.data-v-18c29074 {
+	top: -8rpx;
+	bottom: auto;
+	left: 36rpx;
+	width: 18rpx; height: 18rpx;
+	background: #ffffff;
+	border-right: 1rpx solid #e0f0ff;
+	border-top: 1rpx solid #e0f0ff;
+	border-bottom: none;
+	-webkit-transform: rotate(-45deg);
+	        transform: rotate(-45deg);
+	box-shadow: 2rpx -2rpx 6rpx rgba(25,118,210,0.06);
+}
+.assistant-bubble.bubble-below .pretty-tail-2.data-v-18c29074 {
+	top: -14rpx;
+	bottom: auto;
+	left: 22rpx;
+	width: 12rpx; height: 12rpx;
+	opacity: 0.8;
+}
+.bubble-text.data-v-18c29074 {
+	display: block;
+	z-index: 1;
+}
+.quick-action.data-v-18c29074 {
+	color: #1976D2;
+	font-weight: 600;
+	font-size: 28rpx;
+	line-height: 1.6;
+}
+

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小班课教学 - 新欣火教育</title>
+    <meta name="description" content="新欣火教育小班课教学项目">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e4d8b, #2563eb);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        
+        .header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #1e4d8b;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        .advantages-section {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            color: #1e4d8b;
+            font-size: 28px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .advantage-card {
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .advantage-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #1e4d8b, #2563eb);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 32px;
+        }
+        
+        .advantage-card h4 {
+            color: #1e4d8b;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .advantage-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .class-types {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        
+        .type-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid #1e4d8b;
+        }
+        
+        .type-card h4 {
+            color: #1e4d8b;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .type-card .class-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .info-item {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .info-label {
+            font-size: 12px;
+            color: #666;
+            display: block;
+        }
+        
+        .info-value {
+            font-size: 16px;
+            font-weight: bold;
+            color: #1e4d8b;
+        }
+        
+        .type-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .btn-enroll {
+            background-color: #1e4d8b;
+            color: white;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-enroll:hover {
+            background-color: #2563eb;
+            text-decoration: none;
+            color: white;
+        }
+        
+        .schedule-section {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .schedule-table th,
+        .schedule-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .schedule-table th {
+            background-color: #1e4d8b;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .schedule-table tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .status-available {
+            background-color: #28a745;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+        }
+        
+        .status-full {
+            background-color: #dc3545;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+        }
+        
+        @media (max-width: 768px) {
+            .advantages-grid,
+            .types-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .type-card .class-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .schedule-table {
+                font-size: 14px;
+            }
+            
+            .schedule-table th,
+            .schedule-table td {
+                padding: 10px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>小班课教学</h1>
+        <p>精品小班，个性化教学，让每个学员都能得到充分关注</p>
+    </div>
+    
+    <div class="container">
+        <a href="index.html" class="back-link">← 返回首页</a>
+        
+        <!-- 教学优势 -->
+        <div class="advantages-section">
+            <h2 class="section-title">小班教学优势</h2>
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <div class="advantage-icon">👥</div>
+                    <h4>个性化关注</h4>
+                    <p>每个班级人数控制在8-15人，老师能够关注到每一位学员的学习状态和进度</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">💬</div>
+                    <h4>互动性强</h4>
+                    <p>小班环境促进师生互动和同学间交流，提高课堂参与度和学习效果</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">🎯</div>
+                    <h4>针对性教学</h4>
+                    <p>根据学员基础和需求调整教学内容和进度，实现真正的因材施教</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">📈</div>
+                    <h4>效果显著</h4>
+                    <p>小班教学模式下，学员的学习效率和成绩提升更加明显</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 班型介绍 -->
+        <div class="class-types">
+            <h2 class="section-title">班型设置</h2>
+            <div class="types-grid">
+                <div class="type-card">
+                    <h4>精品小班（8-10人）</h4>
+                    <div class="class-info">
+                        <div class="info-item">
+                            <span class="info-label">班级人数</span>
+                            <span class="info-value">8-10人</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">课时安排</span>
+                            <span class="info-value">2小时/次</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">上课频率</span>
+                            <span class="info-value">2次/周</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">课程周期</span>
+                            <span class="info-value">12周</span>
+                        </div>
+                    </div>
+                    <p>适合基础较好，希望快速提升的学员。老师能够给予每位学员充分的个人指导。</p>
+                    <a href="sign_up.html" class="btn-enroll">立即报名</a>
+                </div>
+                
+                <div class="type-card">
+                    <h4>强化小班（10-12人）</h4>
+                    <div class="class-info">
+                        <div class="info-item">
+                            <span class="info-label">班级人数</span>
+                            <span class="info-value">10-12人</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">课时安排</span>
+                            <span class="info-value">2.5小时/次</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">上课频率</span>
+                            <span class="info-value">3次/周</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">课程周期</span>
+                            <span class="info-value">16周</span>
+                        </div>
+                    </div>
+                    <p>适合需要系统学习和强化训练的学员。注重基础巩固和能力提升。</p>
+                    <a href="sign_up.html" class="btn-enroll">立即报名</a>
+                </div>
+                
+                <div class="type-card">
+                    <h4>冲刺小班（12-15人）</h4>
+                    <div class="class-info">
+                        <div class="info-item">
+                            <span class="info-label">班级人数</span>
+                            <span class="info-value">12-15人</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">课时安排</span>
+                            <span class="info-value">3小时/次</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">上课频率</span>
+                            <span class="info-value">2次/周</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">课程周期</span>
+                            <span class="info-value">8周</span>
+                        </div>
+                    </div>
+                    <p>适合考前冲刺和短期提升的学员。高强度训练，快速提分。</p>
+                    <a href="sign_up.html" class="btn-enroll">立即报名</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 开班计划 -->
+        <div class="schedule-section">
+            <h2 class="section-title">近期开班计划</h2>
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>班型</th>
+                        <th>科目</th>
+                        <th>开班时间</th>
+                        <th>上课时间</th>
+                        <th>剩余名额</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>精品小班</td>
+                        <td>数学</td>
+                        <td>2024-12-20</td>
+                        <td>周二、周四 19:00-21:00</td>
+                        <td>3人</td>
+                        <td><span class="status-available">可报名</span></td>
+                        <td><a href="sign_up.html" class="btn-enroll">报名</a></td>
+                    </tr>
+                    <tr>
+                        <td>强化小班</td>
+                        <td>英语</td>
+                        <td>2024-12-22</td>
+                        <td>周一、周三、周五 18:30-21:00</td>
+                        <td>5人</td>
+                        <td><span class="status-available">可报名</span></td>
+                        <td><a href="sign_up.html" class="btn-enroll">报名</a></td>
+                    </tr>
+                    <tr>
+                        <td>冲刺小班</td>
+                        <td>物理</td>
+                        <td>2024-12-25</td>
+                        <td>周六、周日 14:00-17:00</td>
+                        <td>0人</td>
+                        <td><span class="status-full">已满员</span></td>
+                        <td><a href="sign_up.html" class="btn-enroll">候补</a></td>
+                    </tr>
+                    <tr>
+                        <td>精品小班</td>
+                        <td>化学</td>
+                        <td>2025-01-02</td>
+                        <td>周二、周四 19:00-21:00</td>
+                        <td>7人</td>
+                        <td><span class="status-available">可报名</span></td>
+                        <td><a href="sign_up.html" class="btn-enroll">报名</a></td>
+                    </tr>
+                    <tr>
+                        <td>强化小班</td>
+                        <td>语文</td>
+                        <td>2025-01-05</td>
+                        <td>周一、周三、周五 19:00-21:30</td>
+                        <td>4人</td>
+                        <td><span class="status-available">可报名</span></td>
+                        <td><a href="sign_up.html" class="btn-enroll">报名</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="course-grid.html" class="btn-enroll" style="padding: 15px 40px; font-size: 16px; margin-right: 15px;">查看更多课程</a>
+                <a href="user_profile.html" class="btn-enroll" style="padding: 15px 40px; font-size: 16px;">在线咨询</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

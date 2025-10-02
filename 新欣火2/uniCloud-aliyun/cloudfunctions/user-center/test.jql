@@ -1,0 +1,42 @@
+    // 这个脚本将调用user-center云函数的"register"功能
+    // 为您创建第一个管理员账号
+    uniCloud.callFunction({
+        name: 'user-center',
+        data: {
+            action: 'register',
+            params: {
+                username: '15926686363',
+                password: '123456',
+                teacherName: '超级管理员',
+                role: ['admin'],
+                permission: []
+            }
+        }
+    })
+    .then(res => {
+        // 在下方的控制台查看结果
+        console.log('注册成功！请去uniCloud后台查看users表。返回结果：', res);
+    }).catch(err => {
+        console.error('注册失败！错误信息：', err);
+    })
+	
+    // 注册超级管理员账号 xxh001
+    uniCloud.callFunction({
+        name: 'user-center',
+        data: {
+            action: 'register',
+            params: {
+                username: 'xxh001',
+                password: '123456',
+                teacherName: '超级管理员',
+                role: ['超级管理员'],
+                permission: 'superadmin'
+            }
+        }
+    })
+    .then(res => {
+        console.log('注册超级管理员成功！返回结果：', res);
+    }).catch(err => {
+        console.error('注册超级管理员失败！错误信息：', err);
+    })
+	

@@ -1,0 +1,52 @@
+{
+	"bsonType": "object",
+	"required": ["username"],
+	"permission": {
+		"read": true,
+		"create": true,
+		"update": true,
+		"delete": true
+	},
+	"properties": {
+		"username": {
+			"bsonType": "string",
+			"description": "用户名"
+		},
+		"password": {
+			"bsonType": "string",
+			"description": "密码"
+		},
+		"teacherName": {
+			"bsonType": "string",
+			"description": "教师姓名"
+		},
+		"role": {
+			"bsonType": "array",
+			"description": "用户的角色，例如：['管理员', '教师']"
+		},
+		"permission": {
+			"bsonType": "string",
+			"description": "用户权限"
+		},
+		"subject": {
+			"bsonType": "string",
+			"description": "教师科目"
+		},
+		"department": {
+			"bsonType": "string",
+			"description": "所属部门：小学部、初中部"
+		},
+		"workType": {
+			"bsonType": "string",
+			"description": "工作类型：全职、兼职"
+		},
+		"supervisor": {
+			"bsonType": "string",
+			"description": "上级领导用户ID"
+		},
+		"register_date": {
+			"bsonType": "date",
+			"description": "注册日期"
+		}
+	}
+} 

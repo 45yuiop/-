@@ -1,0 +1,115 @@
+
+.my-page {
+	background-color: #f7f7f7;
+	min-height: 100vh;
+	padding-top: 80rpx;
+}
+.user-card {
+	display: flex;
+	align-items: center;
+	background-color: #f7f7f7;
+	padding: 60rpx 40rpx;
+	color: #333;
+}
+.avatar {
+	width: 120rpx;
+	height: 120rpx;
+	border-radius: 50%;
+	border: 4rpx solid rgba(255, 255, 255, 0.5);
+	margin-right: 30rpx;
+}
+.user-info {
+	display: flex;
+	flex-direction: column;
+}
+.user-name {
+	font-size: 40rpx;
+	font-weight: bold;
+}
+.user-id {
+	font-size: 28rpx;
+	color: #999;
+	margin-top: 10rpx;
+}
+.user-subject {
+	font-size: 24rpx;
+	color: #4CAF50;
+	background: rgba(76, 175, 80, 0.1);
+	padding: 4rpx 12rpx;
+	border-radius: 12rpx;
+	font-weight: 500;
+	margin-top: 8rpx;
+	align-self: flex-start;
+}
+.user-supervisor {
+	font-size: 24rpx;
+	color: #FF9800;
+	background: rgba(255, 152, 0, 0.1);
+	padding: 4rpx 12rpx;
+	border-radius: 12rpx;
+	font-weight: 500;
+	margin-top: 8rpx;
+	align-self: flex-start;
+}
+.user-row {
+	display: flex;
+	align-items: center;
+	gap: 20rpx;
+}
+.menu-list {
+	margin: 30rpx 20rpx 0 20rpx;
+	background-color: #fff;
+	border-radius: 20rpx;
+	box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.03);
+}
+.menu-item {
+	display: flex;
+	align-items: center;
+	padding: 36rpx 40rpx;
+	border-bottom: 1rpx solid #f0f0f0;
+}
+.menu-item:last-child {
+	border-bottom: none;
+}
+.menu-icon {
+	font-size: 40rpx;
+	margin-right: 30rpx;
+	color: #ff9800;
+	font-family: inherit;
+}
+.menu-text {
+	font-size: 32rpx;
+	flex-grow: 1;
+}
+.arrow {
+	font-size: 40rpx;
+	color: #ccc;
+}
+
+/* 优化后的退出登录按钮样式 */
+.logout-btn-modern {
+	margin: 32rpx 40rpx 32rpx 40rpx;
+	padding: 24rpx 0;
+	background: #ff4d4f;
+	color: #fff;
+	text-align: center;
+	border-radius: 32rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 32rpx;
+	font-weight: bold;
+	box-shadow: 0 2rpx 8rpx rgba(255,77,79,0.08);
+	transition: background 0.2s;
+}
+.logout-btn-modern:active {
+	background: #e13c3e;
+}
+.logout-icon {
+	font-size: 36rpx;
+	margin-right: 16rpx;
+}
+.logout-text {
+	font-size: 32rpx;
+}
+

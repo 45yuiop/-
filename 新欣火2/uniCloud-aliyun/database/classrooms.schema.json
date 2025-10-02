@@ -1,0 +1,32 @@
+[
+  {
+    "floor": "二楼",
+    "rooms": [
+      { "name": "致远教室", "capacity": null, "location": "二楼" },
+      { "name": "万木教室", "capacity": null, "location": "二楼" },
+      { "name": "棋乐无穷教室", "capacity": null, "location": "二楼" },
+      { "name": "知秋教室", "capacity": null, "location": "二楼" },
+      { "name": "千帆教室", "capacity": null, "location": "二楼" }
+    ]
+  },
+  {
+    "floor": "三楼",
+    "rooms": [
+      { "name": "601教室", "capacity": null, "location": "三楼" },
+      { "name": "602教室", "capacity": null, "location": "三楼" },
+      { "name": "603教室", "capacity": null, "location": "三楼" },
+      { "name": "604教室", "capacity": null, "location": "三楼" },
+      { "name": "605教室", "capacity": null, "location": "三楼" },
+      { "name": "606教室", "capacity": null, "location": "三楼" },
+      { "name": "607教室", "capacity": null, "location": "三楼" },
+      { "name": "608教室", "capacity": null, "location": "三楼" },
+      { "name": "610教室", "capacity": null, "location": "三楼" },
+      { "name": "611教室", "capacity": null, "location": "三楼" },
+      { "name": "612教室", "capacity": null, "location": "三楼" },
+      { "name": "613教室", "capacity": null, "location": "三楼" },
+      { "name": "614教室", "capacity": null, "location": "三楼" },
+      { "name": "615教室", "capacity": null, "location": "三楼" },
+      { "name": "616教室", "capacity": null, "location": "三楼" }
+    ]
+  }
+] 

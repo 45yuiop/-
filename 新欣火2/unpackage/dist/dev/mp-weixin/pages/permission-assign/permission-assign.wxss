@@ -1,0 +1,113 @@
+
+.permission-assign-container.data-v-26b5f53c {
+  padding: 60rpx 30rpx 30rpx 30rpx;
+  min-height: 100vh;
+  background: #f8f8f8;
+  position: relative;
+}
+.top-bar-no-bg.data-v-26b5f53c {
+  background: none;
+  box-shadow: none;
+}
+.top-nav-flex.data-v-26b5f53c {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding: 0;
+  margin-bottom: 30rpx;
+}
+.back-btn.data-v-26b5f53c {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 20px;
+  color: white;
+  font-size: 14px;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+  transition: all 0.3s ease;
+}
+.back-btn.data-v-26b5f53c:active {
+  -webkit-transform: translateY(1px);
+          transform: translateY(1px);
+  box-shadow: 0 1px 4px rgba(102, 126, 234, 0.3);
+}
+.back-icon.data-v-26b5f53c {
+  font-size: 18px;
+  font-weight: bold;
+}
+.back-text.data-v-26b5f53c {
+  font-size: 14px;
+  font-weight: 500;
+}
+.page-title-center.data-v-26b5f53c {
+  flex: 1;
+  text-align: center;
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #1976D2;
+  margin-left: -40rpx;
+}
+.desc.data-v-26b5f53c {
+  font-size: 30rpx;
+  color: #555;
+  margin-bottom: 30rpx;
+}
+.no-feature-tip.data-v-26b5f53c {
+  color: #f56c6c;
+  text-align: center;
+  margin: 40rpx 0 60rpx 0;
+  font-size: 32rpx;
+}
+.assign-section.data-v-26b5f53c {
+  margin-top: 20rpx;
+}
+.member-picker.data-v-26b5f53c {
+  padding: 24rpx 30rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  font-size: 32rpx;
+  color: #1976D2;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 8rpx rgba(102, 126, 234, 0.06);
+}
+.feature-list.data-v-26b5f53c {
+  margin-bottom: 30rpx;
+}
+.feature-item.data-v-26b5f53c {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.checkbox-label.data-v-26b5f53c {
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  color: #333;
+}
+.feature-name.data-v-26b5f53c {
+  margin-left: 18rpx;
+  font-size: 30rpx;
+}
+.save-btn.data-v-26b5f53c {
+  width: 100%;
+  background: linear-gradient(90deg, #667eea 0%, #4fc3f7 100%);
+  color: #fff;
+  font-size: 36rpx;
+  font-weight: bold;
+  border: none;
+  border-radius: 50rpx;
+  box-shadow: 0 8rpx 24rpx rgba(76,195,247,0.15);
+  padding: 28rpx 0;
+  transition: background 0.3s;
+  margin-top: 30rpx;
+}
+.save-btn.data-v-26b5f53c:active {
+  background: linear-gradient(90deg, #4fc3f7 0%, #667eea 100%);
+  opacity: 0.85;
+}
+.save-btn[disabled].data-v-26b5f53c {
+  opacity: 0.6;
+}
+

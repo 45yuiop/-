@@ -1,0 +1,182 @@
+
+.news-detail-container.data-v-69e22b1e {
+	min-height: 100vh;
+	background: #f8f8f8;
+}
+.nav-bar.data-v-69e22b1e {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	background: #fff;
+	z-index: 1000;
+	box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.1);
+}
+.nav-content.data-v-69e22b1e {
+	height: 44px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 20rpx;
+}
+.back-btn.data-v-69e22b1e {
+	width: 60rpx;
+	height: 60rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.back-icon.data-v-69e22b1e {
+	width: 36rpx; /* Adjust as needed */
+	height: 36rpx; /* Adjust as needed */
+}
+.nav-title.data-v-69e22b1e {
+	font-size: 32rpx;
+	font-weight: bold;
+	color: #333;
+}
+.nav-right.data-v-69e22b1e {
+	width: 60rpx;
+}
+.news-content.data-v-69e22b1e {
+	padding: 20rpx;
+}
+.news-card.data-v-69e22b1e {
+	background: #fff;
+	border-radius: 20rpx;
+	padding: 40rpx;
+	box-shadow: 0 4rpx 20rpx rgba(0,0,0,0.08);
+}
+.news-header.data-v-69e22b1e {
+	margin-bottom: 40rpx;
+}
+.news-title.data-v-69e22b1e {
+	font-size: 40rpx;
+	font-weight: bold;
+	color: #333;
+	line-height: 1.4;
+	margin-bottom: 20rpx;
+	display: block;
+	text-align: center; /* Added for centering */
+}
+.news-meta.data-v-69e22b1e {
+	display: flex;
+	flex-direction: column;
+	gap: 10rpx;
+	margin-bottom: 30rpx;
+}
+.meta-row.data-v-69e22b1e {
+	display: flex;
+	align-items: center;
+}
+.news-time.data-v-69e22b1e {
+	font-size: 26rpx;
+	color: #999;
+	text-align: left;
+	width: 100%;
+}
+.news-author.data-v-69e22b1e {
+	font-size: 26rpx;
+	color: #666;
+	text-align: left;
+	width: 100%;
+}
+.news-body.data-v-69e22b1e {
+	line-height: 1.8;
+	margin-top: 40rpx;
+}
+.news-text.data-v-69e22b1e {
+    font-size: 30rpx;
+    color: #333;
+    line-height: 1.8;
+    white-space: pre-wrap; /* 保留换行符 */
+    margin-bottom: 40rpx;
+    text-align: left; /* 确保文本左对齐 */
+    text-indent: 2em; /* 首行缩进两个字符 */
+    word-break: break-word; /* 处理长单词换行 */
+    overflow-wrap: break-word; /* 更兼容的换行处理 */
+}
+
+/* 可以添加一个辅助类来测试不同内容的显示效果 */
+.test-content.data-v-69e22b1e {
+    /* 继承.news-text的所有样式 */
+    composes: news-text;
+    /* 可以添加测试用的额外样式 */
+}
+.content-blocks.data-v-69e22b1e {
+	margin-bottom: 20rpx;
+}
+.content-block.data-v-69e22b1e {
+	margin-bottom: 20rpx;
+}
+.image-block.data-v-69e22b1e {
+	margin: 20rpx 0;
+	text-align: center;
+}
+.image-caption.data-v-69e22b1e {
+	font-size: 24rpx;
+	color: #666;
+	text-align: center;
+	margin-top: 10rpx;
+	display: block;
+}
+.news-images.data-v-69e22b1e {
+	margin-top: 30rpx;
+	display: flex;
+	flex-direction: column;
+	gap: 20rpx;
+}
+.news-image.data-v-69e22b1e {
+	width: 100%;
+	border-radius: 12rpx;
+}
+.loading.data-v-69e22b1e, .empty.data-v-69e22b1e {
+	text-align: center;
+	padding: 100rpx 0;
+	color: #999;
+	font-size: 28rpx;
+}
+.edit-btn-container.data-v-69e22b1e {
+	position: fixed;
+	bottom: 40rpx;
+	right: 40rpx;
+	z-index: 100;
+	display: flex;
+	gap: 20rpx;
+}
+.edit-btn.data-v-69e22b1e, .delete-btn.data-v-69e22b1e, .pin-btn.data-v-69e22b1e {
+	width: 120rpx;
+	height: 120rpx;
+	border-radius: 50%;
+	border: none;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 8rpx 30rpx rgba(0,0,0,0.3);
+}
+.edit-btn.data-v-69e22b1e {
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	box-shadow: 0 8rpx 30rpx rgba(102, 126, 234, 0.4);
+}
+.delete-btn.data-v-69e22b1e {
+	background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+	box-shadow: 0 8rpx 30rpx rgba(255, 107, 107, 0.4);
+}
+.pin-btn.data-v-69e22b1e {
+	background: linear-gradient(135deg, #ffa726 0%, #ff9800 100%);
+	box-shadow: 0 8rpx 30rpx rgba(255, 167, 38, 0.4);
+}
+.pin-btn.pinned.data-v-69e22b1e {
+	background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
+	box-shadow: 0 8rpx 30rpx rgba(76, 175, 80, 0.4);
+}
+.edit-icon.data-v-69e22b1e, .delete-icon.data-v-69e22b1e, .pin-icon.data-v-69e22b1e {
+	font-size: 28rpx;
+	margin-bottom: 4rpx;
+}
+.edit-text.data-v-69e22b1e, .delete-text.data-v-69e22b1e, .pin-text.data-v-69e22b1e {
+	font-size: 22rpx;
+	color: #fff;
+}
+

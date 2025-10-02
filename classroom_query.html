@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>空闲教室查询 - 新欣火教育</title>
+    <meta name="description" content="新欣火教育空闲教室查询系统">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .header {
+            background-color: #1e4d8b;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #1e4d8b;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        .query-form {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #1e4d8b;
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .btn-search {
+            background-color: #1e4d8b;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-search:hover {
+            background-color: #2563eb;
+        }
+        
+        .results {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .classroom-item {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .classroom-item:last-child {
+            border-bottom: none;
+        }
+        
+        .classroom-info h4 {
+            color: #1e4d8b;
+            margin-bottom: 5px;
+        }
+        
+        .classroom-info p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .status-available {
+            background-color: #28a745;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>空闲教室查询</h1>
+    </div>
+    
+    <div class="container">
+        <a href="index.html" class="back-link">← 返回首页</a>
+        
+        <div class="query-form">
+            <h2 style="color: #1e4d8b; margin-bottom: 20px;">查询条件</h2>
+            <form>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="date">日期</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">时间段</label>
+                        <select id="time" name="time" required>
+                            <option value="">请选择时间段</option>
+                            <option value="morning">上午 (8:00-12:00)</option>
+                            <option value="afternoon">下午 (14:00-18:00)</option>
+                            <option value="evening">晚上 (19:00-21:00)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="building">教学楼</label>
+                        <select id="building" name="building">
+                            <option value="">全部教学楼</option>
+                            <option value="A">A栋教学楼</option>
+                            <option value="B">B栋教学楼</option>
+                            <option value="C">C栋教学楼</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="button" class="btn-search" onclick="searchClassrooms()">查询空闲教室</button>
+            </form>
+        </div>
+        
+        <div class="results" id="results" style="display: none;">
+            <h2 style="color: #1e4d8b; margin-bottom: 20px;">查询结果</h2>
+            <div id="classroom-list">
+                <!-- 查询结果将在这里显示 -->
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function searchClassrooms() {
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const building = document.getElementById('building').value;
+            
+            if (!date || !time) {
+                alert('请选择日期和时间段');
+                return;
+            }
+            
+            // 模拟查询结果
+            const mockResults = [
+                { room: 'A101', capacity: 50, facilities: '多媒体设备、空调' },
+                { room: 'A203', capacity: 80, facilities: '投影仪、音响设备' },
+                { room: 'B105', capacity: 30, facilities: '白板、空调' },
+                { room: 'C301', capacity: 120, facilities: '阶梯教室、多媒体设备' }
+            ];
+            
+            const resultsDiv = document.getElementById('results');
+            const classroomList = document.getElementById('classroom-list');
+            
+            classroomList.innerHTML = '';
+            
+            mockResults.forEach(classroom => {
+                const item = document.createElement('div');
+                item.className = 'classroom-item';
+                item.innerHTML = `
+                    <div class="classroom-info">
+                        <h4>${classroom.room}教室</h4>
+                        <p>容量：${classroom.capacity}人 | 设施：${classroom.facilities}</p>
+                    </div>
+                    <div class="status-available">空闲</div>
+                `;
+                classroomList.appendChild(item);
+            });
+            
+            resultsDiv.style.display = 'block';
+        }
+        
+        // 设置默认日期为今天
+        document.getElementById('date').valueAsDate = new Date();
+    </script>
+</body>
+</html>

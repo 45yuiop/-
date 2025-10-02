@@ -1,0 +1,9 @@
+{
+	"name": "schedule-center",
+	"version": "1.0.0",
+	"description": "课程安排中心云函数",
+	"main": "index.js",
+	"dependencies": {},
+	"author": "",
+	"license": "ISC"
+} 

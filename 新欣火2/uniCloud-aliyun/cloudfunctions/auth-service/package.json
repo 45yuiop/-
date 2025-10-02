@@ -1,0 +1,9 @@
+{
+	"name": "auth-service",
+	"dependencies": {
+		"uni-id": "file:./uni-id",
+		"uni-id-common": "file:./uni-id-common",
+		"uni-config-center": "file:./uni-config-center"
+	},
+	"extensions": {}
+} 

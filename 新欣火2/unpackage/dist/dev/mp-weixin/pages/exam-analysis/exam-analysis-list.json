@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "试卷分析列表",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "image-zoom-viewer": "/components/ImageZoomViewer"
+  }
+}

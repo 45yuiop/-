@@ -1,0 +1,68 @@
+{
+  "bsonType": "object",
+  "required": ["name", "subject", "grade"],
+  "properties": {
+    "_id": {
+      "description": "ID，系统自动生成"
+    },
+    "name": {
+      "bsonType": "string",
+      "description": "课程名称",
+      "label": "课程名称",
+      "maxLength": 50
+    },
+    "subject": {
+      "bsonType": "string",
+      "description": "科目",
+      "label": "科目",
+      "enum": ["语文", "数学", "英语", "物理", "化学", "生物", "政治", "历史", "地理", "体育", "音乐", "美术"]
+    },
+    "grade": {
+      "bsonType": "string",
+      "description": "适用年级",
+      "label": "适用年级",
+      "enum": ["一年级", "二年级", "三年级", "四年级", "五年级", "六年级", "七年级", "八年级", "九年级", "高一", "高二", "高三"]
+    },
+    "description": {
+      "bsonType": "string",
+      "description": "课程描述",
+      "label": "课程描述",
+      "maxLength": 200
+    },
+    "teacher_id": {
+      "bsonType": "string",
+      "description": "授课教师ID",
+      "label": "授课教师ID"
+    },
+    "credit": {
+      "bsonType": "number",
+      "description": "学分",
+      "label": "学分",
+      "minimum": 0,
+      "maximum": 10
+    },
+    "duration": {
+      "bsonType": "number",
+      "description": "课程时长（课时）",
+      "label": "课程时长",
+      "minimum": 1
+    },
+    "status": {
+      "bsonType": "string",
+      "description": "课程状态",
+      "label": "课程状态",
+      "enum": ["active", "inactive"],
+      "default": "active"
+    },
+    "create_time": {
+      "bsonType": "date",
+      "description": "创建时间",
+      "label": "创建时间"
+    },
+    "update_time": {
+      "bsonType": "date",
+      "description": "更新时间",
+      "label": "更新时间"
+    }
+  }
+}

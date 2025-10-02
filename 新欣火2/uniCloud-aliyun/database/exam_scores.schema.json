@@ -1,0 +1,142 @@
+{
+  "bsonType": "object",
+  "required": ["studentId", "studentName", "examType", "subject", "score", "examDate"],
+  "permission": {
+    "read": "'管理员' in auth.role || '超级管理员' in auth.role || auth.uid == doc.teacherId",
+    "create": "'管理员' in auth.role || '超级管理员' in auth.role || '教师' in auth.role",
+    "update": "'管理员' in auth.role || '超级管理员' in auth.role || auth.uid == doc.teacherId",
+    "delete": "'管理员' in auth.role || '超级管理员' in auth.role"
+  },
+  "properties": {
+    "_id": {
+      "description": "ID，系统自动生成"
+    },
+    "studentId": {
+      "bsonType": "string",
+      "description": "学生ID",
+      "title": "学生ID"
+    },
+    "studentName": {
+      "bsonType": "string",
+      "description": "学生姓名",
+      "maxLength": 50,
+      "title": "学生姓名"
+    },
+    "examType": {
+      "bsonType": "string",
+      "description": "考试类型（期中、期末、月考、周考、入门测等）",
+      "maxLength": 20,
+      "title": "考试类型"
+    },
+    "subject": {
+      "bsonType": "string",
+      "description": "科目",
+      "maxLength": 20,
+      "title": "科目"
+    },
+    "score": {
+      "bsonType": "number",
+      "description": "考试成绩",
+      "minimum": 0,
+      "maximum": 150,
+      "title": "考试成绩"
+    },
+    "maxScore": {
+      "bsonType": "number",
+      "description": "满分",
+      "minimum": 1,
+      "maximum": 150,
+      "title": "满分"
+    },
+    "examDate": {
+      "bsonType": "string",
+      "description": "考试日期，格式YYYY-MM-DD",
+      "title": "考试日期"
+    },
+    "className": {
+      "bsonType": "string",
+      "description": "班级名称",
+      "maxLength": 50,
+      "title": "班级名称"
+    },
+    "grade": {
+      "bsonType": "string",
+      "description": "年级",
+      "maxLength": 10,
+      "title": "年级"
+    },
+    "teacherId": {
+      "bsonType": "string",
+      "description": "录入教师ID",
+      "title": "录入教师ID"
+    },
+    "teacherName": {
+      "bsonType": "string",
+      "description": "录入教师姓名",
+      "maxLength": 50,
+      "title": "录入教师姓名"
+    },
+    "remark": {
+      "bsonType": "string",
+      "description": "备注信息",
+      "maxLength": 200,
+      "title": "备注信息"
+    },
+    "courseType": {
+      "bsonType": "string",
+      "description": "课程类型（如班课、一对一、脱产等）",
+      "maxLength": 20,
+      "title": "课程类型"
+    },
+    "createTime": {
+      "bsonType": "string",
+      "description": "创建时间",
+      "title": "创建时间"
+    },
+    "updateTime": {
+      "bsonType": "string",
+      "description": "更新时间",
+      "title": "更新时间"
+    },
+    "inputUser": {
+      "bsonType": "string",
+      "description": "录入用户",
+      "maxLength": 50,
+      "title": "录入用户"
+    },
+    "status": {
+      "bsonType": "string",
+      "description": "成绩状态（active: 有效, resolved: 已解决冲突）",
+      "enum": ["active", "resolved"],
+      "title": "成绩状态"
+    },
+    "conflictResolved": {
+      "bsonType": "bool",
+      "description": "是否已解决冲突",
+      "title": "是否已解决冲突"
+    },
+    "conflictResolution": {
+      "bsonType": "string",
+      "description": "冲突解决方式（keep_existing: 保留现有, use_new: 使用新成绩, manual_input: 手动输入）",
+      "enum": ["keep_existing", "use_new", "manual_input"],
+      "title": "冲突解决方式"
+    },
+    "resolvedBy": {
+      "bsonType": "string",
+      "description": "解决冲突的用户",
+      "maxLength": 50,
+      "title": "解决冲突的用户"
+    },
+    "resolvedAt": {
+      "bsonType": "string",
+      "description": "解决冲突的时间",
+      "title": "解决冲突的时间"
+    },
+    "conflictRemark": {
+      "bsonType": "string",
+      "description": "冲突解决备注",
+      "maxLength": 200,
+      "title": "冲突解决备注"
+    }
+  }
+} 

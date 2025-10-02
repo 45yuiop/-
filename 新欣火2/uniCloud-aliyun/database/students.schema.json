@@ -1,0 +1,110 @@
+{
+  "bsonType": "object",
+  "required": ["name", "studentId", "grade", "subjects", "school"],
+  "properties": {
+    "_id": {
+      "description": "ID，系统自动生成"
+    },
+    "name": {
+      "bsonType": "string",
+      "title": "学生姓名",
+      "description": "学生的真实姓名",
+      "minLength": 1,
+      "maxLength": 20
+    },
+    "studentId": {
+      "bsonType": "string",
+      "title": "学号",
+      "description": "学生的唯一学号",
+      "minLength": 1,
+      "maxLength": 20
+    },
+    "grade": {
+      "bsonType": "string",
+      "title": "年级",
+      "description": "学生当前年级",
+      "enum": ["一年级", "二年级", "三年级", "四年级", "五年级", "六年级", "七年级", "八年级", "九年级", "高一", "高二", "高三"]
+    },
+    "subjects": {
+      "bsonType": "array",
+      "title": "所学科目",
+      "description": "学生学习的科目列表",
+      "items": {
+        "bsonType": "string",
+        "enum": ["语文", "数学", "英语", "物理", "化学", "生物", "政治", "历史", "地理", "体育", "音乐", "美术"]
+      },
+      "minItems": 1
+    },
+    "classes": {
+      "bsonType": "array",
+      "title": "所在班级列表",
+      "description": "学生所在的班级信息数组",
+      "items": {
+        "bsonType": "object",
+        "properties": {
+          "_id": {
+            "bsonType": "string",
+            "description": "班级ID"
+          },
+          "className": {
+            "bsonType": "string",
+            "description": "班级名称"
+          },
+          "subject": {
+            "bsonType": "string",
+            "description": "学科"
+          },
+          "grade": {
+            "bsonType": "string",
+            "description": "年级"
+          },
+          "headTeacher": {
+            "bsonType": "string",
+            "description": "班主任姓名"
+          },
+          "headTeacherId": {
+            "bsonType": "string",
+            "description": "班主任ID"
+          }
+        }
+      }
+    },
+    "classIds": {
+      "bsonType": "array",
+      "title": "班级ID列表",
+      "description": "学生所在班级的ID数组，用于快速查询",
+      "items": {
+        "bsonType": "string"
+      }
+    },
+    "school": {
+      "bsonType": "string",
+      "title": "学校名称",
+      "description": "学生所在学校名称",
+      "minLength": 1,
+      "maxLength": 50
+    },
+    "createTime": {
+      "bsonType": "date",
+      "title": "创建时间",
+      "description": "学生信息创建时间"
+    },
+    "updateTime": {
+      "bsonType": "date",
+      "title": "更新时间",
+      "description": "学生信息最后更新时间"
+    },
+    "createBy": {
+      "bsonType": "string",
+      "title": "创建人",
+      "description": "创建该学生信息的用户"
+    },
+    "status": {
+      "bsonType": "string",
+      "title": "状态",
+      "description": "学生状态",
+      "enum": ["active", "inactive", "graduated"],
+      "default": "active"
+    }
+  }
+}

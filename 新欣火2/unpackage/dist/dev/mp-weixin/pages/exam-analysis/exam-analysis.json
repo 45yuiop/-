@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "试卷分析",
+  "usingComponents": {
+    "image-zoom-viewer": "/components/ImageZoomViewer"
+  }
+}

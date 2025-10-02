@@ -1,0 +1,8 @@
+{
+	"name": "uni-id-common",
+	"version": "1.0.0",
+	"description": "uni-id的公共模块",
+	"main": "index.js",
+	"author": "",
+	"license": "ISC"
+} 
