@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>新欣火教育 - 智能教育平台</title>
     <meta name="description" content="新欣火教育 - 专业的智能教育培训机构">
+    <script src="data-fallback.js"></script>
     
     <style>
         * {
@@ -1145,7 +1146,7 @@
                         <li><a href="#">AI定制课程</a></li>
                         <li><a href="#">企业培训</a></li>
                     </ul>
-                                                </div>
+                                        </div>
 
                 <div class="footer-section">
                     <h3>🛠️ 智能工具</h3>
@@ -1242,45 +1243,9 @@
             console.log('🔄 开始加载数据库数据...');
             
             try {
-                // 添加更详细的请求日志
-                const apiUrl = 'https://fc-mp-9670c93e-7aef-46ce-bbba-401692257cfc.next.bspapp.com/data-stats';
-                console.log('📡 API请求地址:', apiUrl);
-                
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        type: 'all'
-                    })
-                });
-                
-                console.log('📊 API响应状态:', response.status, response.statusText);
-                
-                if (!response.ok) {
-                    throw new Error(`HTTP错误: ${response.status} ${response.statusText}`);
-                }
-                
-                const result = await response.json();
-                console.log('📋 API返回数据:', result);
-                
-                let actualData;
-                if (result.body) {
-                    const bodyData = JSON.parse(result.body);
-                    console.log('📦 解析后的数据:', bodyData);
-                    if (bodyData.code !== 200) {
-                        throw new Error(bodyData.message || '数据加载失败');
-                    }
-                    actualData = bodyData.data;
-                } else if (result.code === 200) {
-                    actualData = result.data;
-                } else {
-                    throw new Error(result.message || '数据加载失败');
-                }
-                
-                console.log('✅ 最终数据:', actualData);
+                // 使用备用数据获取方案
+                const actualData = await window.DataFallback.getData();
+                console.log('✅ 成功获取数据:', actualData);
                 
                 // 动画显示数据 - 使用真实数据库数据
                 if (actualData.student_stats) {
