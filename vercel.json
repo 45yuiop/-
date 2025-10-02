@@ -1,8 +1,16 @@
 {
   "version": 2,
-  "functions": {
-    "api/data-proxy.js": {
-      "runtime": "@vercel/node@3"
+  "builds": [
+    {
+      "src": "api/data-proxy.js",
+      "use": "@vercel/node"
     }
-  }
+  ],
+  "routes": [
+    {
+      "src": "/api/data-proxy",
+      "dest": "/api/data-proxy.js",
+      "methods": ["GET", "POST", "OPTIONS"]
+    }
+  ]
 }
