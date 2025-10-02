@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>机构概况 | 新欣火教育</title>
-    <meta name="description" content="新欣火教育机构概况 - 引领教育科技创新的先锋机构">
+    <title>云端协作平台 | 新欣火教育</title>
+    <meta name="description" content="新欣火教育云端协作平台 - 全球化学习社区">
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/system/favicon.png">
     
     <style>
@@ -127,7 +127,7 @@
             padding: 100px 20px 50px;
         }
 
-        .about-container {
+        .cloud-container {
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -135,11 +135,11 @@
         /* 页面标题 */
         .page-header {
             text-align: center;
-            margin-bottom: 80px;
+            margin-bottom: 60px;
         }
 
         .page-title {
-            font-size: 4rem;
+            font-size: 3.5rem;
             margin-bottom: 20px;
             background: linear-gradient(45deg, #00ffff, #ffffff, #00ffff);
             -webkit-background-clip: text;
@@ -154,251 +154,99 @@
         }
 
         .page-subtitle {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: #b0c4de;
             margin-bottom: 30px;
             line-height: 1.6;
         }
 
-        /* 机构介绍 */
-        .intro-section {
+        /* 全球协作网络可视化 */
+        .global-network {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(0, 255, 255, 0.2);
-            border-radius: 25px;
-            padding: 60px;
-            margin-bottom: 80px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .intro-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.05), transparent);
-            transform: rotate(45deg);
-            animation: sectionShine 6s ease-in-out infinite;
-        }
-
-        @keyframes sectionShine {
-            0%, 100% { transform: rotate(45deg) translate(-100%, -100%); }
-            50% { transform: rotate(45deg) translate(100%, 100%); }
-        }
-
-        .intro-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .intro-title {
-            font-size: 2.5rem;
-            color: #00ffff;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .intro-text {
-            font-size: 1.2rem;
-            line-height: 2;
-            color: #ffffff;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .intro-highlights {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .highlight-item {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(0, 255, 255, 0.2);
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .highlight-item:hover {
-            background: rgba(0, 255, 255, 0.1);
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
-        }
-
-        .highlight-icon {
-            font-size: 3rem;
-            color: #00ffff;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .highlight-title {
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: #ffffff;
-        }
-
-        .highlight-desc {
-            color: #b0c4de;
-            line-height: 1.6;
-        }
-
-        /* 发展历程 */
-        .timeline-section {
-            margin-bottom: 80px;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            color: #00ffff;
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .timeline {
-            position: relative;
-            padding: 40px 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(to bottom, #00ffff, #0080ff, #00ffff);
-            transform: translateX(-50%);
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 60px;
-            display: flex;
-            align-items: center;
-        }
-
-        .timeline-item:nth-child(odd) {
-            flex-direction: row;
-        }
-
-        .timeline-item:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-
-        .timeline-content {
-            flex: 1;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(0, 255, 255, 0.2);
-            border-radius: 20px;
-            padding: 30px;
-            margin: 0 40px;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .timeline-content:hover {
-            background: rgba(0, 255, 255, 0.1);
-            transform: scale(1.02);
-        }
-
-        .timeline-content::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            width: 0;
-            height: 0;
-            border: 15px solid transparent;
-            transform: translateY(-50%);
-        }
-
-        .timeline-item:nth-child(odd) .timeline-content::before {
-            right: -30px;
-            border-left-color: rgba(0, 255, 255, 0.2);
-        }
-
-        .timeline-item:nth-child(even) .timeline-content::before {
-            left: -30px;
-            border-right-color: rgba(0, 255, 255, 0.2);
-        }
-
-        .timeline-year {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #00ffff;
-            margin-bottom: 15px;
-        }
-
-        .timeline-title {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #ffffff;
-            margin-bottom: 10px;
-        }
-
-        .timeline-desc {
-            color: #b0c4de;
-            line-height: 1.6;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: 50%;
-            width: 25px;
-            height: 25px;
-            background: linear-gradient(45deg, #00ffff, #0080ff);
-            border-radius: 50%;
-            transform: translateX(-50%);
-            box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
-            animation: dotPulse 3s ease-in-out infinite;
-            z-index: 2;
-        }
-
-        @keyframes dotPulse {
-            0%, 100% { transform: translateX(-50%) scale(1); }
-            50% { transform: translateX(-50%) scale(1.3); }
-        }
-
-        /* 组织架构 */
-        .organization-section {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(0, 255, 255, 0.2);
-            border-radius: 25px;
-            padding: 60px;
-            margin-bottom: 80px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-        }
-
-        .org-chart {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .org-card {
-            background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(0, 255, 255, 0.2);
             border-radius: 20px;
             padding: 40px;
+            margin-bottom: 60px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .network-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #00ffff;
             text-align: center;
+        }
+
+        .world-map {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(45deg, #1a1f3a, #2d3561);
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .connection-point {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #00ffff;
+            border-radius: 50%;
+            box-shadow: 0 0 20px #00ffff;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.7; }
+        }
+
+        .connection-line {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00ffff, transparent);
+            animation: dataFlow 3s ease-in-out infinite;
+        }
+
+        @keyframes dataFlow {
+            0% { opacity: 0; transform: scaleX(0); }
+            50% { opacity: 1; transform: scaleX(1); }
+            100% { opacity: 0; transform: scaleX(0); }
+        }
+
+        .map-placeholder {
+            font-size: 4rem;
+            color: #00ffff;
+            text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+        }
+
+        /* 协作功能卡片 */
+        .collaboration-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
-        .org-card::before {
+        .feature-card::before {
             content: '';
             position: absolute;
             top: -50%;
@@ -411,7 +259,7 @@
             opacity: 0;
         }
 
-        .org-card:hover::before {
+        .feature-card:hover::before {
             opacity: 1;
             animation: cardSweep 1s ease-in-out;
         }
@@ -421,87 +269,173 @@
             100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
         }
 
-        .org-card:hover {
+        .feature-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 255, 255, 0.2);
+            border-color: #00ffff;
+        }
+
+        .feature-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            display: block;
+            color: #00ffff;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .feature-description {
+            color: #b0c4de;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .feature-button {
+            padding: 12px 24px;
+            background: linear-gradient(45deg, #00ffff, #0080ff);
+            border: none;
+            border-radius: 25px;
+            color: #ffffff;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .feature-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.4);
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        /* 实时协作状态 */
+        .collaboration-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
             box-shadow: 0 25px 50px rgba(0, 255, 255, 0.2);
         }
 
-        .org-icon {
-            font-size: 4rem;
+        .stat-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
             color: #00ffff;
-            margin-bottom: 20px;
-            display: block;
-            position: relative;
-            z-index: 2;
         }
 
-        .org-title {
-            font-size: 1.5rem;
+        .stat-number {
+            font-size: 2.5rem;
             font-weight: bold;
             color: #ffffff;
-            margin-bottom: 15px;
-            position: relative;
-            z-index: 2;
+            margin-bottom: 10px;
         }
 
-        .org-desc {
+        .stat-label {
             color: #b0c4de;
-            line-height: 1.6;
-            position: relative;
-            z-index: 2;
+            font-size: 1.1rem;
         }
 
-        /* 联系信息 */
-        .contact-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-bottom: 80px;
-        }
-
-        .contact-card {
+        /* 在线用户展示 */
+        .online-users {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(0, 255, 255, 0.2);
             border-radius: 20px;
             padding: 40px;
+            margin-bottom: 60px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .users-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #00ffff;
+            text-align: center;
+        }
+
+        .users-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .user-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
             transition: all 0.3s ease;
         }
 
-        .contact-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(0, 255, 255, 0.2);
+        .user-card:hover {
+            background: rgba(0, 255, 255, 0.1);
+            transform: translateY(-5px);
         }
 
-        .contact-icon {
-            font-size: 3rem;
-            color: #00ffff;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .contact-title {
+        .user-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #00ffff, #0080ff);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
             font-size: 1.5rem;
+            position: relative;
+        }
+
+        .user-avatar::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            width: 16px;
+            height: 16px;
+            background: #00ff00;
+            border-radius: 50%;
+            border: 2px solid #ffffff;
+            animation: onlineIndicator 2s ease-in-out infinite;
+        }
+
+        @keyframes onlineIndicator {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .user-name {
             font-weight: bold;
+            margin-bottom: 5px;
             color: #ffffff;
-            margin-bottom: 15px;
         }
 
-        .contact-info {
+        .user-location {
+            font-size: 0.9rem;
             color: #b0c4de;
-            line-height: 1.8;
-        }
-
-        .contact-info a {
-            color: #00ffff;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .contact-info a:hover {
-            color: #ffffff;
-            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
         }
 
         /* 太空元素 */
@@ -638,36 +572,12 @@
                 display: none;
             }
 
-            .intro-section, .organization-section {
-                padding: 40px 30px;
-            }
-
-            .timeline::before {
-                left: 30px;
-            }
-
-            .timeline-item {
-                flex-direction: row !important;
-            }
-
-            .timeline-content {
-                margin-left: 60px;
-                margin-right: 0;
-            }
-
-            .timeline-content::before {
-                left: -30px !important;
-                right: auto !important;
-                border-right-color: rgba(0, 255, 255, 0.2) !important;
-                border-left-color: transparent !important;
-            }
-
-            .timeline-dot {
-                left: 30px;
-            }
-
-            .contact-section {
+            .collaboration-features {
                 grid-template-columns: 1fr;
+            }
+
+            .users-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
             }
         }
     </style>
@@ -704,170 +614,158 @@
 
     <!-- 主要内容 -->
     <div class="main-content">
-        <div class="about-container">
+        <div class="cloud-container">
             <!-- 页面标题 -->
             <div class="page-header">
-                <h1 class="page-title">🏢 机构概况</h1>
+                <h1 class="page-title">🌐 云端协作平台</h1>
                 <p class="page-subtitle">
-                    引领教育科技创新，构建智能学习生态<br>
-                    新欣火教育 - 您的智能学习伙伴
+                    连接全球学习者，构建智能化协作学习生态系统<br>
+                    实时协作、知识共享、跨越地域界限的学习体验
                 </p>
             </div>
 
-            <!-- 机构介绍 -->
-            <div class="intro-section">
-                <div class="intro-content">
-                    <h2 class="intro-title">🚀 关于新欣火教育</h2>
-                    <p class="intro-text">
-                        新欣火教育成立于2018年，是一家专注于教育科技创新的领先机构。我们致力于运用人工智能、大数据分析和云计算技术，
-                        为全球学习者提供个性化、智能化的学习体验。通过不断的技术创新和教育理念革新，
-                        我们已经服务了超过50万名学员，覆盖全球156个国家和地区。
+            <!-- 全球协作网络 -->
+            <div class="global-network">
+                <h2 class="network-title">🌍 全球学习网络</h2>
+                <div class="world-map">
+                    <div class="map-placeholder">🗺️</div>
+                    <!-- 连接点 -->
+                    <div class="connection-point" style="top: 30%; left: 20%;"></div>
+                    <div class="connection-point" style="top: 40%; left: 50%;"></div>
+                    <div class="connection-point" style="top: 60%; left: 70%;"></div>
+                    <div class="connection-point" style="top: 25%; left: 80%;"></div>
+                    <!-- 连接线 -->
+                    <div class="connection-line" style="top: 35%; left: 20%; width: 30%; transform-origin: left;"></div>
+                    <div class="connection-line" style="top: 50%; left: 50%; width: 20%; transform-origin: left;"></div>
+                    <div class="connection-line" style="top: 42%; left: 70%; width: 10%; transform-origin: left;"></div>
+                </div>
+            </div>
+
+            <!-- 协作功能 -->
+            <div class="collaboration-features">
+                <div class="feature-card">
+                    <span class="feature-icon">💬</span>
+                    <h3 class="feature-title">实时讨论</h3>
+                    <p class="feature-description">
+                        多人实时在线讨论，支持文字、语音、视频交流，
+                        智能翻译功能打破语言障碍。
                     </p>
-                    
-                    <div class="intro-highlights">
-                        <div class="highlight-item">
-                            <span class="highlight-icon">🎯</span>
-                            <h3 class="highlight-title">使命愿景</h3>
-                            <p class="highlight-desc">让每个人都能享受到优质、个性化的教育资源，推动全球教育公平化发展</p>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="highlight-icon">💡</span>
-                            <h3 class="highlight-title">核心价值</h3>
-                            <p class="highlight-desc">创新驱动、学员至上、品质卓越、开放合作</p>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="highlight-icon">🌟</span>
-                            <h3 class="highlight-title">发展理念</h3>
-                            <p class="highlight-desc">以科技赋能教育，以数据驱动决策，以创新引领未来</p>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="highlight-icon">🤝</span>
-                            <h3 class="highlight-title">社会责任</h3>
-                            <p class="highlight-desc">推动教育数字化转型，促进知识共享，构建学习型社会</p>
-                        </div>
-                    </div>
+                    <a href="#" class="feature-button" onclick="startDiscussion()">加入讨论</a>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">📝</span>
+                    <h3 class="feature-title">协作文档</h3>
+                    <p class="feature-description">
+                        多人同时编辑文档，实时同步修改，版本控制，
+                        支持各种格式的学习资料协作。
+                    </p>
+                    <a href="#" class="feature-button" onclick="createDocument()">创建文档</a>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">🎯</span>
+                    <h3 class="feature-title">项目协作</h3>
+                    <p class="feature-description">
+                        组建学习小组，共同完成项目任务，
+                        智能分工、进度跟踪、成果展示。
+                    </p>
+                    <a href="#" class="feature-button" onclick="joinProject()">加入项目</a>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">🎓</span>
+                    <h3 class="feature-title">知识共享</h3>
+                    <p class="feature-description">
+                        分享学习笔记、经验心得、学习资源，
+                        构建全球化的知识共享社区。
+                    </p>
+                    <a href="#" class="feature-button" onclick="shareKnowledge()">分享知识</a>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">🏆</span>
+                    <h3 class="feature-title">团队竞赛</h3>
+                    <p class="feature-description">
+                        参与全球学习竞赛，团队协作解决挑战，
+                        提升技能的同时获得荣誉认证。
+                    </p>
+                    <a href="#" class="feature-button" onclick="joinCompetition()">参加竞赛</a>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">🔬</span>
+                    <h3 class="feature-title">虚拟实验室</h3>
+                    <p class="feature-description">
+                        远程访问虚拟实验环境，多人协作进行实验，
+                        共享实验数据和研究成果。
+                    </p>
+                    <a href="#" class="feature-button" onclick="enterLab()">进入实验室</a>
                 </div>
             </div>
 
-            <!-- 发展历程 -->
-            <div class="timeline-section">
-                <h2 class="section-title">📈 发展历程</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-year">2018年</div>
-                            <div class="timeline-title">🚀 创立起航</div>
-                            <div class="timeline-desc">新欣火教育正式成立，确立"科技赋能教育"的发展理念，开始在线教育平台的研发工作。</div>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-year">2019年</div>
-                            <div class="timeline-title">🤖 AI技术突破</div>
-                            <div class="timeline-desc">成功研发智能学习推荐系统，获得多项AI教育技术专利，用户数量突破10万。</div>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-year">2020年</div>
-                            <div class="timeline-title">🌐 全球化布局</div>
-                            <div class="timeline-desc">启动国际化战略，平台支持多语言，服务范围扩展至全球50个国家，用户突破50万。</div>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-year">2021年</div>
-                            <div class="timeline-title">🏆 行业认可</div>
-                            <div class="timeline-desc">获得"年度最佳教育科技创新奖"，与多所知名高校建立合作关系，推出企业培训解决方案。</div>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-year">2022年</div>
-                            <div class="timeline-title">🔮 未来预测</div>
-                            <div class="timeline-desc">推出学习成果预测系统，实现个性化学习路径规划，获得B轮融资，估值达到10亿美元。</div>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-year">2023年</div>
-                            <div class="timeline-title">🌟 生态完善</div>
-                            <div class="timeline-desc">构建完整的智能教育生态系统，推出云端协作平台，全球用户突破100万，覆盖156个国家。</div>
-                        </div>
-                    </div>
+            <!-- 协作统计 -->
+            <div class="collaboration-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">🌍</div>
+                    <div class="stat-number" id="globalUsers">156</div>
+                    <div class="stat-label">国家/地区</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-number" id="onlineUsers">8,642</div>
+                    <div class="stat-label">在线用户</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📚</div>
+                    <div class="stat-number" id="sharedResources">25,380</div>
+                    <div class="stat-label">共享资源</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🤝</div>
+                    <div class="stat-number" id="collaborations">12,567</div>
+                    <div class="stat-label">协作项目</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">💬</div>
+                    <div class="stat-number" id="messages">1.2M</div>
+                    <div class="stat-label">交流消息</div>
                 </div>
             </div>
 
-            <!-- 组织架构 */
-            <div class="organization-section">
-                <h2 class="section-title">🏗️ 组织架构</h2>
-                <div class="org-chart">
-                    <div class="org-card">
-                        <span class="org-icon">👑</span>
-                        <h3 class="org-title">董事会</h3>
-                        <p class="org-desc">负责公司战略决策、重大投资和发展方向制定</p>
+            <!-- 在线用户 -->
+            <div class="online-users">
+                <h2 class="users-title">🌟 当前在线学习者</h2>
+                <div class="users-grid" id="onlineUsersGrid">
+                    <div class="user-card">
+                        <div class="user-avatar">👨‍💻</div>
+                        <div class="user-name">张同学</div>
+                        <div class="user-location">北京, 中国</div>
                     </div>
-                    <div class="org-card">
-                        <span class="org-icon">🎯</span>
-                        <h3 class="org-title">执行团队</h3>
-                        <p class="org-desc">CEO、CTO、COO等高管团队，负责公司日常运营管理</p>
+                    <div class="user-card">
+                        <div class="user-avatar">👩‍🎓</div>
+                        <div class="user-name">Sarah</div>
+                        <div class="user-location">纽约, 美国</div>
                     </div>
-                    <div class="org-card">
-                        <span class="org-icon">🔬</span>
-                        <h3 class="org-title">技术研发部</h3>
-                        <p class="org-desc">AI算法、平台开发、数据分析等核心技术研发</p>
+                    <div class="user-card">
+                        <div class="user-avatar">👨‍🔬</div>
+                        <div class="user-name">Hiroshi</div>
+                        <div class="user-location">东京, 日本</div>
                     </div>
-                    <div class="org-card">
-                        <span class="org-icon">🎓</span>
-                        <h3 class="org-title">教育内容部</h3>
-                        <p class="org-desc">课程设计、内容制作、教学质量管控</p>
+                    <div class="user-card">
+                        <div class="user-avatar">👩‍💼</div>
+                        <div class="user-name">Emma</div>
+                        <div class="user-location">伦敦, 英国</div>
                     </div>
-                    <div class="org-card">
-                        <span class="org-icon">🌐</span>
-                        <h3 class="org-title">市场运营部</h3>
-                        <p class="org-desc">品牌推广、用户运营、市场拓展</p>
+                    <div class="user-card">
+                        <div class="user-avatar">👨‍🎨</div>
+                        <div class="user-name">Marco</div>
+                        <div class="user-location">罗马, 意大利</div>
                     </div>
-                    <div class="org-card">
-                        <span class="org-icon">🤝</span>
-                        <h3 class="org-title">客户服务部</h3>
-                        <p class="org-desc">用户支持、售后服务、客户关系维护</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 联系信息 -->
-            <div class="contact-section">
-                <div class="contact-card">
-                    <span class="contact-icon">📍</span>
-                    <h3 class="contact-title">总部地址</h3>
-                    <div class="contact-info">
-                        中国北京市海淀区中关村科技园<br>
-                        新欣火教育大厦 18-20层<br>
-                        邮编：100080
-                    </div>
-                </div>
-                <div class="contact-card">
-                    <span class="contact-icon">📞</span>
-                    <h3 class="contact-title">联系方式</h3>
-                    <div class="contact-info">
-                        客服热线：400-888-9999<br>
-                        商务合作：<a href="mailto:business@xinxinhuo.com">business@xinxinhuo.com</a><br>
-                        技术支持：<a href="mailto:support@xinxinhuo.com">support@xinxinhuo.com</a>
-                    </div>
-                </div>
-                <div class="contact-card">
-                    <span class="contact-icon">🌐</span>
-                    <h3 class="contact-title">在线服务</h3>
-                    <div class="contact-info">
-                        官方网站：<a href="https://www.xinxinhuo.com">www.xinxinhuo.com</a><br>
-                        微信公众号：新欣火教育<br>
-                        服务时间：7×24小时在线
+                    <div class="user-card">
+                        <div class="user-avatar">👩‍🏫</div>
+                        <div class="user-name">李老师</div>
+                        <div class="user-location">上海, 中国</div>
                     </div>
                 </div>
             </div>
@@ -988,11 +886,96 @@
             setTimeout(() => tooltip.remove(), 2000);
         }
 
+        // 协作功能
+        function startDiscussion() {
+            showTooltip('💬 正在连接全球讨论室...', mouseX, mouseY);
+        }
+
+        function createDocument() {
+            showTooltip('📝 创建协作文档中...', mouseX, mouseY);
+        }
+
+        function joinProject() {
+            showTooltip('🎯 正在匹配合适的项目团队...', mouseX, mouseY);
+        }
+
+        function shareKnowledge() {
+            showTooltip('🎓 打开知识分享平台...', mouseX, mouseY);
+        }
+
+        function joinCompetition() {
+            showTooltip('🏆 查找可参与的团队竞赛...', mouseX, mouseY);
+        }
+
+        function enterLab() {
+            showTooltip('🔬 连接虚拟实验室...', mouseX, mouseY);
+        }
+
+        // 实时更新统计数据
+        function updateStats() {
+            const stats = {
+                onlineUsers: document.getElementById('onlineUsers'),
+                sharedResources: document.getElementById('sharedResources'),
+                collaborations: document.getElementById('collaborations'),
+                messages: document.getElementById('messages')
+            };
+
+            setInterval(() => {
+                const currentOnline = parseInt(stats.onlineUsers.textContent.replace(',', ''));
+                stats.onlineUsers.textContent = (currentOnline + Math.floor(Math.random() * 20 - 10)).toLocaleString();
+                
+                const currentResources = parseInt(stats.sharedResources.textContent.replace(',', ''));
+                stats.sharedResources.textContent = (currentResources + Math.floor(Math.random() * 10)).toLocaleString();
+                
+                const currentCollaborations = parseInt(stats.collaborations.textContent.replace(',', ''));
+                stats.collaborations.textContent = (currentCollaborations + Math.floor(Math.random() * 5)).toLocaleString();
+            }, 3000);
+        }
+
+        // 动态添加在线用户
+        function addRandomUser() {
+            const names = ['Alex', '小明', 'Maria', 'Ahmed', 'Yuki', '小红', 'David', 'Anna'];
+            const locations = ['巴黎, 法国', '悉尼, 澳大利亚', '首尔, 韩国', '柏林, 德国', '多伦多, 加拿大'];
+            const avatars = ['👨‍💻', '👩‍🎓', '👨‍🔬', '👩‍💼', '👨‍🎨', '👩‍🏫', '👨‍🚀', '👩‍⚕️'];
+            
+            const usersGrid = document.getElementById('onlineUsersGrid');
+            const userCard = document.createElement('div');
+            userCard.className = 'user-card';
+            userCard.style.opacity = '0';
+            userCard.style.transform = 'translateY(20px)';
+            
+            userCard.innerHTML = `
+                <div class="user-avatar">${avatars[Math.floor(Math.random() * avatars.length)]}</div>
+                <div class="user-name">${names[Math.floor(Math.random() * names.length)]}</div>
+                <div class="user-location">${locations[Math.floor(Math.random() * locations.length)]}</div>
+            `;
+            
+            usersGrid.appendChild(userCard);
+            
+            // 动画效果
+            setTimeout(() => {
+                userCard.style.transition = 'all 0.5s ease';
+                userCard.style.opacity = '1';
+                userCard.style.transform = 'translateY(0)';
+            }, 100);
+            
+            // 5秒后移除
+            setTimeout(() => {
+                userCard.style.opacity = '0';
+                userCard.style.transform = 'translateY(-20px)';
+                setTimeout(() => userCard.remove(), 500);
+            }, 5000);
+        }
+
         // 页面加载完成后初始化
         document.addEventListener('DOMContentLoaded', function() {
             createParticles();
             requestAnimationFrame(updateSpaceElements);
             setInterval(createRandomSpaceElement, 3000);
+            updateStats();
+            
+            // 定期添加新用户
+            setInterval(addRandomUser, 4000);
             
             // 导航栏滚动效果
             window.addEventListener('scroll', function() {
@@ -1002,29 +985,6 @@
                 } else {
                     navbar.style.background = 'rgba(10, 14, 39, 0.95)';
                 }
-            });
-
-            // 时间线动画
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, observerOptions);
-
-            // 观察时间线项目
-            document.querySelectorAll('.timeline-item').forEach(item => {
-                item.style.opacity = '0';
-                item.style.transform = 'translateY(50px)';
-                item.style.transition = 'all 0.6s ease';
-                observer.observe(item);
             });
         });
     </script>

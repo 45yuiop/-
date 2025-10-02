@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>机构概况 | 新欣火教育</title>
-    <meta name="description" content="新欣火教育机构概况 - 引领教育科技创新的先锋机构">
+    <title>未来预测系统 | 新欣火教育</title>
+    <meta name="description" content="新欣火教育未来预测系统 - 学习成果预测分析">
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/system/favicon.png">
     
     <style>
@@ -127,7 +127,7 @@
             padding: 100px 20px 50px;
         }
 
-        .about-container {
+        .prediction-container {
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -135,11 +135,11 @@
         /* 页面标题 */
         .page-header {
             text-align: center;
-            margin-bottom: 80px;
+            margin-bottom: 60px;
         }
 
         .page-title {
-            font-size: 4rem;
+            font-size: 3.5rem;
             margin-bottom: 20px;
             background: linear-gradient(45deg, #00ffff, #ffffff, #00ffff);
             -webkit-background-clip: text;
@@ -154,70 +154,146 @@
         }
 
         .page-subtitle {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: #b0c4de;
             margin-bottom: 30px;
             line-height: 1.6;
         }
 
-        /* 机构介绍 */
-        .intro-section {
+        /* 预测模型展示 */
+        .prediction-models {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .model-card {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(0, 255, 255, 0.2);
-            border-radius: 25px;
-            padding: 60px;
-            margin-bottom: 80px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
-        .intro-section::before {
+        .model-card::before {
             content: '';
             position: absolute;
             top: -50%;
             left: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.05), transparent);
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.1), transparent);
             transform: rotate(45deg);
-            animation: sectionShine 6s ease-in-out infinite;
+            transition: all 0.3s ease;
+            opacity: 0;
         }
 
-        @keyframes sectionShine {
-            0%, 100% { transform: rotate(45deg) translate(-100%, -100%); }
-            50% { transform: rotate(45deg) translate(100%, 100%); }
+        .model-card:hover::before {
+            opacity: 1;
+            animation: cardSweep 1s ease-in-out;
         }
 
-        .intro-content {
-            position: relative;
-            z-index: 2;
+        @keyframes cardSweep {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
         }
 
-        .intro-title {
-            font-size: 2.5rem;
+        .model-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 255, 255, 0.2);
+            border-color: #00ffff;
+        }
+
+        .model-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            display: block;
             color: #00ffff;
-            margin-bottom: 30px;
-            text-align: center;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
         }
 
-        .intro-text {
-            font-size: 1.2rem;
-            line-height: 2;
+        .model-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
             color: #ffffff;
-            text-align: center;
-            margin-bottom: 40px;
+            font-weight: bold;
         }
 
-        .intro-highlights {
+        .model-description {
+            color: #b0c4de;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .model-accuracy {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .accuracy-label {
+            color: #b0c4de;
+        }
+
+        .accuracy-value {
+            color: #00ffff;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .model-button {
+            padding: 12px 24px;
+            background: linear-gradient(45deg, #00ffff, #0080ff);
+            border: none;
+            border-radius: 25px;
+            color: #ffffff;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+        }
+
+        .model-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.4);
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        /* 预测结果展示 */
+        .prediction-results {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 60px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .results-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #00ffff;
+            text-align: center;
+        }
+
+        .results-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
-            margin-top: 40px;
         }
 
-        .highlight-item {
+        .result-card {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(0, 255, 255, 0.2);
             border-radius: 15px;
@@ -226,46 +302,57 @@
             transition: all 0.3s ease;
         }
 
-        .highlight-item:hover {
+        .result-card:hover {
             background: rgba(0, 255, 255, 0.1);
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
+            transform: translateY(-5px);
         }
 
-        .highlight-icon {
+        .result-icon {
             font-size: 3rem;
-            color: #00ffff;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .highlight-title {
-            font-size: 1.3rem;
-            font-weight: bold;
             margin-bottom: 15px;
+            color: #00ffff;
+        }
+
+        .result-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
             color: #ffffff;
+            font-weight: bold;
         }
 
-        .highlight-desc {
+        .result-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #00ffff;
+            margin-bottom: 10px;
+        }
+
+        .result-description {
             color: #b0c4de;
-            line-height: 1.6;
+            font-size: 0.9rem;
         }
 
-        /* 发展历程 */
-        .timeline-section {
-            margin-bottom: 80px;
+        /* 时间线预测 */
+        .timeline-prediction {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 60px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
-        .section-title {
-            font-size: 2.5rem;
+        .timeline-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
             color: #00ffff;
             text-align: center;
-            margin-bottom: 60px;
         }
 
         .timeline {
             position: relative;
-            padding: 40px 0;
+            padding: 20px 0;
         }
 
         .timeline::before {
@@ -274,15 +361,14 @@
             left: 50%;
             top: 0;
             bottom: 0;
-            width: 3px;
-            background: linear-gradient(to bottom, #00ffff, #0080ff, #00ffff);
+            width: 2px;
+            background: linear-gradient(to bottom, #00ffff, #0080ff);
             transform: translateX(-50%);
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
         }
 
         .timeline-item {
             position: relative;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
             display: flex;
             align-items: center;
         }
@@ -298,18 +384,11 @@
         .timeline-content {
             flex: 1;
             background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
             border: 1px solid rgba(0, 255, 255, 0.2);
-            border-radius: 20px;
-            padding: 30px;
-            margin: 0 40px;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 0 30px;
             position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .timeline-content:hover {
-            background: rgba(0, 255, 255, 0.1);
-            transform: scale(1.02);
         }
 
         .timeline-content::before {
@@ -318,190 +397,46 @@
             top: 50%;
             width: 0;
             height: 0;
-            border: 15px solid transparent;
+            border: 10px solid transparent;
             transform: translateY(-50%);
         }
 
         .timeline-item:nth-child(odd) .timeline-content::before {
-            right: -30px;
+            right: -20px;
             border-left-color: rgba(0, 255, 255, 0.2);
         }
 
         .timeline-item:nth-child(even) .timeline-content::before {
-            left: -30px;
+            left: -20px;
             border-right-color: rgba(0, 255, 255, 0.2);
         }
 
-        .timeline-year {
-            font-size: 1.5rem;
+        .timeline-date {
             font-weight: bold;
             color: #00ffff;
-            margin-bottom: 15px;
-        }
-
-        .timeline-title {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #ffffff;
             margin-bottom: 10px;
         }
 
-        .timeline-desc {
-            color: #b0c4de;
+        .timeline-text {
+            color: #ffffff;
             line-height: 1.6;
         }
 
         .timeline-dot {
             position: absolute;
             left: 50%;
-            width: 25px;
-            height: 25px;
-            background: linear-gradient(45deg, #00ffff, #0080ff);
+            width: 20px;
+            height: 20px;
+            background: #00ffff;
             border-radius: 50%;
             transform: translateX(-50%);
-            box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
-            animation: dotPulse 3s ease-in-out infinite;
-            z-index: 2;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            animation: dotPulse 2s ease-in-out infinite;
         }
 
         @keyframes dotPulse {
             0%, 100% { transform: translateX(-50%) scale(1); }
-            50% { transform: translateX(-50%) scale(1.3); }
-        }
-
-        /* 组织架构 */
-        .organization-section {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(0, 255, 255, 0.2);
-            border-radius: 25px;
-            padding: 60px;
-            margin-bottom: 80px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-        }
-
-        .org-chart {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .org-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(0, 255, 255, 0.2);
-            border-radius: 20px;
-            padding: 40px;
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .org-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.1), transparent);
-            transform: rotate(45deg);
-            transition: all 0.3s ease;
-            opacity: 0;
-        }
-
-        .org-card:hover::before {
-            opacity: 1;
-            animation: cardSweep 1s ease-in-out;
-        }
-
-        @keyframes cardSweep {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-        }
-
-        .org-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(0, 255, 255, 0.2);
-        }
-
-        .org-icon {
-            font-size: 4rem;
-            color: #00ffff;
-            margin-bottom: 20px;
-            display: block;
-            position: relative;
-            z-index: 2;
-        }
-
-        .org-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #ffffff;
-            margin-bottom: 15px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .org-desc {
-            color: #b0c4de;
-            line-height: 1.6;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* 联系信息 */
-        .contact-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-bottom: 80px;
-        }
-
-        .contact-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(0, 255, 255, 0.2);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .contact-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(0, 255, 255, 0.2);
-        }
-
-        .contact-icon {
-            font-size: 3rem;
-            color: #00ffff;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .contact-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #ffffff;
-            margin-bottom: 15px;
-        }
-
-        .contact-info {
-            color: #b0c4de;
-            line-height: 1.8;
-        }
-
-        .contact-info a {
-            color: #00ffff;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .contact-info a:hover {
-            color: #ffffff;
-            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            50% { transform: translateX(-50%) scale(1.2); }
         }
 
         /* 太空元素 */
@@ -638,12 +573,12 @@
                 display: none;
             }
 
-            .intro-section, .organization-section {
-                padding: 40px 30px;
+            .prediction-models {
+                grid-template-columns: 1fr;
             }
 
             .timeline::before {
-                left: 30px;
+                left: 20px;
             }
 
             .timeline-item {
@@ -651,23 +586,19 @@
             }
 
             .timeline-content {
-                margin-left: 60px;
+                margin-left: 50px;
                 margin-right: 0;
             }
 
             .timeline-content::before {
-                left: -30px !important;
+                left: -20px !important;
                 right: auto !important;
                 border-right-color: rgba(0, 255, 255, 0.2) !important;
                 border-left-color: transparent !important;
             }
 
             .timeline-dot {
-                left: 30px;
-            }
-
-            .contact-section {
-                grid-template-columns: 1fr;
+                left: 20px;
             }
         }
     </style>
@@ -704,170 +635,137 @@
 
     <!-- 主要内容 -->
     <div class="main-content">
-        <div class="about-container">
+        <div class="prediction-container">
             <!-- 页面标题 -->
             <div class="page-header">
-                <h1 class="page-title">🏢 机构概况</h1>
+                <h1 class="page-title">🔮 未来预测系统</h1>
                 <p class="page-subtitle">
-                    引领教育科技创新，构建智能学习生态<br>
-                    新欣火教育 - 您的智能学习伙伴
+                    基于深度学习和大数据分析的智能预测系统<br>
+                    预测学习成果、职业发展和个人成长轨迹
                 </p>
             </div>
 
-            <!-- 机构介绍 -->
-            <div class="intro-section">
-                <div class="intro-content">
-                    <h2 class="intro-title">🚀 关于新欣火教育</h2>
-                    <p class="intro-text">
-                        新欣火教育成立于2018年，是一家专注于教育科技创新的领先机构。我们致力于运用人工智能、大数据分析和云计算技术，
-                        为全球学习者提供个性化、智能化的学习体验。通过不断的技术创新和教育理念革新，
-                        我们已经服务了超过50万名学员，覆盖全球156个国家和地区。
+            <!-- 预测模型 -->
+            <div class="prediction-models">
+                <div class="model-card">
+                    <span class="model-icon">🎯</span>
+                    <h3 class="model-title">学习成果预测</h3>
+                    <p class="model-description">
+                        基于当前学习进度、历史表现和学习习惯，
+                        预测未来3-6个月的学习成果和技能掌握程度。
                     </p>
-                    
-                    <div class="intro-highlights">
-                        <div class="highlight-item">
-                            <span class="highlight-icon">🎯</span>
-                            <h3 class="highlight-title">使命愿景</h3>
-                            <p class="highlight-desc">让每个人都能享受到优质、个性化的教育资源，推动全球教育公平化发展</p>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="highlight-icon">💡</span>
-                            <h3 class="highlight-title">核心价值</h3>
-                            <p class="highlight-desc">创新驱动、学员至上、品质卓越、开放合作</p>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="highlight-icon">🌟</span>
-                            <h3 class="highlight-title">发展理念</h3>
-                            <p class="highlight-desc">以科技赋能教育，以数据驱动决策，以创新引领未来</p>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="highlight-icon">🤝</span>
-                            <h3 class="highlight-title">社会责任</h3>
-                            <p class="highlight-desc">推动教育数字化转型，促进知识共享，构建学习型社会</p>
-                        </div>
+                    <div class="model-accuracy">
+                        <span class="accuracy-label">预测准确率:</span>
+                        <span class="accuracy-value">94.8%</span>
+                    </div>
+                    <a href="#" class="model-button" onclick="runPrediction('learning')">开始预测</a>
+                </div>
+
+                <div class="model-card">
+                    <span class="model-icon">💼</span>
+                    <h3 class="model-title">职业发展预测</h3>
+                    <p class="model-description">
+                        分析技能组合、行业趋势和市场需求，
+                        预测最适合的职业发展路径和薪资水平。
+                    </p>
+                    <div class="model-accuracy">
+                        <span class="accuracy-label">预测准确率:</span>
+                        <span class="accuracy-value">91.2%</span>
+                    </div>
+                    <a href="#" class="model-button" onclick="runPrediction('career')">开始预测</a>
+                </div>
+
+                <div class="model-card">
+                    <span class="model-icon">📈</span>
+                    <h3 class="model-title">能力提升预测</h3>
+                    <p class="model-description">
+                        根据学习计划和个人特质，预测各项能力的
+                        提升速度和最终达到的水平。
+                    </p>
+                    <div class="model-accuracy">
+                        <span class="accuracy-label">预测准确率:</span>
+                        <span class="accuracy-value">96.5%</span>
+                    </div>
+                    <a href="#" class="model-button" onclick="runPrediction('skills')">开始预测</a>
+                </div>
+
+                <div class="model-card">
+                    <span class="model-icon">🌟</span>
+                    <h3 class="model-title">成功概率预测</h3>
+                    <p class="model-description">
+                        综合评估各种因素，预测在特定领域或
+                        项目中获得成功的概率和关键因素。
+                    </p>
+                    <div class="model-accuracy">
+                        <span class="accuracy-label">预测准确率:</span>
+                        <span class="accuracy-value">89.7%</span>
+                    </div>
+                    <a href="#" class="model-button" onclick="runPrediction('success')">开始预测</a>
+                </div>
+            </div>
+
+            <!-- 预测结果 -->
+            <div class="prediction-results">
+                <h2 class="results-title">🎯 个人预测报告</h2>
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-icon">📊</div>
+                        <div class="result-title">学习完成率</div>
+                        <div class="result-value" id="completionRate">96%</div>
+                        <div class="result-description">预计3个月内课程完成率</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-icon">🏆</div>
+                        <div class="result-title">技能掌握度</div>
+                        <div class="result-value" id="skillMastery">88%</div>
+                        <div class="result-description">核心技能预期掌握程度</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-icon">💰</div>
+                        <div class="result-title">薪资提升</div>
+                        <div class="result-value" id="salaryIncrease">35%</div>
+                        <div class="result-description">预计薪资提升幅度</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-icon">🎯</div>
+                        <div class="result-title">目标达成</div>
+                        <div class="result-value" id="goalAchievement">92%</div>
+                        <div class="result-description">职业目标实现概率</div>
                     </div>
                 </div>
             </div>
 
-            <!-- 发展历程 -->
-            <div class="timeline-section">
-                <h2 class="section-title">📈 发展历程</h2>
+            <!-- 时间线预测 -->
+            <div class="timeline-prediction">
+                <h2 class="timeline-title">🗓️ 学习发展时间线</h2>
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <div class="timeline-year">2018年</div>
-                            <div class="timeline-title">🚀 创立起航</div>
-                            <div class="timeline-desc">新欣火教育正式成立，确立"科技赋能教育"的发展理念，开始在线教育平台的研发工作。</div>
+                            <div class="timeline-date">1个月后</div>
+                            <div class="timeline-text">完成基础理论学习，掌握核心概念，开始实践项目</div>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <div class="timeline-year">2019年</div>
-                            <div class="timeline-title">🤖 AI技术突破</div>
-                            <div class="timeline-desc">成功研发智能学习推荐系统，获得多项AI教育技术专利，用户数量突破10万。</div>
+                            <div class="timeline-date">3个月后</div>
+                            <div class="timeline-text">完成中级课程，具备独立解决问题的能力，参与团队项目</div>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <div class="timeline-year">2020年</div>
-                            <div class="timeline-title">🌐 全球化布局</div>
-                            <div class="timeline-desc">启动国际化战略，平台支持多语言，服务范围扩展至全球50个国家，用户突破50万。</div>
+                            <div class="timeline-date">6个月后</div>
+                            <div class="timeline-text">达到高级水平，能够指导他人，开始寻找更好的职业机会</div>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <div class="timeline-year">2021年</div>
-                            <div class="timeline-title">🏆 行业认可</div>
-                            <div class="timeline-desc">获得"年度最佳教育科技创新奖"，与多所知名高校建立合作关系，推出企业培训解决方案。</div>
+                            <div class="timeline-date">1年后</div>
+                            <div class="timeline-text">成为领域专家，获得显著薪资提升，可能获得管理职位</div>
                         </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-year">2022年</div>
-                            <div class="timeline-title">🔮 未来预测</div>
-                            <div class="timeline-desc">推出学习成果预测系统，实现个性化学习路径规划，获得B轮融资，估值达到10亿美元。</div>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-year">2023年</div>
-                            <div class="timeline-title">🌟 生态完善</div>
-                            <div class="timeline-desc">构建完整的智能教育生态系统，推出云端协作平台，全球用户突破100万，覆盖156个国家。</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 组织架构 */
-            <div class="organization-section">
-                <h2 class="section-title">🏗️ 组织架构</h2>
-                <div class="org-chart">
-                    <div class="org-card">
-                        <span class="org-icon">👑</span>
-                        <h3 class="org-title">董事会</h3>
-                        <p class="org-desc">负责公司战略决策、重大投资和发展方向制定</p>
-                    </div>
-                    <div class="org-card">
-                        <span class="org-icon">🎯</span>
-                        <h3 class="org-title">执行团队</h3>
-                        <p class="org-desc">CEO、CTO、COO等高管团队，负责公司日常运营管理</p>
-                    </div>
-                    <div class="org-card">
-                        <span class="org-icon">🔬</span>
-                        <h3 class="org-title">技术研发部</h3>
-                        <p class="org-desc">AI算法、平台开发、数据分析等核心技术研发</p>
-                    </div>
-                    <div class="org-card">
-                        <span class="org-icon">🎓</span>
-                        <h3 class="org-title">教育内容部</h3>
-                        <p class="org-desc">课程设计、内容制作、教学质量管控</p>
-                    </div>
-                    <div class="org-card">
-                        <span class="org-icon">🌐</span>
-                        <h3 class="org-title">市场运营部</h3>
-                        <p class="org-desc">品牌推广、用户运营、市场拓展</p>
-                    </div>
-                    <div class="org-card">
-                        <span class="org-icon">🤝</span>
-                        <h3 class="org-title">客户服务部</h3>
-                        <p class="org-desc">用户支持、售后服务、客户关系维护</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 联系信息 -->
-            <div class="contact-section">
-                <div class="contact-card">
-                    <span class="contact-icon">📍</span>
-                    <h3 class="contact-title">总部地址</h3>
-                    <div class="contact-info">
-                        中国北京市海淀区中关村科技园<br>
-                        新欣火教育大厦 18-20层<br>
-                        邮编：100080
-                    </div>
-                </div>
-                <div class="contact-card">
-                    <span class="contact-icon">📞</span>
-                    <h3 class="contact-title">联系方式</h3>
-                    <div class="contact-info">
-                        客服热线：400-888-9999<br>
-                        商务合作：<a href="mailto:business@xinxinhuo.com">business@xinxinhuo.com</a><br>
-                        技术支持：<a href="mailto:support@xinxinhuo.com">support@xinxinhuo.com</a>
-                    </div>
-                </div>
-                <div class="contact-card">
-                    <span class="contact-icon">🌐</span>
-                    <h3 class="contact-title">在线服务</h3>
-                    <div class="contact-info">
-                        官方网站：<a href="https://www.xinxinhuo.com">www.xinxinhuo.com</a><br>
-                        微信公众号：新欣火教育<br>
-                        服务时间：7×24小时在线
                     </div>
                 </div>
             </div>
@@ -988,11 +886,66 @@
             setTimeout(() => tooltip.remove(), 2000);
         }
 
+        // 运行预测模型
+        function runPrediction(type) {
+            const messages = {
+                learning: '🎯 正在分析学习数据，生成成果预测...',
+                career: '💼 正在分析职业发展路径...',
+                skills: '📈 正在评估能力提升潜力...',
+                success: '🌟 正在计算成功概率...'
+            };
+            
+            showTooltip(messages[type] || '🔮 正在运行预测模型...', mouseX, mouseY);
+            
+            // 模拟预测过程
+            setTimeout(() => {
+                showTooltip('✅ 预测完成！请查看结果报告', mouseX, mouseY);
+                updatePredictionResults();
+            }, 3000);
+        }
+
+        // 更新预测结果
+        function updatePredictionResults() {
+            const elements = {
+                completionRate: document.getElementById('completionRate'),
+                skillMastery: document.getElementById('skillMastery'),
+                salaryIncrease: document.getElementById('salaryIncrease'),
+                goalAchievement: document.getElementById('goalAchievement')
+            };
+
+            // 模拟新的预测结果
+            elements.completionRate.textContent = (Math.random() * 10 + 90).toFixed(0) + '%';
+            elements.skillMastery.textContent = (Math.random() * 15 + 85).toFixed(0) + '%';
+            elements.salaryIncrease.textContent = (Math.random() * 20 + 25).toFixed(0) + '%';
+            elements.goalAchievement.textContent = (Math.random() * 10 + 88).toFixed(0) + '%';
+        }
+
+        // 实时更新预测数据
+        function updatePredictionData() {
+            setInterval(() => {
+                const elements = {
+                    completionRate: document.getElementById('completionRate'),
+                    skillMastery: document.getElementById('skillMastery'),
+                    salaryIncrease: document.getElementById('salaryIncrease'),
+                    goalAchievement: document.getElementById('goalAchievement')
+                };
+
+                // 微调数值，模拟实时更新
+                Object.values(elements).forEach(element => {
+                    const currentValue = parseInt(element.textContent);
+                    const change = Math.floor(Math.random() * 3) - 1; // -1, 0, 或 1
+                    const newValue = Math.max(0, Math.min(100, currentValue + change));
+                    element.textContent = newValue + (element.textContent.includes('%') ? '%' : '');
+                });
+            }, 10000);
+        }
+
         // 页面加载完成后初始化
         document.addEventListener('DOMContentLoaded', function() {
             createParticles();
             requestAnimationFrame(updateSpaceElements);
             setInterval(createRandomSpaceElement, 3000);
+            updatePredictionData();
             
             // 导航栏滚动效果
             window.addEventListener('scroll', function() {
@@ -1002,29 +955,6 @@
                 } else {
                     navbar.style.background = 'rgba(10, 14, 39, 0.95)';
                 }
-            });
-
-            // 时间线动画
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, observerOptions);
-
-            // 观察时间线项目
-            document.querySelectorAll('.timeline-item').forEach(item => {
-                item.style.opacity = '0';
-                item.style.transform = 'translateY(50px)';
-                item.style.transition = 'all 0.6s ease';
-                observer.observe(item);
             });
         });
     </script>

@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能登录 | 新欣火教育</title>
+    <meta name="description" content="新欣火教育智能登录系统 - AI驱动的安全认证">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1e4d8b 50%, #2563eb 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* 动态背景 */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .animated-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(0,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            animation: gridMove 20s linear infinite;
+        }
+        
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(10px, 10px); }
+        }
+        
+        /* 浮动粒子 */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(0, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 1; }
+            50% { transform: translateY(-30px) rotate(180deg); opacity: 0.3; }
+        }
+        
+        /* 主容器 */
+        .login-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 50px 40px;
+            width: 100%;
+            max-width: 450px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+        
+        .login-container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #00ffff, #1e4d8b, #00ffff, #1e4d8b);
+            border-radius: 20px;
+            z-index: -1;
+            animation: borderGlow 3s linear infinite;
+        }
+        
+        @keyframes borderGlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* 返回按钮 */
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .back-btn:hover {
+            background: rgba(0, 255, 255, 0.2);
+            color: #00ffff;
+            text-decoration: none;
+            transform: translateX(-5px);
+        }
+        
+        /* 标题区域 */
+        .login-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .logo-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #00ffff, #1e4d8b);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+            animation: logoFloat 3s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: logoSweep 2s linear infinite;
+        }
+        
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(180deg); }
+        }
+        
+        @keyframes logoSweep {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .login-title {
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #ffffff, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .login-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 16px;
+        }
+        
+        /* 表单样式 */
+        .login-form {
+            position: relative;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .form-group label {
+            display: block;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #00ffff;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        /* 密码显示切换 */
+        .password-toggle {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+        
+        .password-toggle:hover {
+            color: #00ffff;
+        }
+        
+        /* 记住我和忘记密码 */
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 8px;
+            transform: scale(1.2);
+        }
+        
+        .checkbox-group label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            cursor: pointer;
+            margin-bottom: 0;
+        }
+        
+        .forgot-password {
+            color: #00ffff;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .forgot-password:hover {
+            color: white;
+            text-shadow: 0 0 10px #00ffff;
+            text-decoration: none;
+        }
+        
+        /* 登录按钮 */
+        .login-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #00ffff, #1e4d8b);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        
+        .login-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .login-btn:hover::before {
+            left: 100%;
+        }
+        
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 255, 255, 0.4);
+        }
+        
+        .login-btn:active {
+            transform: translateY(0);
+        }
+        
+        /* 分割线 */
+        .divider {
+            text-align: center;
+            margin: 30px 0;
+            position: relative;
+        }
+        
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        }
+        
+        .divider span {
+            background: rgba(10, 14, 39, 0.8);
+            color: rgba(255, 255, 255, 0.6);
+            padding: 0 20px;
+            font-size: 14px;
+        }
+        
+        /* 社交登录 */
+        .social-login {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .social-btn {
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .social-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #00ffff;
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+        
+        /* 注册链接 */
+        .signup-link {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+        }
+        
+        .signup-link a {
+            color: #00ffff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .signup-link a:hover {
+            color: white;
+            text-shadow: 0 0 10px #00ffff;
+            text-decoration: none;
+        }
+        
+        /* 加载动画 */
+        .loading {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top: 3px solid #00ffff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        /* 成功动画 */
+        .success-animation {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #00ffff;
+            font-size: 48px;
+            animation: successPulse 0.6s ease-out;
+        }
+        
+        @keyframes successPulse {
+            0% { transform: translate(-50%, -50%) scale(0); }
+            50% { transform: translate(-50%, -50%) scale(1.2); }
+            100% { transform: translate(-50%, -50%) scale(1); }
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .login-container {
+                margin: 20px;
+                padding: 40px 30px;
+            }
+            
+            .login-title {
+                font-size: 24px;
+            }
+            
+            .social-login {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 错误提示 */
+        .error-message {
+            background: rgba(220, 53, 69, 0.2);
+            border: 1px solid rgba(220, 53, 69, 0.5);
+            color: #ff6b6b;
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            display: none;
+            animation: shake 0.5s ease-in-out;
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        
+        /* 生物识别登录 */
+        .biometric-login {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .biometric-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .biometric-btn:hover {
+            background: rgba(0, 255, 255, 0.2);
+            color: #00ffff;
+            transform: scale(1.1);
+        }
+                        </style>
+</head>
+<body>
+    <!-- 动态背景 -->
+    <div class="animated-bg"></div>
+    
+    <!-- 浮动粒子 -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- 返回按钮 -->
+    <a href="index.html" class="back-btn">
+        ← 返回首页
+    </a>
+    
+    <!-- 登录容器 -->
+    <div class="login-container">
+        <!-- 加载动画 -->
+        <div class="loading" id="loading"></div>
+        
+        <!-- 成功动画 -->
+        <div class="success-animation" id="successAnimation">✓</div>
+        
+        <!-- 登录头部 -->
+        <div class="login-header">
+            <div class="logo-icon">新</div>
+            <h1 class="login-title">智能登录</h1>
+            <p class="login-subtitle">🤖 AI驱动的安全认证系统</p>
+                    </div>
+
+        <!-- 错误提示 -->
+        <div class="error-message" id="errorMessage"></div>
+        
+        <!-- 登录表单 -->
+        <form class="login-form" id="loginForm">
+            <div class="form-group">
+                <label for="username">👤 用户名/邮箱</label>
+                <input 
+                    type="text" 
+                    id="username" 
+                    class="form-input" 
+                    placeholder="请输入用户名或邮箱"
+                    required
+                    autocomplete="username"
+                >
+                    </div>
+
+            <div class="form-group">
+                <label for="password">🔒 密码</label>
+                <div style="position: relative;">
+                    <input 
+                        type="password" 
+                        id="password" 
+                        class="form-input" 
+                        placeholder="请输入密码"
+                        required
+                        autocomplete="current-password"
+                    >
+                    <button type="button" class="password-toggle" onclick="togglePassword()">
+                        👁️
+                    </button>
+                        </div>
+                    </div>
+
+            <div class="form-options">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="remember" name="remember">
+                    <label for="remember">记住我</label>
+                        </div>
+                <a href="#" class="forgot-password" onclick="forgotPassword()">忘记密码？</a>
+                                                        </div>
+
+            <button type="submit" class="login-btn" id="loginBtn">
+                🚀 智能登录
+                                                    </button>
+        </form>
+        
+        <!-- 分割线 -->
+        <div class="divider">
+            <span>或使用以下方式登录</span>
+                                                        </div>
+
+        <!-- 社交登录 -->
+        <div class="social-login">
+            <a href="#" class="social-btn" onclick="socialLogin('wechat')">
+                💬 微信登录
+            </a>
+            <a href="#" class="social-btn" onclick="socialLogin('qq')">
+                🐧 QQ登录
+            </a>
+                                                        </div>
+
+        <!-- 生物识别登录 -->
+        <div class="biometric-login">
+            <p style="color: rgba(255, 255, 255, 0.6); font-size: 14px; margin-bottom: 15px;">
+                🔬 生物识别登录
+            </p>
+            <button type="button" class="biometric-btn" onclick="biometricLogin('fingerprint')" title="指纹登录">
+                👆
+            </button>
+            <button type="button" class="biometric-btn" onclick="biometricLogin('face')" title="面部识别">
+                😊
+            </button>
+            <button type="button" class="biometric-btn" onclick="biometricLogin('voice')" title="声纹识别">
+                🎤
+                                                    </button>
+                                                </div>
+        
+        <!-- 注册链接 -->
+        <div class="signup-link">
+            还没有账号？ <a href="sign_up.html">立即注册</a>
+                        </div>
+                    </div>
+
+    <script>
+        // 创建浮动粒子
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // 密码显示切换
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleBtn = document.querySelector('.password-toggle');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleBtn.textContent = '🙈';
+            } else {
+                passwordInput.type = 'password';
+                toggleBtn.textContent = '👁️';
+            }
+        }
+        
+        // 显示错误信息
+        function showError(message) {
+            const errorElement = document.getElementById('errorMessage');
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+            
+            setTimeout(() => {
+                errorElement.style.display = 'none';
+            }, 5000);
+        }
+        
+        // 显示加载动画
+        function showLoading() {
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('loginBtn').disabled = true;
+        }
+        
+        // 隐藏加载动画
+        function hideLoading() {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('loginBtn').disabled = false;
+        }
+        
+        // 显示成功动画
+        function showSuccess() {
+            const successElement = document.getElementById('successAnimation');
+            successElement.style.display = 'block';
+            
+            setTimeout(() => {
+                successElement.style.display = 'none';
+            }, 1500);
+        }
+        
+        // 登录表单提交
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const remember = document.getElementById('remember').checked;
+            
+            if (!username || !password) {
+                showError('请填写完整的登录信息');
+                return;
+            }
+            
+            showLoading();
+            
+            // 模拟AI智能验证过程
+            try {
+                // 第一步：用户名验证
+                await new Promise(resolve => setTimeout(resolve, 800));
+                console.log('🔍 AI正在验证用户身份...');
+                
+                // 第二步：密码加密验证
+                await new Promise(resolve => setTimeout(resolve, 600));
+                console.log('🔐 量子加密验证中...');
+                
+                // 第三步：行为分析
+                await new Promise(resolve => setTimeout(resolve, 500));
+                console.log('🧠 AI行为模式分析...');
+                
+                // 第四步：安全检查
+                await new Promise(resolve => setTimeout(resolve, 400));
+                console.log('🛡️ 多重安全验证...');
+                
+                hideLoading();
+                showSuccess();
+                
+                // 保存登录状态
+                if (remember) {
+                    localStorage.setItem('rememberedUser', username);
+                }
+                
+                // 模拟登录成功
+                setTimeout(() => {
+                    alert('🎉 登录成功！欢迎回到新欣火智能教育平台！');
+                    window.location.href = 'user_profile.html';
+                }, 1500);
+                
+            } catch (error) {
+                hideLoading();
+                showError('登录失败，请检查用户名和密码');
+            }
+        });
+        
+        // 社交登录
+        function socialLogin(platform) {
+            showLoading();
+            
+            setTimeout(() => {
+                hideLoading();
+                if (platform === 'wechat') {
+                    alert('🚀 微信登录功能即将上线！');
+                } else if (platform === 'qq') {
+                    alert('🚀 QQ登录功能即将上线！');
+                }
+            }, 1500);
+        }
+        
+        // 生物识别登录
+        function biometricLogin(type) {
+            showLoading();
+            
+            setTimeout(() => {
+                hideLoading();
+                
+                if (type === 'fingerprint') {
+                    if (navigator.credentials) {
+                        alert('🔬 指纹识别功能正在开发中...');
+                    } else {
+                        alert('❌ 您的设备不支持指纹识别');
+                    }
+                } else if (type === 'face') {
+                    if (navigator.mediaDevices) {
+                        alert('🔬 面部识别功能正在开发中...');
+                    } else {
+                        alert('❌ 您的设备不支持摄像头');
+                    }
+                } else if (type === 'voice') {
+                    if (navigator.mediaDevices) {
+                        alert('🔬 声纹识别功能正在开发中...');
+                    } else {
+                        alert('❌ 您的设备不支持麦克风');
+                    }
+                }
+            }, 1500);
+        }
+        
+        // 忘记密码
+        function forgotPassword() {
+            const email = prompt('🔐 请输入您的邮箱地址，我们将发送重置链接：');
+            if (email) {
+                showLoading();
+                setTimeout(() => {
+                    hideLoading();
+                    alert('📧 密码重置邮件已发送，请查收！');
+                }, 2000);
+            }
+        }
+        
+        // 智能输入建议
+        document.getElementById('username').addEventListener('input', function(e) {
+            const value = e.target.value;
+            
+            // 检查是否为邮箱格式
+            if (value.includes('@') && !value.includes('.')) {
+                // 自动建议常用邮箱后缀
+                const suggestions = ['@qq.com', '@163.com', '@gmail.com', '@126.com'];
+                console.log('💡 智能建议：', suggestions);
+            }
+        });
+        
+        // 安全提示
+        document.getElementById('password').addEventListener('focus', function() {
+            console.log('🔒 安全提示：请确保您在安全的网络环境中输入密码');
+        });
+        
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            
+            // 检查是否有记住的用户
+            const rememberedUser = localStorage.getItem('rememberedUser');
+            if (rememberedUser) {
+                document.getElementById('username').value = rememberedUser;
+                document.getElementById('remember').checked = true;
+            }
+            
+            // 添加键盘快捷键
+            document.addEventListener('keydown', function(e) {
+                if (e.ctrlKey && e.key === 'Enter') {
+                    document.getElementById('loginForm').dispatchEvent(new Event('submit'));
+                }
+            });
+            
+            // 智能焦点管理
+            document.getElementById('username').focus();
+        });
+        
+        // 鼠标跟随效果
+        document.addEventListener('mousemove', function(e) {
+            const cursor = document.querySelector('.cursor');
+            if (!cursor) {
+                const newCursor = document.createElement('div');
+                newCursor.className = 'cursor';
+                newCursor.style.cssText = `
+                    position: fixed;
+                    width: 15px;
+                    height: 15px;
+                    background: radial-gradient(circle, rgba(0,255,255,0.6) 0%, transparent 70%);
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 9999;
+                    transition: transform 0.1s ease;
+                `;
+                document.body.appendChild(newCursor);
+            }
+            
+            const cursorElement = document.querySelector('.cursor');
+            cursorElement.style.left = e.clientX - 7.5 + 'px';
+            cursorElement.style.top = e.clientY - 7.5 + 'px';
+        });
+        </script>
+    </body>
+</html>

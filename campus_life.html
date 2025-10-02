@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>机构概况 | 新欣火教育</title>
-    <meta name="description" content="新欣火教育机构概况 - 引领教育科技创新的先锋机构">
+    <title>校园生活 | 新欣火教育</title>
+    <meta name="description" content="新欣火教育校园生活 - 丰富多彩的智能校园体验">
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/system/favicon.png">
     
     <style>
@@ -127,7 +127,7 @@
             padding: 100px 20px 50px;
         }
 
-        .about-container {
+        .campus-container {
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -160,245 +160,27 @@
             line-height: 1.6;
         }
 
-        /* 机构介绍 */
-        .intro-section {
+        /* 校园设施 */
+        .facilities-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .facility-card {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(0, 255, 255, 0.2);
             border-radius: 25px;
-            padding: 60px;
-            margin-bottom: 80px;
+            padding: 50px;
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .intro-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.05), transparent);
-            transform: rotate(45deg);
-            animation: sectionShine 6s ease-in-out infinite;
-        }
-
-        @keyframes sectionShine {
-            0%, 100% { transform: rotate(45deg) translate(-100%, -100%); }
-            50% { transform: rotate(45deg) translate(100%, 100%); }
-        }
-
-        .intro-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .intro-title {
-            font-size: 2.5rem;
-            color: #00ffff;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .intro-text {
-            font-size: 1.2rem;
-            line-height: 2;
-            color: #ffffff;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .intro-highlights {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .highlight-item {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(0, 255, 255, 0.2);
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .highlight-item:hover {
-            background: rgba(0, 255, 255, 0.1);
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
-        }
-
-        .highlight-icon {
-            font-size: 3rem;
-            color: #00ffff;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .highlight-title {
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: #ffffff;
-        }
-
-        .highlight-desc {
-            color: #b0c4de;
-            line-height: 1.6;
-        }
-
-        /* 发展历程 */
-        .timeline-section {
-            margin-bottom: 80px;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            color: #00ffff;
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .timeline {
-            position: relative;
-            padding: 40px 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(to bottom, #00ffff, #0080ff, #00ffff);
-            transform: translateX(-50%);
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 60px;
-            display: flex;
-            align-items: center;
-        }
-
-        .timeline-item:nth-child(odd) {
-            flex-direction: row;
-        }
-
-        .timeline-item:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-
-        .timeline-content {
-            flex: 1;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(0, 255, 255, 0.2);
-            border-radius: 20px;
-            padding: 30px;
-            margin: 0 40px;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .timeline-content:hover {
-            background: rgba(0, 255, 255, 0.1);
-            transform: scale(1.02);
-        }
-
-        .timeline-content::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            width: 0;
-            height: 0;
-            border: 15px solid transparent;
-            transform: translateY(-50%);
-        }
-
-        .timeline-item:nth-child(odd) .timeline-content::before {
-            right: -30px;
-            border-left-color: rgba(0, 255, 255, 0.2);
-        }
-
-        .timeline-item:nth-child(even) .timeline-content::before {
-            left: -30px;
-            border-right-color: rgba(0, 255, 255, 0.2);
-        }
-
-        .timeline-year {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #00ffff;
-            margin-bottom: 15px;
-        }
-
-        .timeline-title {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #ffffff;
-            margin-bottom: 10px;
-        }
-
-        .timeline-desc {
-            color: #b0c4de;
-            line-height: 1.6;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: 50%;
-            width: 25px;
-            height: 25px;
-            background: linear-gradient(45deg, #00ffff, #0080ff);
-            border-radius: 50%;
-            transform: translateX(-50%);
-            box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
-            animation: dotPulse 3s ease-in-out infinite;
-            z-index: 2;
-        }
-
-        @keyframes dotPulse {
-            0%, 100% { transform: translateX(-50%) scale(1); }
-            50% { transform: translateX(-50%) scale(1.3); }
-        }
-
-        /* 组织架构 */
-        .organization-section {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(0, 255, 255, 0.2);
-            border-radius: 25px;
-            padding: 60px;
-            margin-bottom: 80px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-        }
-
-        .org-chart {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .org-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(0, 255, 255, 0.2);
-            border-radius: 20px;
-            padding: 40px;
-            text-align: center;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
-        .org-card::before {
+        .facility-card::before {
             content: '';
             position: absolute;
             top: -50%;
@@ -411,7 +193,7 @@
             opacity: 0;
         }
 
-        .org-card:hover::before {
+        .facility-card:hover::before {
             opacity: 1;
             animation: cardSweep 1s ease-in-out;
         }
@@ -421,13 +203,99 @@
             100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
         }
 
-        .org-card:hover {
+        .facility-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 35px 70px rgba(0, 255, 255, 0.2);
+            border-color: #00ffff;
+        }
+
+        .facility-icon {
+            font-size: 4rem;
+            color: #00ffff;
+            margin-bottom: 25px;
+            display: block;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            position: relative;
+            z-index: 2;
+        }
+
+        .facility-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .facility-description {
+            color: #b0c4de;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* 学生活动 */
+        .activities-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 60px;
+            margin-bottom: 80px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #00ffff;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .activity-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .activity-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+
+        .activity-card:hover::before {
+            opacity: 1;
+            animation: cardSweep 1s ease-in-out;
+        }
+
+        .activity-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 25px 50px rgba(0, 255, 255, 0.2);
         }
 
-        .org-icon {
-            font-size: 4rem;
+        .activity-icon {
+            font-size: 3rem;
             color: #00ffff;
             margin-bottom: 20px;
             display: block;
@@ -435,7 +303,7 @@
             z-index: 2;
         }
 
-        .org-title {
+        .activity-title {
             font-size: 1.5rem;
             font-weight: bold;
             color: #ffffff;
@@ -444,64 +312,181 @@
             z-index: 2;
         }
 
-        .org-desc {
+        .activity-description {
             color: #b0c4de;
             line-height: 1.6;
+            font-size: 1rem;
             position: relative;
             z-index: 2;
         }
 
-        /* 联系信息 */
-        .contact-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
+        /* 智能服务 */
+        .services-section {
             margin-bottom: 80px;
         }
 
-        .contact-card {
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(0, 255, 255, 0.2);
             border-radius: 20px;
-            padding: 40px;
+            padding: 35px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
+            text-align: center;
         }
 
-        .contact-card:hover {
+        .service-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 30px 60px rgba(0, 255, 255, 0.2);
+            border-color: #00ffff;
         }
 
-        .contact-icon {
+        .service-icon {
             font-size: 3rem;
             color: #00ffff;
             margin-bottom: 20px;
             display: block;
         }
 
-        .contact-title {
-            font-size: 1.5rem;
+        .service-title {
+            font-size: 1.3rem;
             font-weight: bold;
             color: #ffffff;
             margin-bottom: 15px;
         }
 
-        .contact-info {
+        .service-desc {
             color: #b0c4de;
-            line-height: 1.8;
+            line-height: 1.6;
         }
 
-        .contact-info a {
+        /* 校园风采 */
+        .gallery-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 60px;
+            margin-bottom: 80px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .gallery-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(0, 255, 255, 0.1), rgba(0, 128, 255, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover::before {
+            opacity: 1;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
+        }
+
+        .gallery-icon {
+            font-size: 4rem;
             color: #00ffff;
-            text-decoration: none;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .gallery-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ffffff;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* 生活统计 */
+        .stats-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 60px;
+            margin-bottom: 80px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
             transition: all 0.3s ease;
         }
 
-        .contact-info a:hover {
+        .stat-card:hover {
+            background: rgba(0, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            color: #00ffff;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
             color: #ffffff;
-            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: #b0c4de;
+            font-size: 0.95rem;
         }
 
         /* 太空元素 */
@@ -638,35 +623,15 @@
                 display: none;
             }
 
-            .intro-section, .organization-section {
+            .facilities-section {
+                grid-template-columns: 1fr;
+            }
+
+            .activities-section, .gallery-section, .stats-section {
                 padding: 40px 30px;
             }
 
-            .timeline::before {
-                left: 30px;
-            }
-
-            .timeline-item {
-                flex-direction: row !important;
-            }
-
-            .timeline-content {
-                margin-left: 60px;
-                margin-right: 0;
-            }
-
-            .timeline-content::before {
-                left: -30px !important;
-                right: auto !important;
-                border-right-color: rgba(0, 255, 255, 0.2) !important;
-                border-left-color: transparent !important;
-            }
-
-            .timeline-dot {
-                left: 30px;
-            }
-
-            .contact-section {
+            .activities-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -704,170 +669,216 @@
 
     <!-- 主要内容 -->
     <div class="main-content">
-        <div class="about-container">
+        <div class="campus-container">
             <!-- 页面标题 -->
             <div class="page-header">
-                <h1 class="page-title">🏢 机构概况</h1>
+                <h1 class="page-title">🏫 校园生活</h1>
                 <p class="page-subtitle">
-                    引领教育科技创新，构建智能学习生态<br>
-                    新欣火教育 - 您的智能学习伙伴
+                    智能校园，精彩生活<br>
+                    体验未来教育的无限可能
                 </p>
             </div>
 
-            <!-- 机构介绍 -->
-            <div class="intro-section">
-                <div class="intro-content">
-                    <h2 class="intro-title">🚀 关于新欣火教育</h2>
-                    <p class="intro-text">
-                        新欣火教育成立于2018年，是一家专注于教育科技创新的领先机构。我们致力于运用人工智能、大数据分析和云计算技术，
-                        为全球学习者提供个性化、智能化的学习体验。通过不断的技术创新和教育理念革新，
-                        我们已经服务了超过50万名学员，覆盖全球156个国家和地区。
+            <!-- 校园设施 -->
+            <div class="facilities-section">
+                <div class="facility-card">
+                    <span class="facility-icon">🏢</span>
+                    <h3 class="facility-title">智能教学楼</h3>
+                    <p class="facility-description">
+                        配备最先进的多媒体教学设备，智能黑板、全息投影、VR实验室等现代化设施，
+                        为学员提供沉浸式的学习体验。每间教室都配备AI助教系统，实时监测学习状态。
                     </p>
-                    
-                    <div class="intro-highlights">
-                        <div class="highlight-item">
-                            <span class="highlight-icon">🎯</span>
-                            <h3 class="highlight-title">使命愿景</h3>
-                            <p class="highlight-desc">让每个人都能享受到优质、个性化的教育资源，推动全球教育公平化发展</p>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="highlight-icon">💡</span>
-                            <h3 class="highlight-title">核心价值</h3>
-                            <p class="highlight-desc">创新驱动、学员至上、品质卓越、开放合作</p>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="highlight-icon">🌟</span>
-                            <h3 class="highlight-title">发展理念</h3>
-                            <p class="highlight-desc">以科技赋能教育，以数据驱动决策，以创新引领未来</p>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="highlight-icon">🤝</span>
-                            <h3 class="highlight-title">社会责任</h3>
-                            <p class="highlight-desc">推动教育数字化转型，促进知识共享，构建学习型社会</p>
-                        </div>
+                </div>
+
+                <div class="facility-card">
+                    <span class="facility-icon">📚</span>
+                    <h3 class="facility-title">数字图书馆</h3>
+                    <p class="facility-description">
+                        拥有超过100万册电子图书和海量学术资源，采用AI推荐系统为每位学员个性化推荐学习资料。
+                        24小时开放，支持远程访问，随时随地获取知识。
+                    </p>
+                </div>
+
+                <div class="facility-card">
+                    <span class="facility-icon">🔬</span>
+                    <h3 class="facility-title">创新实验室</h3>
+                    <p class="facility-description">
+                        包括AI实验室、机器人实验室、生物技术实验室等多个专业实验室。
+                        配备顶级设备和专业导师，为学员提供动手实践的机会。
+                    </p>
+                </div>
+
+                <div class="facility-card">
+                    <span class="facility-icon">🏃‍♂️</span>
+                    <h3 class="facility-title">智能健身中心</h3>
+                    <p class="facility-description">
+                        现代化健身设施配备智能监测系统，实时跟踪运动数据，制定个性化健身计划。
+                        包括游泳池、篮球场、瑜伽室等多功能运动场所。
+                    </p>
+                </div>
+
+                <div class="facility-card">
+                    <span class="facility-icon">🍽️</span>
+                    <h3 class="facility-title">智慧餐厅</h3>
+                    <p class="facility-description">
+                        采用无人点餐系统和智能配餐，根据个人健康数据推荐营养搭配。
+                        多样化美食选择，满足不同文化背景学员的饮食需求。
+                    </p>
+                </div>
+
+                <div class="facility-card">
+                    <span class="facility-icon">🏠</span>
+                    <h3 class="facility-title">智能宿舍</h3>
+                    <p class="facility-description">
+                        配备智能家居系统，自动调节温度、湿度和照明。高速WiFi覆盖，
+                        24小时安保监控，为学员提供安全舒适的居住环境。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 学生活动 -->
+            <div class="activities-section">
+                <h2 class="section-title">🎉 学生活动</h2>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <span class="activity-icon">🎭</span>
+                        <h3 class="activity-title">文化艺术节</h3>
+                        <p class="activity-description">每年举办大型文化艺术节，包括音乐会、戏剧表演、美术展览等，展示学员才华</p>
+                    </div>
+
+                    <div class="activity-card">
+                        <span class="activity-icon">🏆</span>
+                        <h3 class="activity-title">科技竞赛</h3>
+                        <p class="activity-description">定期组织编程大赛、机器人竞赛、创新创业大赛，激发学员创新潜能</p>
+                    </div>
+
+                    <div class="activity-card">
+                        <span class="activity-icon">🌍</span>
+                        <h3 class="activity-title">国际交流</h3>
+                        <p class="activity-description">与全球合作院校开展交换项目，拓展国际视野，体验多元文化</p>
+                    </div>
+
+                    <div class="activity-card">
+                        <span class="activity-icon">🤝</span>
+                        <h3 class="activity-title">社会实践</h3>
+                        <p class="activity-description">组织志愿服务、社区服务、企业实习等社会实践活动，培养社会责任感</p>
+                    </div>
+
+                    <div class="activity-card">
+                        <span class="activity-icon">⚽</span>
+                        <h3 class="activity-title">体育竞技</h3>
+                        <p class="activity-description">举办各类体育比赛和运动会，促进身心健康发展，培养团队合作精神</p>
+                    </div>
+
+                    <div class="activity-card">
+                        <span class="activity-icon">🎤</span>
+                        <h3 class="activity-title">学术讲座</h3>
+                        <p class="activity-description">邀请知名专家学者举办学术讲座，分享前沿知识和研究成果</p>
                     </div>
                 </div>
             </div>
 
-            <!-- 发展历程 -->
-            <div class="timeline-section">
-                <h2 class="section-title">📈 发展历程</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-year">2018年</div>
-                            <div class="timeline-title">🚀 创立起航</div>
-                            <div class="timeline-desc">新欣火教育正式成立，确立"科技赋能教育"的发展理念，开始在线教育平台的研发工作。</div>
-                        </div>
+            <!-- 智能服务 -->
+            <div class="services-section">
+                <h2 class="section-title">🤖 智能服务</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <span class="service-icon">📱</span>
+                        <h3 class="service-title">校园APP</h3>
+                        <p class="service-desc">一站式校园服务平台，课程查询、成绩查看、活动报名等功能</p>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-year">2019年</div>
-                            <div class="timeline-title">🤖 AI技术突破</div>
-                            <div class="timeline-desc">成功研发智能学习推荐系统，获得多项AI教育技术专利，用户数量突破10万。</div>
-                        </div>
+                    <div class="service-card">
+                        <span class="service-icon">🚌</span>
+                        <h3 class="service-title">智能班车</h3>
+                        <p class="service-desc">实时班车位置查询，智能路线规划，便捷校园出行</p>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-year">2020年</div>
-                            <div class="timeline-title">🌐 全球化布局</div>
-                            <div class="timeline-desc">启动国际化战略，平台支持多语言，服务范围扩展至全球50个国家，用户突破50万。</div>
-                        </div>
+                    <div class="service-card">
+                        <span class="service-icon">💳</span>
+                        <h3 class="service-title">校园一卡通</h3>
+                        <p class="service-desc">集成身份识别、消费支付、门禁管理等多功能智能卡</p>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-year">2021年</div>
-                            <div class="timeline-title">🏆 行业认可</div>
-                            <div class="timeline-desc">获得"年度最佳教育科技创新奖"，与多所知名高校建立合作关系，推出企业培训解决方案。</div>
-                        </div>
+                    <div class="service-card">
+                        <span class="service-icon">🏥</span>
+                        <h3 class="service-title">健康管理</h3>
+                        <p class="service-desc">智能健康监测，定期体检提醒，个性化健康建议</p>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-year">2022年</div>
-                            <div class="timeline-title">🔮 未来预测</div>
-                            <div class="timeline-desc">推出学习成果预测系统，实现个性化学习路径规划，获得B轮融资，估值达到10亿美元。</div>
-                        </div>
+                    <div class="service-card">
+                        <span class="service-icon">🛡️</span>
+                        <h3 class="service-title">安全保障</h3>
+                        <p class="service-desc">24小时智能监控，紧急呼叫系统，全方位安全保护</p>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-year">2023年</div>
-                            <div class="timeline-title">🌟 生态完善</div>
-                            <div class="timeline-desc">构建完整的智能教育生态系统，推出云端协作平台，全球用户突破100万，覆盖156个国家。</div>
-                        </div>
+                    <div class="service-card">
+                        <span class="service-icon">💬</span>
+                        <h3 class="service-title">AI助手</h3>
+                        <p class="service-desc">智能客服机器人，随时解答疑问，提供个性化服务</p>
                     </div>
                 </div>
             </div>
 
-            <!-- 组织架构 */
-            <div class="organization-section">
-                <h2 class="section-title">🏗️ 组织架构</h2>
-                <div class="org-chart">
-                    <div class="org-card">
-                        <span class="org-icon">👑</span>
-                        <h3 class="org-title">董事会</h3>
-                        <p class="org-desc">负责公司战略决策、重大投资和发展方向制定</p>
+            <!-- 校园风采 -->
+            <div class="gallery-section">
+                <h2 class="section-title">📸 校园风采</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <span class="gallery-icon">🌸</span>
+                        <h3 class="gallery-title">春日校园</h3>
                     </div>
-                    <div class="org-card">
-                        <span class="org-icon">🎯</span>
-                        <h3 class="org-title">执行团队</h3>
-                        <p class="org-desc">CEO、CTO、COO等高管团队，负责公司日常运营管理</p>
+                    <div class="gallery-item">
+                        <span class="gallery-icon">🎓</span>
+                        <h3 class="gallery-title">毕业典礼</h3>
                     </div>
-                    <div class="org-card">
-                        <span class="org-icon">🔬</span>
-                        <h3 class="org-title">技术研发部</h3>
-                        <p class="org-desc">AI算法、平台开发、数据分析等核心技术研发</p>
+                    <div class="gallery-item">
+                        <span class="gallery-icon">🔬</span>
+                        <h3 class="gallery-title">实验室风采</h3>
                     </div>
-                    <div class="org-card">
-                        <span class="org-icon">🎓</span>
-                        <h3 class="org-title">教育内容部</h3>
-                        <p class="org-desc">课程设计、内容制作、教学质量管控</p>
+                    <div class="gallery-item">
+                        <span class="gallery-icon">🎪</span>
+                        <h3 class="gallery-title">文化节庆</h3>
                     </div>
-                    <div class="org-card">
-                        <span class="org-icon">🌐</span>
-                        <h3 class="org-title">市场运营部</h3>
-                        <p class="org-desc">品牌推广、用户运营、市场拓展</p>
+                    <div class="gallery-item">
+                        <span class="gallery-icon">🏃‍♀️</span>
+                        <h3 class="gallery-title">运动时光</h3>
                     </div>
-                    <div class="org-card">
-                        <span class="org-icon">🤝</span>
-                        <h3 class="org-title">客户服务部</h3>
-                        <p class="org-desc">用户支持、售后服务、客户关系维护</p>
+                    <div class="gallery-item">
+                        <span class="gallery-icon">🌙</span>
+                        <h3 class="gallery-title">夜景如画</h3>
                     </div>
                 </div>
             </div>
 
-            <!-- 联系信息 -->
-            <div class="contact-section">
-                <div class="contact-card">
-                    <span class="contact-icon">📍</span>
-                    <h3 class="contact-title">总部地址</h3>
-                    <div class="contact-info">
-                        中国北京市海淀区中关村科技园<br>
-                        新欣火教育大厦 18-20层<br>
-                        邮编：100080
+            <!-- 生活统计 -->
+            <div class="stats-section">
+                <h2 class="section-title">📊 生活数据</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-icon">👥</span>
+                        <div class="stat-number">15000+</div>
+                        <div class="stat-label">在校学员</div>
                     </div>
-                </div>
-                <div class="contact-card">
-                    <span class="contact-icon">📞</span>
-                    <h3 class="contact-title">联系方式</h3>
-                    <div class="contact-info">
-                        客服热线：400-888-9999<br>
-                        商务合作：<a href="mailto:business@xinxinhuo.com">business@xinxinhuo.com</a><br>
-                        技术支持：<a href="mailto:support@xinxinhuo.com">support@xinxinhuo.com</a>
+                    <div class="stat-card">
+                        <span class="stat-icon">🏢</span>
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">教学楼宇</div>
                     </div>
-                </div>
-                <div class="contact-card">
-                    <span class="contact-icon">🌐</span>
-                    <h3 class="contact-title">在线服务</h3>
-                    <div class="contact-info">
-                        官方网站：<a href="https://www.xinxinhuo.com">www.xinxinhuo.com</a><br>
-                        微信公众号：新欣火教育<br>
-                        服务时间：7×24小时在线
+                    <div class="stat-card">
+                        <span class="stat-icon">🍽️</span>
+                        <div class="stat-number">20</div>
+                        <div class="stat-label">餐厅食堂</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon">🏠</span>
+                        <div class="stat-number">30</div>
+                        <div class="stat-label">宿舍楼栋</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon">📚</span>
+                        <div class="stat-number">100万+</div>
+                        <div class="stat-label">图书资源</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon">🎯</span>
+                        <div class="stat-number">200+</div>
+                        <div class="stat-label">学生社团</div>
                     </div>
                 </div>
             </div>
@@ -1004,7 +1015,7 @@
                 }
             });
 
-            // 时间线动画
+            // 滚动动画
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -50px 0px'
@@ -1019,12 +1030,12 @@
                 });
             }, observerOptions);
 
-            // 观察时间线项目
-            document.querySelectorAll('.timeline-item').forEach(item => {
-                item.style.opacity = '0';
-                item.style.transform = 'translateY(50px)';
-                item.style.transition = 'all 0.6s ease';
-                observer.observe(item);
+            // 观察卡片元素
+            document.querySelectorAll('.facility-card, .activity-card, .service-card, .gallery-item, .stat-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px)';
+                card.style.transition = 'all 0.6s ease';
+                observer.observe(card);
             });
         });
     </script>

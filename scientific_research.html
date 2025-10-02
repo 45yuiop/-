@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>机构概况 | 新欣火教育</title>
-    <meta name="description" content="新欣火教育机构概况 - 引领教育科技创新的先锋机构">
+    <title>科学研究 | 新欣火教育</title>
+    <meta name="description" content="新欣火教育科学研究 - 前沿技术研究与教育创新实验室">
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/system/favicon.png">
     
     <style>
@@ -127,7 +127,7 @@
             padding: 100px 20px 50px;
         }
 
-        .about-container {
+        .research-container {
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -160,245 +160,27 @@
             line-height: 1.6;
         }
 
-        /* 机构介绍 */
-        .intro-section {
+        /* 研究领域 */
+        .research-areas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .area-card {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(0, 255, 255, 0.2);
             border-radius: 25px;
-            padding: 60px;
-            margin-bottom: 80px;
+            padding: 50px;
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .intro-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.05), transparent);
-            transform: rotate(45deg);
-            animation: sectionShine 6s ease-in-out infinite;
-        }
-
-        @keyframes sectionShine {
-            0%, 100% { transform: rotate(45deg) translate(-100%, -100%); }
-            50% { transform: rotate(45deg) translate(100%, 100%); }
-        }
-
-        .intro-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .intro-title {
-            font-size: 2.5rem;
-            color: #00ffff;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .intro-text {
-            font-size: 1.2rem;
-            line-height: 2;
-            color: #ffffff;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .intro-highlights {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .highlight-item {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(0, 255, 255, 0.2);
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .highlight-item:hover {
-            background: rgba(0, 255, 255, 0.1);
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
-        }
-
-        .highlight-icon {
-            font-size: 3rem;
-            color: #00ffff;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .highlight-title {
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: #ffffff;
-        }
-
-        .highlight-desc {
-            color: #b0c4de;
-            line-height: 1.6;
-        }
-
-        /* 发展历程 */
-        .timeline-section {
-            margin-bottom: 80px;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            color: #00ffff;
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .timeline {
-            position: relative;
-            padding: 40px 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(to bottom, #00ffff, #0080ff, #00ffff);
-            transform: translateX(-50%);
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 60px;
-            display: flex;
-            align-items: center;
-        }
-
-        .timeline-item:nth-child(odd) {
-            flex-direction: row;
-        }
-
-        .timeline-item:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-
-        .timeline-content {
-            flex: 1;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(0, 255, 255, 0.2);
-            border-radius: 20px;
-            padding: 30px;
-            margin: 0 40px;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .timeline-content:hover {
-            background: rgba(0, 255, 255, 0.1);
-            transform: scale(1.02);
-        }
-
-        .timeline-content::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            width: 0;
-            height: 0;
-            border: 15px solid transparent;
-            transform: translateY(-50%);
-        }
-
-        .timeline-item:nth-child(odd) .timeline-content::before {
-            right: -30px;
-            border-left-color: rgba(0, 255, 255, 0.2);
-        }
-
-        .timeline-item:nth-child(even) .timeline-content::before {
-            left: -30px;
-            border-right-color: rgba(0, 255, 255, 0.2);
-        }
-
-        .timeline-year {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #00ffff;
-            margin-bottom: 15px;
-        }
-
-        .timeline-title {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #ffffff;
-            margin-bottom: 10px;
-        }
-
-        .timeline-desc {
-            color: #b0c4de;
-            line-height: 1.6;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: 50%;
-            width: 25px;
-            height: 25px;
-            background: linear-gradient(45deg, #00ffff, #0080ff);
-            border-radius: 50%;
-            transform: translateX(-50%);
-            box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
-            animation: dotPulse 3s ease-in-out infinite;
-            z-index: 2;
-        }
-
-        @keyframes dotPulse {
-            0%, 100% { transform: translateX(-50%) scale(1); }
-            50% { transform: translateX(-50%) scale(1.3); }
-        }
-
-        /* 组织架构 */
-        .organization-section {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(0, 255, 255, 0.2);
-            border-radius: 25px;
-            padding: 60px;
-            margin-bottom: 80px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-        }
-
-        .org-chart {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .org-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(0, 255, 255, 0.2);
-            border-radius: 20px;
-            padding: 40px;
-            text-align: center;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
-        .org-card::before {
+        .area-card::before {
             content: '';
             position: absolute;
             top: -50%;
@@ -411,7 +193,7 @@
             opacity: 0;
         }
 
-        .org-card:hover::before {
+        .area-card:hover::before {
             opacity: 1;
             animation: cardSweep 1s ease-in-out;
         }
@@ -421,87 +203,285 @@
             100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
         }
 
-        .org-card:hover {
+        .area-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 35px 70px rgba(0, 255, 255, 0.2);
+            border-color: #00ffff;
+        }
+
+        .area-icon {
+            font-size: 4rem;
+            color: #00ffff;
+            margin-bottom: 25px;
+            display: block;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            position: relative;
+            z-index: 2;
+        }
+
+        .area-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .area-description {
+            color: #b0c4de;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 2;
+            margin-bottom: 20px;
+        }
+
+        .area-keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .keyword-tag {
+            background: rgba(0, 255, 255, 0.2);
+            color: #00ffff;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+        }
+
+        /* 研究成果 */
+        .achievements-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 60px;
+            margin-bottom: 80px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #00ffff;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .achievement-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+
+        .achievement-card:hover::before {
+            opacity: 1;
+            animation: cardSweep 1s ease-in-out;
+        }
+
+        .achievement-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 25px 50px rgba(0, 255, 255, 0.2);
         }
 
-        .org-icon {
-            font-size: 4rem;
-            color: #00ffff;
-            margin-bottom: 20px;
-            display: block;
-            position: relative;
-            z-index: 2;
-        }
-
-        .org-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #ffffff;
-            margin-bottom: 15px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .org-desc {
-            color: #b0c4de;
-            line-height: 1.6;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* 联系信息 */
-        .contact-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-bottom: 80px;
-        }
-
-        .contact-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(0, 255, 255, 0.2);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .contact-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(0, 255, 255, 0.2);
-        }
-
-        .contact-icon {
+        .achievement-icon {
             font-size: 3rem;
             color: #00ffff;
             margin-bottom: 20px;
             display: block;
+            position: relative;
+            z-index: 2;
         }
 
-        .contact-title {
-            font-size: 1.5rem;
+        .achievement-number {
+            font-size: 2.5rem;
             font-weight: bold;
             color: #ffffff;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
         }
 
-        .contact-info {
+        .achievement-label {
+            color: #b0c4de;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* 实验室 */
+        .labs-section {
+            margin-bottom: 80px;
+        }
+
+        .labs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+        }
+
+        .lab-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 50px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lab-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+
+        .lab-card:hover::before {
+            opacity: 1;
+            animation: cardSweep 1s ease-in-out;
+        }
+
+        .lab-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 35px 70px rgba(0, 255, 255, 0.2);
+            border-color: #00ffff;
+        }
+
+        .lab-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .lab-icon {
+            font-size: 3rem;
+            color: #00ffff;
+            margin-right: 20px;
+        }
+
+        .lab-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .lab-description {
             color: #b0c4de;
             line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
         }
 
-        .contact-info a {
+        .lab-features {
+            list-style: none;
+            position: relative;
+            z-index: 2;
+        }
+
+        .lab-features li {
+            color: #ffffff;
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .lab-features li::before {
+            content: '🔬';
+            position: absolute;
+            left: 0;
             color: #00ffff;
-            text-decoration: none;
+        }
+
+        /* 合作伙伴 */
+        .partners-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 60px;
+            margin-bottom: 80px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .partner-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
             transition: all 0.3s ease;
         }
 
-        .contact-info a:hover {
+        .partner-card:hover {
+            background: rgba(0, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .partner-logo {
+            font-size: 3rem;
+            color: #00ffff;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .partner-name {
+            font-size: 1.2rem;
+            font-weight: bold;
             color: #ffffff;
-            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            margin-bottom: 10px;
+        }
+
+        .partner-type {
+            color: #b0c4de;
+            font-size: 0.95rem;
         }
 
         /* 太空元素 */
@@ -638,35 +618,15 @@
                 display: none;
             }
 
-            .intro-section, .organization-section {
+            .research-areas {
+                grid-template-columns: 1fr;
+            }
+
+            .achievements-section, .partners-section {
                 padding: 40px 30px;
             }
 
-            .timeline::before {
-                left: 30px;
-            }
-
-            .timeline-item {
-                flex-direction: row !important;
-            }
-
-            .timeline-content {
-                margin-left: 60px;
-                margin-right: 0;
-            }
-
-            .timeline-content::before {
-                left: -30px !important;
-                right: auto !important;
-                border-right-color: rgba(0, 255, 255, 0.2) !important;
-                border-left-color: transparent !important;
-            }
-
-            .timeline-dot {
-                left: 30px;
-            }
-
-            .contact-section {
+            .labs-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -704,170 +664,223 @@
 
     <!-- 主要内容 -->
     <div class="main-content">
-        <div class="about-container">
+        <div class="research-container">
             <!-- 页面标题 -->
             <div class="page-header">
-                <h1 class="page-title">🏢 机构概况</h1>
+                <h1 class="page-title">🔬 科学研究</h1>
                 <p class="page-subtitle">
-                    引领教育科技创新，构建智能学习生态<br>
-                    新欣火教育 - 您的智能学习伙伴
+                    前沿技术研究，教育创新实验<br>
+                    推动教育科技发展的先锋力量
                 </p>
             </div>
 
-            <!-- 机构介绍 -->
-            <div class="intro-section">
-                <div class="intro-content">
-                    <h2 class="intro-title">🚀 关于新欣火教育</h2>
-                    <p class="intro-text">
-                        新欣火教育成立于2018年，是一家专注于教育科技创新的领先机构。我们致力于运用人工智能、大数据分析和云计算技术，
-                        为全球学习者提供个性化、智能化的学习体验。通过不断的技术创新和教育理念革新，
-                        我们已经服务了超过50万名学员，覆盖全球156个国家和地区。
+            <!-- 研究领域 -->
+            <div class="research-areas">
+                <div class="area-card">
+                    <span class="area-icon">🤖</span>
+                    <h3 class="area-title">人工智能教育</h3>
+                    <p class="area-description">
+                        深入研究AI在教育领域的应用，开发智能教学系统、个性化学习推荐算法、
+                        自然语言处理技术在教育中的应用等前沿技术。
                     </p>
-                    
-                    <div class="intro-highlights">
-                        <div class="highlight-item">
-                            <span class="highlight-icon">🎯</span>
-                            <h3 class="highlight-title">使命愿景</h3>
-                            <p class="highlight-desc">让每个人都能享受到优质、个性化的教育资源，推动全球教育公平化发展</p>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="highlight-icon">💡</span>
-                            <h3 class="highlight-title">核心价值</h3>
-                            <p class="highlight-desc">创新驱动、学员至上、品质卓越、开放合作</p>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="highlight-icon">🌟</span>
-                            <h3 class="highlight-title">发展理念</h3>
-                            <p class="highlight-desc">以科技赋能教育，以数据驱动决策，以创新引领未来</p>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="highlight-icon">🤝</span>
-                            <h3 class="highlight-title">社会责任</h3>
-                            <p class="highlight-desc">推动教育数字化转型，促进知识共享，构建学习型社会</p>
-                        </div>
+                    <div class="area-keywords">
+                        <span class="keyword-tag">机器学习</span>
+                        <span class="keyword-tag">深度学习</span>
+                        <span class="keyword-tag">自然语言处理</span>
+                        <span class="keyword-tag">计算机视觉</span>
+                    </div>
+                </div>
+
+                <div class="area-card">
+                    <span class="area-icon">📊</span>
+                    <h3 class="area-title">教育大数据</h3>
+                    <p class="area-description">
+                        利用大数据技术分析学习行为模式，构建学习者画像，
+                        预测学习效果，为教育决策提供科学依据。
+                    </p>
+                    <div class="area-keywords">
+                        <span class="keyword-tag">数据挖掘</span>
+                        <span class="keyword-tag">学习分析</span>
+                        <span class="keyword-tag">预测建模</span>
+                        <span class="keyword-tag">可视化</span>
+                    </div>
+                </div>
+
+                <div class="area-card">
+                    <span class="area-icon">🌐</span>
+                    <h3 class="area-title">在线教育技术</h3>
+                    <p class="area-description">
+                        研发新一代在线教育平台技术，包括虚拟现实教学、
+                        增强现实学习环境、云计算教育服务等创新技术。
+                    </p>
+                    <div class="area-keywords">
+                        <span class="keyword-tag">VR/AR</span>
+                        <span class="keyword-tag">云计算</span>
+                        <span class="keyword-tag">移动学习</span>
+                        <span class="keyword-tag">区块链</span>
+                    </div>
+                </div>
+
+                <div class="area-card">
+                    <span class="area-icon">🧠</span>
+                    <h3 class="area-title">认知科学</h3>
+                    <p class="area-description">
+                        结合认知科学理论，研究学习机制和认知过程，
+                        开发基于认知科学的智能教学方法和评估体系。
+                    </p>
+                    <div class="area-keywords">
+                        <span class="keyword-tag">学习科学</span>
+                        <span class="keyword-tag">认知建模</span>
+                        <span class="keyword-tag">神经科学</span>
+                        <span class="keyword-tag">心理学</span>
                     </div>
                 </div>
             </div>
 
-            <!-- 发展历程 -->
-            <div class="timeline-section">
-                <h2 class="section-title">📈 发展历程</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-year">2018年</div>
-                            <div class="timeline-title">🚀 创立起航</div>
-                            <div class="timeline-desc">新欣火教育正式成立，确立"科技赋能教育"的发展理念，开始在线教育平台的研发工作。</div>
-                        </div>
+            <!-- 研究成果 -->
+            <div class="achievements-section">
+                <h2 class="section-title">🏆 研究成果</h2>
+                <div class="achievements-grid">
+                    <div class="achievement-card">
+                        <span class="achievement-icon">📄</span>
+                        <div class="achievement-number">150+</div>
+                        <div class="achievement-label">发表论文</div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-year">2019年</div>
-                            <div class="timeline-title">🤖 AI技术突破</div>
-                            <div class="timeline-desc">成功研发智能学习推荐系统，获得多项AI教育技术专利，用户数量突破10万。</div>
-                        </div>
+                    <div class="achievement-card">
+                        <span class="achievement-icon">🏅</span>
+                        <div class="achievement-number">25</div>
+                        <div class="achievement-label">获得专利</div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-year">2020年</div>
-                            <div class="timeline-title">🌐 全球化布局</div>
-                            <div class="timeline-desc">启动国际化战略，平台支持多语言，服务范围扩展至全球50个国家，用户突破50万。</div>
-                        </div>
+                    <div class="achievement-card">
+                        <span class="achievement-icon">🎯</span>
+                        <div class="achievement-number">12</div>
+                        <div class="achievement-label">国家级项目</div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-year">2021年</div>
-                            <div class="timeline-title">🏆 行业认可</div>
-                            <div class="timeline-desc">获得"年度最佳教育科技创新奖"，与多所知名高校建立合作关系，推出企业培训解决方案。</div>
-                        </div>
+                    <div class="achievement-card">
+                        <span class="achievement-icon">🌟</span>
+                        <div class="achievement-number">8</div>
+                        <div class="achievement-label">国际奖项</div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-year">2022年</div>
-                            <div class="timeline-title">🔮 未来预测</div>
-                            <div class="timeline-desc">推出学习成果预测系统，实现个性化学习路径规划，获得B轮融资，估值达到10亿美元。</div>
-                        </div>
+                    <div class="achievement-card">
+                        <span class="achievement-icon">💰</span>
+                        <div class="achievement-number">5000万</div>
+                        <div class="achievement-label">研发投入</div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-year">2023年</div>
-                            <div class="timeline-title">🌟 生态完善</div>
-                            <div class="timeline-desc">构建完整的智能教育生态系统，推出云端协作平台，全球用户突破100万，覆盖156个国家。</div>
-                        </div>
+                    <div class="achievement-card">
+                        <span class="achievement-icon">👥</span>
+                        <div class="achievement-number">80+</div>
+                        <div class="achievement-label">研究人员</div>
                     </div>
                 </div>
             </div>
 
-            <!-- 组织架构 */
-            <div class="organization-section">
-                <h2 class="section-title">🏗️ 组织架构</h2>
-                <div class="org-chart">
-                    <div class="org-card">
-                        <span class="org-icon">👑</span>
-                        <h3 class="org-title">董事会</h3>
-                        <p class="org-desc">负责公司战略决策、重大投资和发展方向制定</p>
+            <!-- 实验室 -->
+            <div class="labs-section">
+                <h2 class="section-title">🔬 研究实验室</h2>
+                <div class="labs-grid">
+                    <div class="lab-card">
+                        <div class="lab-header">
+                            <span class="lab-icon">🤖</span>
+                            <h3 class="lab-title">AI教育实验室</h3>
+                        </div>
+                        <p class="lab-description">
+                            专注于人工智能在教育领域的应用研究，拥有先进的GPU集群和深度学习平台，
+                            致力于开发下一代智能教育系统。
+                        </p>
+                        <ul class="lab-features">
+                            <li>智能教学助手研发</li>
+                            <li>个性化学习算法优化</li>
+                            <li>自适应测评系统</li>
+                            <li>多模态学习分析</li>
+                        </ul>
                     </div>
-                    <div class="org-card">
-                        <span class="org-icon">🎯</span>
-                        <h3 class="org-title">执行团队</h3>
-                        <p class="org-desc">CEO、CTO、COO等高管团队，负责公司日常运营管理</p>
+
+                    <div class="lab-card">
+                        <div class="lab-header">
+                            <span class="lab-icon">📊</span>
+                            <h3 class="lab-title">教育数据科学实验室</h3>
+                        </div>
+                        <p class="lab-description">
+                            运用大数据技术挖掘教育数据价值，构建学习者模型，
+                            为教育决策和个性化教学提供数据支撑。
+                        </p>
+                        <ul class="lab-features">
+                            <li>学习行为分析</li>
+                            <li>教育效果评估</li>
+                            <li>预测性分析模型</li>
+                            <li>数据可视化平台</li>
+                        </ul>
                     </div>
-                    <div class="org-card">
-                        <span class="org-icon">🔬</span>
-                        <h3 class="org-title">技术研发部</h3>
-                        <p class="org-desc">AI算法、平台开发、数据分析等核心技术研发</p>
+
+                    <div class="lab-card">
+                        <div class="lab-header">
+                            <span class="lab-icon">🥽</span>
+                            <h3 class="lab-title">虚拟现实教育实验室</h3>
+                        </div>
+                        <p class="lab-description">
+                            探索VR/AR技术在教育中的创新应用，开发沉浸式学习环境，
+                            为复杂概念的理解提供直观的可视化体验。
+                        </p>
+                        <ul class="lab-features">
+                            <li>虚拟实验室开发</li>
+                            <li>3D教学内容制作</li>
+                            <li>沉浸式学习体验</li>
+                            <li>混合现实教学</li>
+                        </ul>
                     </div>
-                    <div class="org-card">
-                        <span class="org-icon">🎓</span>
-                        <h3 class="org-title">教育内容部</h3>
-                        <p class="org-desc">课程设计、内容制作、教学质量管控</p>
-                    </div>
-                    <div class="org-card">
-                        <span class="org-icon">🌐</span>
-                        <h3 class="org-title">市场运营部</h3>
-                        <p class="org-desc">品牌推广、用户运营、市场拓展</p>
-                    </div>
-                    <div class="org-card">
-                        <span class="org-icon">🤝</span>
-                        <h3 class="org-title">客户服务部</h3>
-                        <p class="org-desc">用户支持、售后服务、客户关系维护</p>
+
+                    <div class="lab-card">
+                        <div class="lab-header">
+                            <span class="lab-icon">🧠</span>
+                            <h3 class="lab-title">学习科学研究中心</h3>
+                        </div>
+                        <p class="lab-description">
+                            结合认知科学、心理学和神经科学理论，深入研究学习机制，
+                            为教育技术的发展提供科学理论基础。
+                        </p>
+                        <ul class="lab-features">
+                            <li>认知负荷理论研究</li>
+                            <li>学习动机分析</li>
+                            <li>记忆与遗忘规律</li>
+                            <li>脑机接口教育应用</li>
+                        </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- 联系信息 -->
-            <div class="contact-section">
-                <div class="contact-card">
-                    <span class="contact-icon">📍</span>
-                    <h3 class="contact-title">总部地址</h3>
-                    <div class="contact-info">
-                        中国北京市海淀区中关村科技园<br>
-                        新欣火教育大厦 18-20层<br>
-                        邮编：100080
+            <!-- 合作伙伴 -->
+            <div class="partners-section">
+                <h2 class="section-title">🤝 合作伙伴</h2>
+                <div class="partners-grid">
+                    <div class="partner-card">
+                        <span class="partner-logo">🏛️</span>
+                        <h3 class="partner-name">清华大学</h3>
+                        <p class="partner-type">战略合作高校</p>
                     </div>
-                </div>
-                <div class="contact-card">
-                    <span class="contact-icon">📞</span>
-                    <h3 class="contact-title">联系方式</h3>
-                    <div class="contact-info">
-                        客服热线：400-888-9999<br>
-                        商务合作：<a href="mailto:business@xinxinhuo.com">business@xinxinhuo.com</a><br>
-                        技术支持：<a href="mailto:support@xinxinhuo.com">support@xinxinhuo.com</a>
+                    <div class="partner-card">
+                        <span class="partner-logo">🎓</span>
+                        <h3 class="partner-name">北京大学</h3>
+                        <p class="partner-type">联合研究机构</p>
                     </div>
-                </div>
-                <div class="contact-card">
-                    <span class="contact-icon">🌐</span>
-                    <h3 class="contact-title">在线服务</h3>
-                    <div class="contact-info">
-                        官方网站：<a href="https://www.xinxinhuo.com">www.xinxinhuo.com</a><br>
-                        微信公众号：新欣火教育<br>
-                        服务时间：7×24小时在线
+                    <div class="partner-card">
+                        <span class="partner-logo">🏢</span>
+                        <h3 class="partner-name">微软研究院</h3>
+                        <p class="partner-type">技术合作伙伴</p>
+                    </div>
+                    <div class="partner-card">
+                        <span class="partner-logo">🌐</span>
+                        <h3 class="partner-name">谷歌AI</h3>
+                        <p class="partner-type">AI技术合作</p>
+                    </div>
+                    <div class="partner-card">
+                        <span class="partner-logo">🔬</span>
+                        <h3 class="partner-name">中科院</h3>
+                        <p class="partner-type">科研合作单位</p>
+                    </div>
+                    <div class="partner-card">
+                        <span class="partner-logo">🌍</span>
+                        <h3 class="partner-name">MIT媒体实验室</h3>
+                        <p class="partner-type">国际合作机构</p>
                     </div>
                 </div>
             </div>
@@ -1004,7 +1017,7 @@
                 }
             });
 
-            // 时间线动画
+            // 滚动动画
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -50px 0px'
@@ -1019,12 +1032,12 @@
                 });
             }, observerOptions);
 
-            // 观察时间线项目
-            document.querySelectorAll('.timeline-item').forEach(item => {
-                item.style.opacity = '0';
-                item.style.transform = 'translateY(50px)';
-                item.style.transition = 'all 0.6s ease';
-                observer.observe(item);
+            // 观察卡片元素
+            document.querySelectorAll('.area-card, .achievement-card, .lab-card, .partner-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px)';
+                card.style.transition = 'all 0.6s ease';
+                observer.observe(card);
             });
         });
     </script>
