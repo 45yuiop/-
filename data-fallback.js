@@ -8,14 +8,42 @@ window.DataFallback = {
         class_stats: { totalClasses: 11 }
     },
     
-    // 获取数据的多种方法
+    // 获取数据的多种方法（智能环境检测）
     async getData() {
-        const methods = [
-            this.getFromAPI.bind(this),
-            this.getFromJSONP.bind(this),
-            this.getFromProxy.bind(this),
-            this.getFromCache.bind(this)
-        ];
+        const isVercel = window.location.hostname.includes('vercel.app');
+        const isGitHubPages = window.location.hostname.includes('github.io');
+        const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+        
+        console.log('🌐 检测到环境:', {
+            hostname: window.location.hostname,
+            isVercel,
+            isGitHubPages,
+            isLocalhost
+        });
+        
+        let methods = [];
+        
+        if (isVercel) {
+            // Vercel环境：优先使用本地代理
+            methods = [
+                this.getFromVercelProxy.bind(this),
+                this.getFromAPI.bind(this),
+                this.getFromCache.bind(this)
+            ];
+        } else if (isLocalhost) {
+            // 本地环境：直接API请求
+            methods = [
+                this.getFromAPI.bind(this),
+                this.getFromCache.bind(this)
+            ];
+        } else {
+            // 其他环境（如GitHub Pages）：使用公共代理
+            methods = [
+                this.getFromAPI.bind(this),
+                this.getFromProxy.bind(this),
+                this.getFromCache.bind(this)
+            ];
+        }
         
         for (const method of methods) {
             try {
@@ -34,7 +62,26 @@ window.DataFallback = {
         throw new Error('所有数据获取方法都失败了');
     },
     
-    // 方法1：直接API请求
+    // 方法1：Vercel代理请求
+    async getFromVercelProxy() {
+        console.log('🔄 尝试Vercel代理请求...');
+        const response = await fetch('/api/data-proxy', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ type: 'all' })
+        });
+        
+        if (!response.ok) {
+            throw new Error(`Vercel代理错误: ${response.status}`);
+        }
+        
+        const result = await response.json();
+        return this.parseAPIResponse(result);
+    },
+
+    // 方法2：直接API请求
     async getFromAPI() {
         console.log('🔄 尝试直接API请求...');
         const response = await fetch('https://fc-mp-9670c93e-7aef-46ce-bbba-401692257cfc.next.bspapp.com/data-stats', {
@@ -53,39 +100,6 @@ window.DataFallback = {
         
         const result = await response.json();
         return this.parseAPIResponse(result);
-    },
-    
-    // 方法2：JSONP方式（如果API支持）
-    async getFromJSONP() {
-        console.log('🔄 尝试JSONP请求...');
-        return new Promise((resolve, reject) => {
-            const script = document.createElement('script');
-            const callbackName = 'dataCallback_' + Date.now();
-            
-            window[callbackName] = (data) => {
-                document.head.removeChild(script);
-                delete window[callbackName];
-                resolve(this.parseAPIResponse(data));
-            };
-            
-            script.onerror = () => {
-                document.head.removeChild(script);
-                delete window[callbackName];
-                reject(new Error('JSONP请求失败'));
-            };
-            
-            script.src = `https://fc-mp-9670c93e-7aef-46ce-bbba-401692257cfc.next.bspapp.com/data-stats?callback=${callbackName}&type=all`;
-            document.head.appendChild(script);
-            
-            // 10秒超时
-            setTimeout(() => {
-                if (document.head.contains(script)) {
-                    document.head.removeChild(script);
-                    delete window[callbackName];
-                    reject(new Error('JSONP请求超时'));
-                }
-            }, 10000);
-        });
     },
     
     // 方法3：使用公共代理
