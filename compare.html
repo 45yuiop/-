@@ -10,6 +10,7 @@
         <meta name="description" content="Study any topic, anytime. explore thousands of courses for the lowest price ever!" />
 
         <link rel="shortcut icon" type="image/x-icon" href="assets/images/system/favicon.png">
+        <link rel="stylesheet" href="assets/css/space-effects.css" />
 
         <link rel="stylesheet" href="assets/css/jquery.webui-popover.min.css" />
         <link rel="stylesheet" href="assets/css/slick.css" />
@@ -25,6 +26,39 @@
         <script src="assets/js/jquery-3.3.1.min.js"></script>
     </head>
     <body class="gray-bg">
+        <!-- 动态背景 -->
+        <div class="animated-bg"></div>
+        
+        <!-- 浮动粒子 -->
+        <div class="particles" id="particles"></div>
+        
+        <!-- 动态太空元素 -->
+        <div class="space-elements" id="spaceElements">
+            <!-- 机器人 -->
+            <div class="space-robot interactive-element" style="top: 20%; left: 10%;">🤖</div>
+            <div class="space-robot interactive-element" style="top: 60%; right: 15%;">🦾</div>
+            
+            <!-- 飞船 -->
+            <div class="space-ship interactive-element" style="top: 30%; left: -100px;">🚀</div>
+            <div class="space-ship interactive-element" style="top: 70%; left: -150px; animation-delay: -6s;">🛸</div>
+            
+            <!-- 卫星 -->
+            <div class="space-satellite interactive-element" style="top: 25%; left: 60%;">🛰️</div>
+            <div class="space-satellite interactive-element" style="top: 65%; right: 20%; animation-delay: -8s;">📡</div>
+            
+            <!-- 行星 -->
+            <div class="space-planet interactive-element" style="top: 10%; right: 10%;">🪐</div>
+            <div class="space-planet interactive-element" style="bottom: 20%; left: 5%; animation-delay: -10s;">🌍</div>
+            
+            <!-- 其他太空元素 -->
+            <div class="space-satellite interactive-element" style="top: 45%; left: 20%; animation-delay: -4s;">⭐</div>
+            <div class="space-satellite interactive-element" style="top: 80%; right: 40%; animation-delay: -12s;">✨</div>
+            <div class="space-robot interactive-element" style="top: 35%; right: 50%; animation-delay: -2s;">🔬</div>
+        </div>
+
+        <!-- 鼠标跟随光环 -->
+        <div class="mouse-aura" id="mouseAura" style="left: 0; top: 0;"></div>
+        
         <section class="menu-area bg-white">
             <div class="container-xl">
                 <nav class="navbar navbar-expand-lg navbar-light">

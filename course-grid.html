@@ -3,8 +3,11 @@
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>智能课程中心 | 新欣火教育</title>
+    <title>新欣火教育</title>
     <meta name="description" content="新欣火教育智能课程中心 - AI驱动的个性化学习体验">
+    <link rel="stylesheet" href="assets/css/unified-style.css">
+    <link rel="stylesheet" href="assets/css/space-effects.css">
+    <script src="assets/js/my-account.js"></script>
     
     <style>
         * {
@@ -37,15 +40,17 @@
             100% { transform: translate(10px, 10px); }
         }
         
-        /* 顶部导航 */
+                /* 主导航 - 白色样式 */
         .top-nav {
-            background: rgba(30, 77, 139, 0.95);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(15px);
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(0, 255, 255, 0.3);
-            position: sticky;
+            border-bottom: 1px solid rgba(30, 77, 139, 0.2);
+            position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
             z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         }
         
         .nav-container {
@@ -82,47 +87,47 @@
             100% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.8); }
         }
         
-        .logo-text {
-            font-size: 20px;
-            font-weight: 600;
-            background: linear-gradient(135deg, #ffffff, #00ffff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
         
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
         
-        .nav-links a {
-            color: rgba(255, 255, 255, 0.9);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
         
-        .nav-links a:hover {
-            color: #00ffff;
-            text-shadow: 0 0 10px #00ffff;
-        }
+
         
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #00ffff;
-            transition: width 0.3s ease;
-        }
+
         
-        .nav-links a:hover::after {
-            width: 100%;
-        }
+
+        
+        
+        
+
+        
+
+        
+
+        
+        
+        
+
+        
+
+        
+
+        
+        
+        
+
+        
+
+        
+
+        
+        
+        
+
+        
+
+        
+
+        
         
         /* 页面头部 */
         .page-header {
@@ -509,9 +514,13 @@
                 grid-template-columns: 1fr;
             }
             
-            .nav-links {
-                display: none;
-            }
+            
+
+        
+
+        
+
+        
         }
         
         /* 浮动操作按钮 */
@@ -564,29 +573,297 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-    </style>
+    
+        /* 当前页面高亮样式 */
+        .nav-item.current-page a {
+            background: rgba(30, 77, 139, 0.15) !important;
+            color: #1e4d8b !important;
+            font-weight: 600 !important;
+            border: 2px solid rgba(30, 77, 139, 0.3) !important;
+            box-shadow: 0 2px 8px rgba(30, 77, 139, 0.2) !important;
+        }
+        
+        .nav-item.current-page a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 80%;
+            height: 3px;
+            background: linear-gradient(90deg, #1e4d8b, #00ffff);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+    
+        /* 主导航 - 固定在顶端，白色背景 */
+        .main-header {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(30, 77, 139, 0.2);
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            z-index: 1000 !important;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            width: 100% !important;
+            height: 70px;
+        }
+        
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            position: relative;
+            width: 100%;
+            height: 70px;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            padding: 0;
+            height: 70px;
+        }
+        
+        .logo-text {
+            background: linear-gradient(135deg, #1e4d8b, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        
+        /* 标准化的导航栏布局 */
+        .main-nav {
+            margin-left: auto;
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            gap: 0;
+            justify-content: flex-end;
+            width: 100%;
+            height: 70px;
+        }
+        
+        .nav-item {
+            position: relative;
+            margin: 0 1px;
+            white-space: nowrap;
+            height: 70px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-item > a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 12px;
+            color: #333;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+            height: 50px;
+            min-width: 80px;
+            border-radius: 6px;
+        }
+        
+        .nav-item > a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .nav-item:hover > a::before {
+            left: 100%;
+        }
+        
+        .nav-item:hover > a {
+            color: #1e4d8b;
+            transform: translateY(-2px);
+            background: rgba(30, 77, 139, 0.05);
+        }
+        
+        .nav-item > a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #1e4d8b, #00ffff);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-item:hover > a::after {
+            width: 80%;
+        }
+        
+        /* 当前页面高亮样式 */
+        .nav-item.current-page a {
+            background: rgba(30, 77, 139, 0.15) !important;
+            color: #1e4d8b !important;
+            font-weight: 600 !important;
+            border: 2px solid rgba(30, 77, 139, 0.3) !important;
+            box-shadow: 0 2px 8px rgba(30, 77, 139, 0.2) !important;
+        }
+        
+        .nav-item.current-page a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 80%;
+            height: 3px;
+            background: linear-gradient(90deg, #1e4d8b, #00ffff);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        /* 主要内容区域 - 添加顶部间距 */
+        .main-content, .hero-banner, .page-content, .content-wrapper {
+            margin-top: 70px !important;
+            padding-top: 20px !important;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 1200px) {
+            .nav-item > a {
+                padding: 0 10px;
+                font-size: 14px;
+                min-width: 70px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .main-header {
+                height: 60px;
+            }
+            
+            .header-container {
+                height: 60px;
+            }
+            
+            .logo-section {
+                height: 60px;
+            }
+            
+            .main-nav {
+                height: 60px;
+            }
+            
+            .nav-item {
+                height: 60px;
+            }
+            
+            .nav-item > a {
+                padding: 0 8px;
+                font-size: 13px;
+                min-width: 60px;
+                height: 40px;
+            }
+            
+            .main-content, .hero-banner, .page-content, .content-wrapper {
+                margin-top: 60px !important;
+            }
+        }
+
+        </style>
+        <link rel="stylesheet" href="assets/css/space-effects.css">
+    <link rel="shortcut icon" type="image/x-icon" href="static/1.png">
 </head>
 <body>
     <!-- 动态背景 -->
     <div class="animated-bg"></div>
     
+    <!-- 浮动粒子 -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- 动态太空元素 -->
+    <div class="space-elements" id="spaceElements">
+        <!-- 机器人 -->
+        <div class="space-robot interactive-element" style="top: 20%; left: 10%;">🤖</div>
+        <div class="space-robot interactive-element" style="top: 60%; right: 15%;">🦾</div>
+        
+        <!-- 飞船 -->
+        <div class="space-ship interactive-element" style="top: 30%; left: -100px;">🚀</div>
+        <div class="space-ship interactive-element" style="top: 70%; left: -150px; animation-delay: -6s;">🛸</div>
+        
+        <!-- 卫星 -->
+        <div class="space-satellite interactive-element" style="top: 25%; left: 60%;">🛰️</div>
+        <div class="space-satellite interactive-element" style="top: 65%; right: 20%; animation-delay: -8s;">📡</div>
+        
+        <!-- 行星 -->
+        <div class="space-planet interactive-element" style="top: 10%; right: 10%;">🪐</div>
+        <div class="space-planet interactive-element" style="bottom: 20%; left: 5%; animation-delay: -10s;">🌍</div>
+        
+        <!-- 其他太空元素 -->
+        <div class="space-satellite interactive-element" style="top: 45%; left: 20%; animation-delay: -4s;">⭐</div>
+        <div class="space-satellite interactive-element" style="top: 80%; right: 40%; animation-delay: -12s;">✨</div>
+        <div class="space-robot interactive-element" style="top: 35%; right: 50%; animation-delay: -2s;">🔬</div>
+    </div>
+
+    <!-- 鼠标跟随光环 -->
+    <div class="mouse-aura" id="mouseAura" style="left: 0; top: 0;"></div>
+    
     <!-- 顶部导航 -->
-    <nav class="top-nav">
-        <div class="nav-container">
-            <a href="index.html" class="logo">
-                <div class="logo-icon">新</div>
-                <div class="logo-text">新欣火教育</div>
-            </a>
+        <!-- 主导航 -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="index.html" style="text-decoration: none; display: flex; align-items: center;">
+                    <img src="static/1.png" alt="新欣火教育" style="width: 40px; height: 40px; margin-right: 10px; object-fit: contain;">
+                    <div class="logo-text">新欣火教育</div>
+                </a>
+            </div>
             
-            <div class="nav-links">
-                <a href="index.html">🏠 首页</a>
-                <a href="about_us.html">🏢 关于我们</a>
-                <a href="instructor.html">👨‍🏫 师资团队</a>
-                <a href="user_profile.html">👤 个人中心</a>
-                <a href="login.html">🔐 登录</a>
-                                                        </div>
-                                                        </div>
-    </nav>
+                        <nav class="main-nav">
+                <div class="nav-item">
+                    <a href="index.html">🏠 首页</a>
+                </div>
+                <div class="nav-item">
+                    <a href="about_us.html">🏢 机构概况</a>
+                </div>
+                <div class="nav-item">
+                    <a href="sign_up.html">🎓 招生</a>
+                </div>
+                <div class="nav-item current-page">
+                    <a href="course-grid.html" class="current-page-link">📚 学部与院系</a>
+                </div>
+                <div class="nav-item">
+                    <a href="education_teaching.html">👨‍🏫 教育教学</a>
+                </div>
+                <div class="nav-item">
+                    <a href="scientific_research.html">🔬 科学研究</a>
+                </div>
+                <div class="nav-item">
+                    <a href="xinhuotong-system/index.html">🔥 新火通</a>
+                </div>
+                <div class="nav-item">
+                    <a href="campus_life.html">🏫 校园生活</a>
+                </div>
+                <div class="nav-item">
+                    <a href="#" id="myAccountLink" onclick="handleMyAccount()">👤 我的</a>
+                </div>
+            </nav>
+        </div>
+    </header>
     
     <!-- 页面头部 -->
     <section class="page-header">
@@ -604,13 +881,12 @@
 
             <div class="filter-tabs">
                 <div class="filter-tab active" data-category="all">🌟 全部课程</div>
-                <div class="filter-tab" data-category="ai">🤖 人工智能</div>
-                <div class="filter-tab" data-category="programming">💻 编程开发</div>
-                <div class="filter-tab" data-category="design">🎨 设计创意</div>
-                <div class="filter-tab" data-category="business">💼 商业管理</div>
-                <div class="filter-tab" data-category="language">🌍 语言学习</div>
-                <div class="filter-tab" data-category="science">🔬 科学技术</div>
-                                                    </div>
+                <div class="filter-tab" data-category="chinese">📚 语文</div>
+                <div class="filter-tab" data-category="math">🔢 数学</div>
+                <div class="filter-tab" data-category="english">🌍 英语</div>
+                <div class="filter-tab" data-category="physics">⚡ 物理</div>
+                <div class="filter-tab" data-category="chemistry">🧪 化学</div>
+            </div>
                                                 </div>
     </section>
     
@@ -679,95 +955,329 @@
                                                     </div>
 
     <script>
-        // 课程数据
+        let mouseX = 0, mouseY = 0;
+
+        // 鼠标跟随效果
+        document.addEventListener('mousemove', function(e) {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            const mouseAura = document.getElementById('mouseAura');
+            if (mouseAura) {
+                mouseAura.style.transform = `translate(${mouseX - 40}px, ${mouseY - 40}px)`;
+            }
+        });
+
+        // 使用requestAnimationFrame优化太空元素交互
+        function updateSpaceElements() {
+            const spaceElements = document.querySelectorAll('.interactive-element');
+            spaceElements.forEach((element, index) => {
+                const rect = element.getBoundingClientRect();
+                const elementCenterX = rect.left + rect.width / 2;
+                const elementCenterY = rect.top + rect.height / 2;
+                
+                const deltaX = mouseX - elementCenterX;
+                const deltaY = mouseY - elementCenterY;
+                const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+                
+                // 在鼠标附近时产生排斥效果
+                if (distance < 120) {
+                    const force = (120 - distance) / 120;
+                    const moveX = -deltaX * force * 0.25;
+                    const moveY = -deltaY * force * 0.25;
+                    
+                    element.style.transform = `translate(${moveX}px, ${moveY}px) scale(${1 + force * 0.15})`;
+                    element.style.filter = `brightness(${1 + force * 0.4}) drop-shadow(0 0 ${force * 15}px currentColor)`;
+                } else {
+                    element.style.transform = '';
+                    element.style.filter = '';
+                }
+            });
+            
+            requestAnimationFrame(updateSpaceElements);
+        }
+
+        // 创建动态粒子
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.width = Math.random() * 4 + 2 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // 动态生成太空元素
+        function createRandomSpaceElement() {
+            const spaceElements = document.getElementById('spaceElements');
+            const elements = ['🌟', '💫', '☄️', '🌙', '⭐', '🛸', '👽', '🌌'];
+            const element = document.createElement('div');
+            
+            element.className = 'interactive-element';
+            element.textContent = elements[Math.floor(Math.random() * elements.length)];
+            element.style.position = 'absolute';
+            element.style.left = Math.random() * 90 + '%';
+            element.style.top = Math.random() * 90 + '%';
+            element.style.fontSize = (Math.random() * 20 + 20) + 'px';
+            element.style.color = `hsl(${Math.random() * 360}, 70%, 60%)`;
+            element.style.opacity = '0.8';
+            element.style.cursor = 'pointer';
+            element.style.transition = 'all 0.3s ease';
+            element.style.animation = `float ${Math.random() * 4 + 4}s ease-in-out infinite`;
+            
+            element.addEventListener('click', function() {
+                element.style.transform = 'scale(2)';
+                element.style.opacity = '0';
+                setTimeout(() => element.remove(), 300);
+                showTooltip('收集成功！', mouseX, mouseY);
+            });
+            
+            spaceElements.appendChild(element);
+            
+            setTimeout(() => {
+                if (element.parentNode) {
+                    element.remove();
+                }
+            }, 15000);
+        }
+
+        // 显示提示信息
+        function showTooltip(message, x, y) {
+            const tooltip = document.createElement('div');
+            tooltip.textContent = message;
+            tooltip.style.position = 'fixed';
+            tooltip.style.left = x + 'px';
+            tooltip.style.top = y + 'px';
+            tooltip.style.background = 'rgba(0, 255, 255, 0.9)';
+            tooltip.style.color = 'white';
+            tooltip.style.padding = '5px 10px';
+            tooltip.style.borderRadius = '5px';
+            tooltip.style.fontSize = '14px';
+            tooltip.style.zIndex = '10000';
+            tooltip.style.pointerEvents = 'none';
+            tooltip.style.transform = 'translate(-50%, -100%)';
+            
+            document.body.appendChild(tooltip);
+            setTimeout(() => tooltip.remove(), 2000);
+        }
+
+        // 太空元素点击交互
+        function initSpaceElementInteractions() {
+            const interactiveElements = document.querySelectorAll('.interactive-element');
+            
+            interactiveElements.forEach(element => {
+                element.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    
+                    // 创建爆炸效果
+                    const explosion = document.createElement('div');
+                    explosion.style.cssText = `
+                        position: fixed;
+                        left: ${e.clientX - 25}px;
+                        top: ${e.clientY - 25}px;
+                        width: 50px;
+                        height: 50px;
+                        background: radial-gradient(circle, rgba(0, 255, 255, 0.8) 0%, transparent 70%);
+                        border-radius: 50%;
+                        pointer-events: none;
+                        z-index: 10000;
+                        animation: explode 0.6s ease-out forwards;
+                    `;
+                    
+                    // 添加爆炸动画
+                    const style = document.createElement('style');
+                    style.textContent = `
+                        @keyframes explode {
+                            0% { transform: scale(0); opacity: 1; }
+                            100% { transform: scale(3); opacity: 0; }
+                        }
+                    `;
+                    document.head.appendChild(style);
+                    
+                    document.body.appendChild(explosion);
+                    setTimeout(() => {
+                        explosion.remove();
+                        style.remove();
+                    }, 600);
+                });
+            });
+        }
+
+        // 检查登录状态
+        function checkLoginStatus() {
+            const token = localStorage.getItem('userToken');
+            const userInfo = localStorage.getItem('userInfo');
+            return token && userInfo;
+        }
+
+        // 处理"我的"功能点击
+        function handleMyAccount() {
+            if (checkLoginStatus()) {
+                // 已登录，跳转到个人中心
+                window.location.href = 'my_account.html';
+            } else {
+                // 未登录，跳转到登录页面
+                window.location.href = 'login.html';
+            }
+        }
+
+        // 更新导航栏显示
+        function updateNavigation() {
+            const myAccountLink = document.getElementById('myAccountLink');
+            if (myAccountLink) {
+                if (checkLoginStatus()) {
+                    const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+                    myAccountLink.innerHTML = `👤 ${userInfo.name || '我的'}`;
+                    myAccountLink.style.color = '#00ffff';
+                    myAccountLink.style.textShadow = '0 0 10px rgba(0, 255, 255, 0.5)';
+                } else {
+                    myAccountLink.innerHTML = '👤 我的';
+                    myAccountLink.style.color = '#333';
+                    myAccountLink.style.textShadow = 'none';
+                }
+            }
+        }
+        // 课程数据 - 主要课程：语数英物理化学
         const coursesData = [
             {
                 id: 1,
-                title: "AI人工智能基础入门",
-                category: "ai",
-                description: "从零开始学习人工智能，掌握机器学习、深度学习核心概念",
-                icon: "🤖",
-                price: "¥299",
+                title: "语文阅读理解与写作",
+                category: "chinese",
+                description: "全面提升语文素养，掌握阅读理解技巧和写作方法，提高文学鉴赏能力",
+                icon: "📚",
+                price: "¥199",
                 rating: 4.9,
-                students: 1250,
-                level: "初级"
+                students: 3200,
+                level: "基础"
             },
             {
                 id: 2,
-                title: "Python全栈开发实战",
-                category: "programming",
-                description: "全面掌握Python编程，从基础语法到Web开发、数据分析",
-                icon: "🐍",
-                price: "¥399",
+                title: "数学思维与解题技巧",
+                category: "math",
+                description: "培养数学思维，掌握解题方法和技巧，提高数学成绩和逻辑思维能力",
+                icon: "🔢",
+                price: "¥219",
                 rating: 4.8,
-                students: 2100,
-                level: "中级"
+                students: 2800,
+                level: "基础"
             },
             {
                 id: 3,
-                title: "UI/UX设计思维训练",
-                category: "design",
-                description: "学习现代设计理念，掌握用户体验设计的核心方法论",
-                icon: "🎨",
-                price: "¥199",
+                title: "英语听说读写全面提升",
+                category: "english",
+                description: "系统学习英语语法、词汇、听说读写，提高英语综合运用能力",
+                icon: "🌍",
+                price: "¥239",
                 rating: 4.7,
-                students: 890,
-                level: "初级"
+                students: 2500,
+                level: "基础"
             },
             {
                 id: 4,
-                title: "数字营销策略与实践",
-                category: "business",
-                description: "掌握数字时代的营销策略，学会数据驱动的营销决策",
-                icon: "📈",
+                title: "物理实验与理论结合",
+                category: "physics",
+                description: "通过实验理解物理原理，掌握力学、电学、光学等核心知识点",
+                icon: "⚡",
                 price: "¥259",
-                rating: 4.6,
-                students: 1560,
-                level: "中级"
+                rating: 4.8,
+                students: 1800,
+                level: "提高"
             },
             {
                 id: 5,
-                title: "英语口语流利说",
-                category: "language",
-                description: "AI语音识别技术辅助，快速提升英语口语表达能力",
-                icon: "🗣️",
-                price: "¥179",
-                rating: 4.8,
-                students: 3200,
-                level: "初级"
+                title: "化学实验与分子世界",
+                category: "chemistry",
+                description: "探索化学奥秘，学习元素周期表、化学反应和有机化学知识",
+                icon: "🧪",
+                price: "¥249",
+                rating: 4.6,
+                students: 1600,
+                level: "提高"
             },
             {
                 id: 6,
-                title: "区块链技术与应用",
-                category: "science",
-                description: "深入理解区块链原理，掌握智能合约开发技术",
-                icon: "⛓️",
-                price: "¥459",
-                rating: 4.5,
-                students: 680,
-                level: "高级"
+                title: "语文古诗词鉴赏",
+                category: "chinese",
+                description: "深入学习古诗词，提高文学素养和审美能力，掌握诗词鉴赏技巧",
+                icon: "📖",
+                price: "¥179",
+                rating: 4.9,
+                students: 2100,
+                level: "提高"
             },
             {
                 id: 7,
-                title: "数据科学与分析",
-                category: "science",
-                description: "学习数据挖掘、统计分析，成为数据科学家",
-                icon: "📊",
-                price: "¥359",
+                title: "数学几何与代数进阶",
+                category: "math",
+                description: "深入学习几何证明和代数运算，提高数学解题能力和空间想象能力",
+                icon: "📐",
+                price: "¥229",
                 rating: 4.7,
-                students: 1420,
-                level: "中级"
+                students: 1900,
+                level: "提高"
             },
             {
                 id: 8,
-                title: "移动应用开发",
-                category: "programming",
-                description: "掌握iOS和Android应用开发，发布自己的App",
-                icon: "📱",
-                price: "¥429",
+                title: "英语语法与词汇突破",
+                category: "english",
+                description: "系统学习英语语法规则，扩大词汇量，提高英语表达准确性",
+                icon: "📝",
+                price: "¥199",
+                rating: 4.8,
+                students: 2200,
+                level: "提高"
+            },
+            {
+                id: 9,
+                title: "物理力学与运动学",
+                category: "physics",
+                description: "深入学习力学原理，掌握运动学、动力学和能量守恒定律",
+                icon: "⚙️",
+                price: "¥279",
+                rating: 4.5,
+                students: 1400,
+                level: "进阶"
+            },
+            {
+                id: 10,
+                title: "化学有机与无机化学",
+                category: "chemistry",
+                description: "学习有机化学和无机化学，掌握化学反应机理和物质性质",
+                icon: "🔬",
+                price: "¥269",
                 rating: 4.6,
-                students: 980,
-                level: "中级"
+                students: 1200,
+                level: "进阶"
+            },
+            {
+                id: 11,
+                title: "语文作文写作技巧",
+                category: "chinese",
+                description: "掌握各种文体写作技巧，提高作文水平和表达能力",
+                icon: "✍️",
+                price: "¥159",
+                rating: 4.7,
+                students: 2800,
+                level: "基础"
+            },
+            {
+                id: 12,
+                title: "数学竞赛与奥数训练",
+                category: "math",
+                description: "挑战数学竞赛题目，培养数学思维和解题技巧，提高数学能力",
+                icon: "🏆",
+                price: "¥299",
+                rating: 4.9,
+                students: 800,
+                level: "竞赛"
             }
         ];
         
@@ -807,12 +1317,11 @@
         // 获取分类名称
         function getCategoryName(category) {
             const categories = {
-                'ai': '🤖 人工智能',
-                'programming': '💻 编程开发',
-                'design': '🎨 设计创意',
-                'business': '💼 商业管理',
-                'language': '🌍 语言学习',
-                'science': '🔬 科学技术'
+                'chinese': '📚 语文',
+                'math': '🔢 数学',
+                'english': '🌍 英语',
+                'physics': '⚡ 物理',
+                'chemistry': '🧪 化学'
             };
             return categories[category] || '📚 综合课程';
         }
@@ -950,6 +1459,12 @@
         
         // 页面加载完成后执行
         document.addEventListener('DOMContentLoaded', function() {
+            // 初始化太空元素效果
+            createParticles();
+            requestAnimationFrame(updateSpaceElements);
+            setInterval(createRandomSpaceElement, 3000);
+            initSpaceElementInteractions();
+            
             // 初始加载课程
             loadCourses();
             

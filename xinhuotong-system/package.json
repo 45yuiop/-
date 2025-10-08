@@ -1,0 +1,33 @@
+{
+  "name": "xinhuotong-system",
+  "version": "1.0.0",
+  "description": "新火通管理系统 - 新欣火教育智能管理平台",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8001",
+    "dev": "python -m http.server 8001",
+    "build": "echo 'Build completed'",
+    "test": "echo 'Tests completed'"
+  },
+  "keywords": [
+    "education",
+    "management",
+    "dashboard",
+    "data-visualization",
+    "xinhuotong"
+  ],
+  "author": "新欣火教育",
+  "license": "MIT",
+  "dependencies": {
+    "chart.js": "^3.9.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xinxinhuo/xinhuotong-system.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xinxinhuo/xinhuotong-system/issues"
+  },
+  "homepage": "https://github.com/xinxinhuo/xinhuotong-system#readme"
+}

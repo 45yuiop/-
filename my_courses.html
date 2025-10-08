@@ -22,9 +22,91 @@
         <link rel="stylesheet" href="assets/css/main.css" />
         <link rel="stylesheet" href="assets/css/responsive.css" />
         <link rel="stylesheet" href="assets/css/custom.css" />
+        <link rel="stylesheet" href="assets/css/space-effects.css" />
         <script src="assets/js/jquery-3.3.1.min.js"></script>
+        
+        <!-- 我的课程页面样式 -->
+        <style>
+            .my-courses-area {
+                background: transparent !important;
+                padding: 50px 0;
+                position: relative;
+                z-index: 2;
+            }
+            
+            .course-box-wrap {
+                margin-bottom: 30px;
+            }
+            
+            .course-box {
+                background: rgba(255, 255, 255, 0.1) !important;
+                backdrop-filter: blur(15px) !important;
+                border: 1px solid rgba(0, 255, 255, 0.2) !important;
+                border-radius: 12px !important;
+                padding: 20px !important;
+                color: #fff !important;
+            }
+            
+            .course-box h5 {
+                color: #fff !important;
+            }
+            
+            .course-box .btn {
+                background: #00ffff !important;
+                border: none !important;
+                color: #0a0e27 !important;
+                font-weight: 600;
+            }
+            
+            .course-box .btn:hover {
+                background: #0088ff !important;
+            }
+            
+            .page-title {
+                color: #fff !important;
+                font-size: 32px;
+                font-weight: 700;
+                margin-bottom: 30px;
+            }
+            
+            .filter-box {
+                background: rgba(255, 255, 255, 0.1) !important;
+                backdrop-filter: blur(15px) !important;
+                border: 1px solid rgba(0, 255, 255, 0.2) !important;
+                border-radius: 8px !important;
+                padding: 15px !important;
+                color: #fff !important;
+            }
+            
+            .form-control {
+                background: rgba(255, 255, 255, 0.1) !important;
+                border: 1px solid rgba(0, 255, 255, 0.3) !important;
+                color: #fff !important;
+            }
+            
+            .form-control::placeholder {
+                color: #aaa !important;
+            }
+        </style>
     </head>
     <body class="gray-bg">
+        <!-- 动态背景 -->
+        <div class="animated-bg"></div>
+        
+        <!-- 浮动粒子 -->
+        <div class="particles" id="particles"></div>
+        
+        <!-- 动态太空元素 -->
+        <div class="space-elements" id="spaceElements">
+            <div class="space-robot interactive-element" style="top: 20%; right: 10%;">🤖</div>
+            <div class="space-ship interactive-element" style="top: 30%; left: 10%;">🚀</div>
+            <div class="space-satellite interactive-element" style="top: 60%; right: 15%;">🛰️</div>
+            <div class="space-planet interactive-element" style="top: 70%; left: 15%;">🪐</div>
+        </div>
+
+        <!-- 鼠标跟随光环 -->
+        <div class="mouse-aura" id="mouseAura" style="left: 0; top: 0;"></div>
+        
         <section class="menu-area bg-white">
             <div class="container-xl">
                 <nav class="navbar navbar-expand-lg navbar-light">
@@ -884,6 +966,46 @@
                     return true;
                 }
             }
+        </script>
+        
+        <!-- 太空元素JavaScript -->
+        <script>
+            // 太空元素相关功能
+            let mouseX = 0, mouseY = 0;
+
+            // 鼠标跟随效果
+            document.addEventListener('mousemove', function(e) {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                
+                const mouseAura = document.getElementById('mouseAura');
+                if (mouseAura) {
+                    mouseAura.style.transform = `translate(${mouseX - 40}px, ${mouseY - 40}px)`;
+                }
+            });
+
+            // 创建动态粒子
+            function createParticles() {
+                const particlesContainer = document.getElementById('particles');
+                const particleCount = 30;
+                
+                for (let i = 0; i < particleCount; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.top = Math.random() * 100 + '%';
+                    particle.style.width = Math.random() * 4 + 2 + 'px';
+                    particle.style.height = particle.style.width;
+                    particle.style.animationDelay = Math.random() * 6 + 's';
+                    particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+                    particlesContainer.appendChild(particle);
+                }
+            }
+
+            // 初始化太空元素效果
+            document.addEventListener('DOMContentLoaded', function() {
+                createParticles();
+            });
         </script>
     </body>
 </html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新火通管理系统 - 新欣火教育</title>
+    <link rel="icon" href="../static/1.png" type="image/png">
+    
+    <!-- 样式文件 -->
+    <link rel="stylesheet" href="../assets/css/unified-style.css">
+    <link rel="stylesheet" href="assets/css/xinhuotong.css">
+    
+    <!-- 外部库 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../assets/js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <!-- 主容器 -->
+    <div class="xinhuotong-container">
+        <!-- 侧边栏 -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="../static/1.png" alt="新欣火教育" class="sidebar-logo">
+                <div class="sidebar-title">新火通管理系统</div>
+            </div>
+            
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><a href="#" class="active" onclick="switchModule('dashboard', event)">🏠 中心首页</a></li>
+                    <li><a href="#" onclick="switchModule('students', event)">👥 学员管理</a></li>
+                    <li><a href="#" onclick="switchModule('courses', event)">📚 课程管理</a></li>
+                    <li><a href="#" onclick="switchModule('classes', event)">🏫 班级管理</a></li>
+                    <li><a href="#" onclick="switchModule('schedule', event)">📅 课表管理</a></li>
+                    <li><a href="#" onclick="switchModule('finance', event)">💰 财务管理</a></li>
+                    <li><a href="#" onclick="switchModule('data', event)">📊 数据中心</a></li>
+                    <li><a href="#" onclick="switchModule('settings', event)">⚙️ 系统设置</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <!-- 主内容区 -->
+        <div class="main-content">
+            <div class="content-area">
+                <!-- 默认显示仪表板 -->
+                <div id="dashboard-content">
+                    <div class="page-header fade-in">
+                        <h1 class="page-title">新火通管理系统</h1>
+                        <p class="page-subtitle">为教育产业赋能 - 智能教育管理平台</p>
+                    </div>
+                    
+                    <div class="module-content fade-in">
+                        <!-- 统计卡片 -->
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-icon">👥</div>
+                                <div class="stat-content">
+                                    <div class="stat-value" id="totalStudents">44</div>
+                                    <div class="stat-label">学员总数</div>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-icon">📚</div>
+                                <div class="stat-content">
+                                    <div class="stat-value" id="totalCourses">51</div>
+                                    <div class="stat-label">课程总数</div>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-icon">👨‍🏫</div>
+                                <div class="stat-content">
+                                    <div class="stat-value" id="totalTeachers">40</div>
+                                    <div class="stat-label">教师总数</div>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-icon">🏫</div>
+                                <div class="stat-content">
+                                    <div class="stat-value" id="totalClasses">11</div>
+                                    <div class="stat-label">班级总数</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 快捷入口 -->
+                        <div class="quick-actions">
+                            <h3>快捷入口</h3>
+                            <div class="action-grid">
+                                <button class="action-btn" onclick="switchModule('students', event)">
+                                    <span class="action-icon">👥</span>
+                                    <span class="action-text">学员管理</span>
+                                </button>
+                                <button class="action-btn" onclick="switchModule('courses', event)">
+                                    <span class="action-icon">📚</span>
+                                    <span class="action-text">课程管理</span>
+                                </button>
+                                <button class="action-btn" onclick="switchModule('finance', event)">
+                                    <span class="action-icon">💰</span>
+                                    <span class="action-text">财务管理</span>
+                                </button>
+                                <button class="action-btn" onclick="switchModule('data', event)">
+                                    <span class="action-icon">📊</span>
+                                    <span class="action-text">数据中心</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- 待办事项 -->
+                        <div class="todo-section">
+                            <h3>待办事项</h3>
+                            <div class="todo-list">
+                                <div class="todo-item">
+                                    <span class="todo-icon">📝</span>
+                                    <span class="todo-text">审核新学员注册申请</span>
+                                    <span class="todo-count">5</span>
+                                </div>
+                                <div class="todo-item">
+                                    <span class="todo-icon">💰</span>
+                                    <span class="todo-text">处理课时购买订单</span>
+                                    <span class="todo-count">12</span>
+                                </div>
+                                <div class="todo-item">
+                                    <span class="todo-icon">📅</span>
+                                    <span class="todo-text">安排下周课程表</span>
+                                    <span class="todo-count">3</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 返回官网按钮 -->
+    <div class="back-to-website">
+        <a href="../index.html" class="back-btn">
+            <span class="back-icon">🏠</span>
+            <span class="back-text">返回官网</span>
+        </a>
+    </div>
+    
+    <!-- JavaScript文件 -->
+    <script src="assets/js/xinhuotong-core.js"></script>
+    <script src="assets/js/xinhuotong-modules.js"></script>
+    <script src="modules/data-dashboard/data-dashboard.js"></script>
+    <script src="../assets/js/xinhuotong-api.js"></script>
+</body>
+</html>

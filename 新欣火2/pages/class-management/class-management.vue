@@ -607,6 +607,32 @@ export default {
           this.filteredTeachers = [...res.result.data]
           console.log('教师列表加载成功，数量:', this.teacherList.length)
           console.log('教师列表数据:', this.teacherList)
+          
+          // 检查是否包含教务账号
+          const academicAccounts = this.teacherList.filter(teacher => 
+            teacher.mobile === '18186191270' || 
+            teacher.username === '18186191270' ||
+            (teacher.teacherName && teacher.teacherName.includes('教务')) ||
+            // 检查手机号用户名且姓名只有1个字的账号
+            (teacher.username && /^1\d{10}$/.test(teacher.username) && 
+             teacher.teacherName && teacher.teacherName.length === 1)
+          )
+          if (academicAccounts.length > 0) {
+            console.log('⚠️ 警告：教师列表中仍包含教务账号:', academicAccounts)
+            // 详细显示每个教务账号的信息
+            academicAccounts.forEach(account => {
+              console.log('📋 教务账号详细信息:', {
+                _id: account._id,
+                username: account.username,
+                teacherName: account.teacherName,
+                mobile: account.mobile,
+                // 如果有其他字段也显示出来
+                ...account
+              })
+            })
+          } else {
+            console.log('✅ 教师列表已正确过滤，不包含教务账号')
+          }
         } else {
           console.error('加载教师列表失败:', res.result.message)
           this.showToastMessage('加载老师列表失败: ' + res.result.message)

@@ -157,18 +157,7 @@ export default {
 				{ text: '试卷分析', icon: '/static/22.png', page: '/pages/exam-analysis/exam-analysis', color: '#E91E63' }
 			],
 			newsList: [
-				{
-					id: '1',
-					title: '公司荣获XX奖项11',
-					content: '近日，公司在教育领域取得了重大突破，荣获XX奖项。这是对我们专注教育、点亮成长理念的肯定。',
-					time: '2024-06-01'
-				},
-				{
-					id: '2',
-					title: '新产品发布',
-					content: '我们推出了全新的教育管理系统，为学生和老师提供更好的服务体验。',
-					time: '2024-05-28'
-				}
+				
 			]
 		}
 	},
@@ -316,8 +305,8 @@ export default {
 				'试卷分析': 'exam_analysis',
 				'教室': 'classroom',
 				'成绩': 'exam_scores',
-				'进步分析': 'student_progress',
-				'订阅通知': 'subscription_notification'
+				'进步分析': 'student_progress'
+				// '订阅通知': 'subscription_notification'
 			};
 			return featureMap[featureText] || featureText;
 		},

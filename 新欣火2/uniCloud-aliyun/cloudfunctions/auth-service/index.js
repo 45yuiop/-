@@ -17,6 +17,7 @@ exports.main = async (event, context) => {
 	console.log('云函数版本:', context.FUNCTION_VERSION);
 	console.log('云函数区域:', context.REGION);
 	console.log('调用时间:', new Date().toISOString());
+	console.log('事件参数:', JSON.stringify(event, null, 2));
 	
 	// 尝试获取IP地址
 	let serverIP = 'unknown';
@@ -50,11 +51,24 @@ exports.main = async (event, context) => {
 	console.log('完整context信息:', JSON.stringify(context, null, 2));
 	console.log('=== IP信息记录完成 ===\n');
 	
-	const {
-		action,
-		params
-	} = event;
+	// 解析请求参数
+	let action, params;
+	if (event.body) {
+		// HTTP 请求格式
+		const bodyData = JSON.parse(event.body);
+		action = bodyData.action;
+		params = bodyData.params;
+	} else {
+		// 直接调用格式
+		action = event.action;
+		params = event.params;
+	}
+	
+	console.log('解析后的action:', action);
+	console.log('解析后的params:', params);
+	
 	let res = {};
+
 
 	const uniIDIns = uniID.createInstance({
 		context
@@ -285,6 +299,35 @@ exports.main = async (event, context) => {
 					code: 0,
 					...accQueryRes
 				};
+				break;
+			}
+		case 'get-user-list':
+			{
+				// 不需要权限的获取用户列表功能，用于登录页面显示
+				try {
+					const userQueryRes = await usersDB.field({
+						_id: true,
+						username: true,
+						teacherName: true,
+						role: true,
+						permission: true,
+						department: true,
+						workType: true,
+						register_date: true
+					}).get();
+					
+					res = {
+						code: 200,
+						message: '获取用户列表成功',
+						data: userQueryRes.data
+					};
+				} catch (error) {
+					console.error('获取用户列表失败:', error);
+					res = {
+						code: 500,
+						message: '获取用户列表失败: ' + error.message
+					};
+				}
 				break;
 			}
 		case 'update-account':

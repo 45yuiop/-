@@ -517,12 +517,24 @@ export default {
       this.isLoading = true;
       
       try {
+        // 验证班级ID
+        console.log('选中的班级:', this.formData.classes);
+        const classIds = this.formData.classes.map(c => c._id);
+        console.log('提取的班级IDs:', classIds);
+        
+        // 检查是否有无效的班级ID
+        for (const classId of classIds) {
+          if (!classId || classId.length !== 24) {
+            throw new Error(`无效的班级ID: ${classId}`);
+          }
+        }
+        
         const studentData = {
           name: this.formData.name.trim(),
           grade: this.formData.grade,
           subjects: this.formData.subjects,
           classes: this.formData.classes,
-          classIds: this.formData.classes.map(c => c._id),
+          classIds: classIds,
           school: this.formData.school.trim(),
           scores: this.formData.scores.filter(score => score.subject && score.score), // 只包含有效的成绩
           studentId: this.generatedStudentId,
@@ -575,6 +587,40 @@ export default {
       this.formData.scores[index].subjectIndex = value;
       this.formData.scores[index].subject = this.allSubjects[value];
     },
+    async debugClass(classId) {
+      try {
+        const result = await uniCloud.callFunction({
+          name: 'student-manager',
+          data: {
+            action: 'debugClass',
+            classId: classId
+          }
+        });
+        
+        console.log('调试班级结果:', result);
+        
+        if (result.result.code === 0) {
+          uni.showModal({
+            title: '班级信息',
+            content: `班级存在：${result.result.data.className}`,
+            showCancel: false
+          });
+        } else {
+          uni.showModal({
+            title: '班级不存在',
+            content: `班级ID: ${classId}\n所有班级数量: ${result.result.data.allClasses.length}`,
+            showCancel: false
+          });
+        }
+      } catch (error) {
+        console.error('调试班级失败:', error);
+        uni.showToast({
+          title: '调试失败',
+          icon: 'none'
+        });
+      }
+    },
+    
     async saveStudent(studentData) {
       // 调用云函数保存学生数据
       const result = await uniCloud.callFunction({

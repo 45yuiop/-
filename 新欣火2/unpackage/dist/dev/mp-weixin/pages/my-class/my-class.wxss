@@ -55,13 +55,20 @@
   font-size: 28rpx;
   color: #333;
 }
+.control-bar.data-v-37545066 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20rpx;
+  gap: 20rpx;
+}
 .type-tabs.data-v-37545066 {
   display: flex;
   background: #fff;
   border-radius: 16rpx;
-  margin: 20rpx 20rpx 0 20rpx;
   overflow: hidden;
   box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.1);
+  flex: 1;
 }
 .type-tab.data-v-37545066 {
   flex: 1;
@@ -77,6 +84,26 @@
   background: #4FC3F7;
   color: #fff;
   font-weight: 500;
+}
+.year-selector.data-v-37545066 {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.1);
+  min-width: 160rpx;
+  justify-content: center;
+  gap: 8rpx;
+}
+.year-text.data-v-37545066 {
+  font-size: 26rpx;
+  color: #333;
+  font-weight: 500;
+}
+.dropdown-arrow.data-v-37545066 {
+  font-size: 20rpx;
+  color: #999;
 }
 .main-container.data-v-37545066 {
   display: flex;
@@ -381,5 +408,251 @@
   display: flex;
   align-items: center;
   margin-top: 8rpx;
+}
+
+/* 新的卡片样式 */
+.content-panel.data-v-37545066 {
+  flex: 1;
+  padding: 20rpx;
+  background: #f8f8f8;
+  overflow-y: auto;
+}
+.content-list.data-v-37545066 {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+/* 班级卡片样式 */
+.class-card.data-v-37545066 {
+  background: #fff;
+  border: 2rpx solid #e8f4fd;
+  border-radius: 20rpx;
+  padding: 24rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.class-card.data-v-37545066:active {
+  -webkit-transform: translateY(-4rpx);
+          transform: translateY(-4rpx);
+  box-shadow: 0 12rpx 32rpx rgba(102, 126, 234, 0.4);
+}
+.class-header.data-v-37545066 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+.class-icon.data-v-37545066 {
+  font-size: 40rpx;
+  margin-right: 16rpx;
+}
+.class-info.data-v-37545066 {
+  flex: 1;
+  z-index: 10;
+  position: relative;
+}
+.class-name.data-v-37545066 {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333 !important;
+  display: block;
+  margin-bottom: 4rpx;
+  z-index: 10;
+  position: relative;
+}
+.class-meta.data-v-37545066 {
+  font-size: 24rpx;
+  color: #666;
+}
+.class-stats.data-v-37545066 {
+  display: flex;
+  align-items: baseline;
+  gap: 4rpx;
+}
+.student-count.data-v-37545066 {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #409eff;
+}
+.count-label.data-v-37545066 {
+  font-size: 24rpx;
+  color: #999;
+}
+.class-footer.data-v-37545066 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.class-year.data-v-37545066 {
+  font-size: 22rpx;
+  color: #409eff;
+  background: #e8f4fd;
+  padding: 8rpx 16rpx;
+  border-radius: 12rpx;
+}
+.class-arrow.data-v-37545066 {
+  font-size: 32rpx;
+  color: #999;
+}
+
+/* 学生卡片样式 */
+.student-card.data-v-37545066 {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+}
+.student-card.data-v-37545066:active {
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.12);
+}
+.student-avatar.data-v-37545066 {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4FC3F7 0%, #29B6F6 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+.avatar-text.data-v-37545066 {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #fff;
+}
+.student-content.data-v-37545066 {
+  flex: 1;
+  min-width: 0;
+}
+.student-header.data-v-37545066 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8rpx;
+}
+.student-name.data-v-37545066 {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+}
+.student-id.data-v-37545066 {
+  font-size: 22rpx;
+  color: #999;
+  background: #f5f5f5;
+  padding: 4rpx 8rpx;
+  border-radius: 8rpx;
+}
+.student-meta.data-v-37545066 {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  margin-bottom: 12rpx;
+}
+.student-grade.data-v-37545066 {
+  font-size: 24rpx;
+  color: #666;
+  background: #e3f2fd;
+  padding: 4rpx 12rpx;
+  border-radius: 12rpx;
+}
+.student-class.data-v-37545066 {
+  font-size: 24rpx;
+  color: #666;
+}
+.score-section.data-v-37545066 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.score-item.data-v-37545066 {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+.score-label.data-v-37545066 {
+  font-size: 22rpx;
+  color: #666;
+}
+.score-badge.data-v-37545066 {
+  padding: 6rpx 12rpx;
+  border-radius: 12rpx;
+  font-weight: bold;
+}
+.score-badge.excellent.data-v-37545066 {
+  background: #e8f5e8;
+  color: #4caf50;
+}
+.score-badge.good.data-v-37545066 {
+  background: #e3f2fd;
+  color: #2196f3;
+}
+.score-badge.average.data-v-37545066 {
+  background: #fff3e0;
+  color: #ff9800;
+}
+.score-badge.pass.data-v-37545066 {
+  background: #fce4ec;
+  color: #e91e63;
+}
+.score-badge.fail.data-v-37545066 {
+  background: #ffebee;
+  color: #f44336;
+}
+.score-value.data-v-37545066 {
+  font-size: 24rpx;
+}
+.score-date.data-v-37545066 {
+  font-size: 20rpx;
+  color: #999;
+}
+.no-score.data-v-37545066 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12rpx 0;
+}
+.no-score-text.data-v-37545066 {
+  font-size: 22rpx;
+  color: #ccc;
+}
+.student-arrow.data-v-37545066 {
+  font-size: 32rpx;
+  color: #ddd;
+  margin-left: 16rpx;
+}
+
+/* 空状态样式 */
+.empty-state.data-v-37545066 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 120rpx 40rpx;
+  text-align: center;
+}
+.empty-icon.data-v-37545066 {
+  font-size: 120rpx;
+  margin-bottom: 24rpx;
+  opacity: 0.3;
+}
+.empty-title.data-v-37545066 {
+  font-size: 32rpx;
+  color: #666;
+  margin-bottom: 12rpx;
+  font-weight: 500;
+}
+.empty-desc.data-v-37545066 {
+  font-size: 26rpx;
+  color: #999;
+  line-height: 1.5;
 }
 

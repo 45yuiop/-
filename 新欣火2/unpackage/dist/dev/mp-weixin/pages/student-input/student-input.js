@@ -227,6 +227,9 @@ exports.default = void 0;
 var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 28));
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 31));
 var _toConsumableArray2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ 18));
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 //
 //
 //
@@ -785,7 +788,7 @@ var _default = {
     submitStudent: function submitStudent() {
       var _this3 = this;
       return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
-        var studentData;
+        var classIds, _iterator, _step, classId, studentData;
         return _regenerator.default.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
@@ -798,14 +801,49 @@ var _default = {
               case 2:
                 _this3.isLoading = true;
                 _context2.prev = 3;
+                // 验证班级ID
+                console.log('选中的班级:', _this3.formData.classes);
+                classIds = _this3.formData.classes.map(function (c) {
+                  return c._id;
+                });
+                console.log('提取的班级IDs:', classIds);
+
+                // 检查是否有无效的班级ID
+                _iterator = _createForOfIteratorHelper(classIds);
+                _context2.prev = 8;
+                _iterator.s();
+              case 10:
+                if ((_step = _iterator.n()).done) {
+                  _context2.next = 16;
+                  break;
+                }
+                classId = _step.value;
+                if (!(!classId || classId.length !== 24)) {
+                  _context2.next = 14;
+                  break;
+                }
+                throw new Error("\u65E0\u6548\u7684\u73ED\u7EA7ID: ".concat(classId));
+              case 14:
+                _context2.next = 10;
+                break;
+              case 16:
+                _context2.next = 21;
+                break;
+              case 18:
+                _context2.prev = 18;
+                _context2.t0 = _context2["catch"](8);
+                _iterator.e(_context2.t0);
+              case 21:
+                _context2.prev = 21;
+                _iterator.f();
+                return _context2.finish(21);
+              case 24:
                 studentData = {
                   name: _this3.formData.name.trim(),
                   grade: _this3.formData.grade,
                   subjects: _this3.formData.subjects,
                   classes: _this3.formData.classes,
-                  classIds: _this3.formData.classes.map(function (c) {
-                    return c._id;
-                  }),
+                  classIds: classIds,
                   school: _this3.formData.school.trim(),
                   scores: _this3.formData.scores.filter(function (score) {
                     return score.subject && score.score;
@@ -815,7 +853,7 @@ var _default = {
                   createTime: new Date().toISOString()
                 };
                 if (!_this3.isBatchMode) {
-                  _context2.next = 11;
+                  _context2.next = 31;
                   break;
                 }
                 // 批量模式：添加到列表
@@ -825,12 +863,12 @@ var _default = {
                   icon: 'success'
                 });
                 _this3.resetForm();
-                _context2.next = 16;
+                _context2.next = 36;
                 break;
-              case 11:
-                _context2.next = 13;
+              case 31:
+                _context2.next = 33;
                 return _this3.saveStudent(studentData);
-              case 13:
+              case 33:
                 uni.showToast({
                   title: '录入成功',
                   icon: 'success'
@@ -839,27 +877,27 @@ var _default = {
 
                 // 更新档案管理页面的本地缓存
                 _this3.updateArchiveCache();
-              case 16:
-                _context2.next = 22;
+              case 36:
+                _context2.next = 42;
                 break;
-              case 18:
-                _context2.prev = 18;
-                _context2.t0 = _context2["catch"](3);
-                console.error('提交失败:', _context2.t0);
+              case 38:
+                _context2.prev = 38;
+                _context2.t1 = _context2["catch"](3);
+                console.error('提交失败:', _context2.t1);
                 uni.showToast({
                   title: '录入失败，请重试',
                   icon: 'error'
                 });
-              case 22:
-                _context2.prev = 22;
+              case 42:
+                _context2.prev = 42;
                 _this3.isLoading = false;
-                return _context2.finish(22);
-              case 25:
+                return _context2.finish(42);
+              case 45:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, null, [[3, 18, 22, 25]]);
+        }, _callee2, null, [[3, 38, 42, 45], [8, 18, 21, 24]]);
       }))();
     },
     // 成绩相关方法
@@ -877,14 +915,64 @@ var _default = {
       this.formData.scores[index].subjectIndex = value;
       this.formData.scores[index].subject = this.allSubjects[value];
     },
-    saveStudent: function saveStudent(studentData) {
+    debugClass: function debugClass(classId) {
       return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
         var result;
         return _regenerator.default.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                _context3.next = 2;
+                _context3.prev = 0;
+                _context3.next = 3;
+                return uniCloud.callFunction({
+                  name: 'student-manager',
+                  data: {
+                    action: 'debugClass',
+                    classId: classId
+                  }
+                });
+              case 3:
+                result = _context3.sent;
+                console.log('调试班级结果:', result);
+                if (result.result.code === 0) {
+                  uni.showModal({
+                    title: '班级信息',
+                    content: "\u73ED\u7EA7\u5B58\u5728\uFF1A".concat(result.result.data.className),
+                    showCancel: false
+                  });
+                } else {
+                  uni.showModal({
+                    title: '班级不存在',
+                    content: "\u73ED\u7EA7ID: ".concat(classId, "\n\u6240\u6709\u73ED\u7EA7\u6570\u91CF: ").concat(result.result.data.allClasses.length),
+                    showCancel: false
+                  });
+                }
+                _context3.next = 12;
+                break;
+              case 8:
+                _context3.prev = 8;
+                _context3.t0 = _context3["catch"](0);
+                console.error('调试班级失败:', _context3.t0);
+                uni.showToast({
+                  title: '调试失败',
+                  icon: 'none'
+                });
+              case 12:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, null, [[0, 8]]);
+      }))();
+    },
+    saveStudent: function saveStudent(studentData) {
+      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
+        var result;
+        return _regenerator.default.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _context4.next = 2;
                 return uniCloud.callFunction({
                   name: 'student-manager',
                   data: {
@@ -893,20 +981,20 @@ var _default = {
                   }
                 });
               case 2:
-                result = _context3.sent;
+                result = _context4.sent;
                 if (!(result.result.code !== 0)) {
-                  _context3.next = 5;
+                  _context4.next = 5;
                   break;
                 }
                 throw new Error(result.result.message || '保存失败');
               case 5:
-                return _context3.abrupt("return", result.result);
+                return _context4.abrupt("return", result.result);
               case 6:
               case "end":
-                return _context3.stop();
+                return _context4.stop();
             }
           }
-        }, _callee3);
+        }, _callee4);
       }))();
     },
     // 更新档案管理页面的本地缓存
@@ -969,21 +1057,21 @@ var _default = {
     },
     submitBatch: function submitBatch() {
       var _this6 = this;
-      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
+      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee5() {
         var result;
-        return _regenerator.default.wrap(function _callee4$(_context4) {
+        return _regenerator.default.wrap(function _callee5$(_context5) {
           while (1) {
-            switch (_context4.prev = _context4.next) {
+            switch (_context5.prev = _context5.next) {
               case 0:
                 if (!(_this6.batchStudents.length === 0)) {
-                  _context4.next = 2;
+                  _context5.next = 2;
                   break;
                 }
-                return _context4.abrupt("return");
+                return _context5.abrupt("return");
               case 2:
                 _this6.isLoading = true;
-                _context4.prev = 3;
-                _context4.next = 6;
+                _context5.prev = 3;
+                _context5.next = 6;
                 return uniCloud.callFunction({
                   name: 'student-manager',
                   data: {
@@ -992,9 +1080,9 @@ var _default = {
                   }
                 });
               case 6:
-                result = _context4.sent;
+                result = _context5.sent;
                 if (!(result.result.code === 0)) {
-                  _context4.next = 14;
+                  _context5.next = 14;
                   break;
                 }
                 uni.showToast({
@@ -1006,31 +1094,31 @@ var _default = {
 
                 // 更新档案管理页面的本地缓存
                 _this6.updateArchiveCache();
-                _context4.next = 15;
+                _context5.next = 15;
                 break;
               case 14:
                 throw new Error(result.result.message || '批量录入失败');
               case 15:
-                _context4.next = 21;
+                _context5.next = 21;
                 break;
               case 17:
-                _context4.prev = 17;
-                _context4.t0 = _context4["catch"](3);
-                console.error('批量提交失败:', _context4.t0);
+                _context5.prev = 17;
+                _context5.t0 = _context5["catch"](3);
+                console.error('批量提交失败:', _context5.t0);
                 uni.showToast({
                   title: '批量录入失败，请重试',
                   icon: 'error'
                 });
               case 21:
-                _context4.prev = 21;
+                _context5.prev = 21;
                 _this6.isLoading = false;
-                return _context4.finish(21);
+                return _context5.finish(21);
               case 24:
               case "end":
-                return _context4.stop();
+                return _context5.stop();
             }
           }
-        }, _callee4, null, [[3, 17, 21, 24]]);
+        }, _callee5, null, [[3, 17, 21, 24]]);
       }))();
     }
   }

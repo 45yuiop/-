@@ -27,6 +27,12 @@ exports.main = async (event, context) => {
         return await getTeacherList(event);
       case 'replaceTeacher':
         return await replaceTeacher(event);
+    case 'getMyClasses':
+        return await getMyClasses(event);
+      case 'getMyClassesWithScores':
+        return await getMyClassesWithScores(event);
+      case 'getHistoryClasses':
+        return await getHistoryClasses(event);
     default:
       return {
         code: -1,
@@ -153,8 +159,29 @@ async function createClass(event) {
     let headTeacherId = '';
     if (teachers && teachers.length > 0) {
       headTeacher = teachers[0].teacherName || '';
-      headTeacherId = teachers[0].teacherId || '';
+      headTeacherId = teachers[0]._id || teachers[0].teacherId || '';
+      
+      // 如果还是没有获取到 headTeacherId，尝试通过姓名查找
+      if (!headTeacherId && headTeacher) {
+        console.log('通过姓名查找教师ID:', headTeacher);
+        try {
+          const teacherResult = await db.collection('uni-id-users').where({
+            teacherName: headTeacher.trim()
+          }).get();
+          
+          if (teacherResult.data.length > 0) {
+            headTeacherId = teacherResult.data[0]._id;
+            console.log('找到教师ID:', headTeacherId);
+          } else {
+            console.log('未找到匹配的教师');
+          }
+        } catch (error) {
+          console.error('查找教师ID失败:', error);
+        }
+      }
     }
+    
+    console.log('最终教师信息:', { headTeacher, headTeacherId });
     
     // 创建班级
     const result = await db.collection('classes').add({
@@ -245,8 +272,8 @@ async function deleteClass(event) {
     }).get();
     
     if (classResult.data.length === 0) {
-      return {
-        code: -1,
+    return {
+      code: -1,
         message: '班级不存在'
       };
     }
@@ -332,8 +359,8 @@ async function addStudentToClass(event) {
     }).get();
     
     if (classResult.data.length === 0) {
-      return {
-        code: -1,
+    return {
+      code: -1,
         message: '班级不存在'
       };
     }
@@ -347,8 +374,8 @@ async function addStudentToClass(event) {
       // 检查学生是否已在班级中
       if (student.classIds && student.classIds.includes(classId)) {
         await transaction.rollback();
-        return {
-          code: -1,
+    return {
+      code: -1,
           message: '学生已在该班级中'
         };
       }
@@ -461,7 +488,7 @@ async function removeStudentFromClass(event) {
       code: 0,
         message: '学生从班级移除成功'
     };
-    } catch (error) {
+  } catch (error) {
       await transaction.rollback();
       throw error;
     }
@@ -490,8 +517,8 @@ async function getClassStudents(event) {
     }).get();
     
     if (result.data.length === 0) {
-      return {
-        code: -1,
+    return {
+      code: -1,
         message: '班级不存在'
       };
     }
@@ -621,14 +648,23 @@ async function getTeacherList(event) {
           .get();
         
         console.log('获取所有用户数量:', result.data.length);
-        console.log('所有用户数据示例:', result.data.slice(0, 3));
+        console.log('所有用户数据示例:', result.data.slice(0, 5).map(user => ({
+          _id: user._id,
+          username: user.username,
+          teacherName: user.teacherName,
+          nickname: user.nickname,
+          mobile: user.mobile,
+          role: user.role,
+          permission: user.permission
+        })));
       }
     } catch (error) {
       console.error('查询用户表失败:', error);
       throw error;
     }
     
-    // 处理数据格式，过滤出教师用户（排除超级管理员）
+5    // 处理数据格式，过滤出教师用户（排除超级管理员和教务）
+    console.log('🔍 开始过滤教师，原始用户数量:', result.data.length);
     const teachers = result.data
       .filter(teacher => {
         // 排除超级管理员
@@ -643,6 +679,28 @@ async function getTeacherList(event) {
           return false;
         }
         
+        // 排除教务账号 - 基于角色和权限
+        const isAcademic = teacher.role === 'academic' || 
+                          teacher.permission === 'academic' ||
+                          teacher.permission === '教务' ||
+                          teacher.permission === '教务普通用户' ||
+                          teacher.permission === '教务管理员' ||
+                          teacher.role === 'admin' || // 添加管理员角色
+                          teacher.permission === 'admin' || // 添加管理员权限
+                          (teacher.teacherName && teacher.teacherName.includes('教务')) ||
+                          (teacher.nickname && teacher.nickname.includes('教务')) ||
+                          (teacher.username && teacher.username.includes('academic')) ||
+                          (teacher.username && teacher.username.includes('教务')) ||
+                          // 特殊处理：手机号用户名且教师姓名过短的账号（可能是教务账号）
+                          (teacher.username === '18186191270') || // 特定的教务手机号
+                          (teacher.username && /^1\d{10}$/.test(teacher.username) && 
+                           teacher.teacherName && teacher.teacherName.length === 1); // 手机号用户名且姓名只有1个字
+        
+        if (isAcademic) {
+          console.log(`排除教务账号: ${teacher.username || teacher.mobile} (${teacher.teacherName || teacher.nickname}) - 角色: ${teacher.role}, 权限: ${teacher.permission}`);
+          return false;
+        }
+        
         // 检查是否为教师用户
         const isTeacher = teacher.role === 'teacher' || 
                          teacher.permission === 'teacher' ||
@@ -650,10 +708,28 @@ async function getTeacherList(event) {
                          (teacher.teacherName && teacher.teacherName.trim() !== '') ||
                          (teacher.username && teacher.username.includes('teacher'));
         
-        console.log(`用户 ${teacher.username} 是否为教师:`, isTeacher, {
+        // 特别关注手机号为 18186191270 的账号
+        if (teacher.mobile === '18186191270' || teacher.username === '18186191270') {
+          console.log(`🔍 重点关注账号 ${teacher.username || teacher.mobile}:`, {
+            _id: teacher._id,
+            username: teacher.username,
+            teacherName: teacher.teacherName,
+            nickname: teacher.nickname,
+            mobile: teacher.mobile,
+            role: teacher.role,
+            permission: teacher.permission,
+            isTeacher: isTeacher,
+            isSuperAdmin: teacher.role === 'superadmin' || teacher.permission === 'superadmin',
+            isAcademic: isAcademic,
+            '应该被过滤': isAcademic ? '是' : '否'
+          });
+        }
+        
+        console.log(`用户 ${teacher.username || teacher.mobile} 详细信息:`, {
           role: teacher.role,
           permission: teacher.permission,
-          teacherName: teacher.teacherName
+          isTeacher: isTeacher,
+          isAcademic: isAcademic
         });
         
         return isTeacher;
@@ -667,6 +743,12 @@ async function getTeacherList(event) {
       }));
     
     console.log(`获取到 ${teachers.length} 个教师`);
+    console.log('🎯 最终返回的教师列表:', teachers.map(t => ({
+      _id: t._id,
+      teacherName: t.teacherName,
+      username: t.username,
+      mobile: t.mobile || '无'
+    })));
     
     return {
       code: 0,
@@ -685,18 +767,43 @@ async function replaceTeacher(event) {
     const { classId, newTeacher } = event;
     
     if (!classId || !newTeacher) {
-      return {
-        code: -1,
+    return {
+      code: -1,
         message: '班级ID和新老师信息不能为空'
       };
     }
     
     console.log('替换班级班主任:', { classId, newTeacher });
     
+    // 确保获取正确的教师ID
+    let headTeacherId = newTeacher._id || newTeacher.teacherId || '';
+    const headTeacher = newTeacher.teacherName || '';
+    
+    // 如果没有获取到 headTeacherId，尝试通过姓名查找
+    if (!headTeacherId && headTeacher) {
+      console.log('通过姓名查找教师ID:', headTeacher);
+      try {
+        const teacherResult = await db.collection('uni-id-users').where({
+          teacherName: headTeacher.trim()
+    }).get();
+    
+        if (teacherResult.data.length > 0) {
+          headTeacherId = teacherResult.data[0]._id;
+          console.log('找到教师ID:', headTeacherId);
+        } else {
+          console.log('未找到匹配的教师');
+        }
+      } catch (error) {
+        console.error('查找教师ID失败:', error);
+      }
+    }
+    
+    console.log('最终替换的教师信息:', { headTeacher, headTeacherId });
+    
     // 更新班级的班主任信息
     const result = await db.collection('classes').doc(classId).update({
-      headTeacher: newTeacher.teacherName,
-      headTeacherId: newTeacher._id,
+      headTeacher: headTeacher,
+      headTeacherId: headTeacherId,
       updateTime: new Date()
     });
     
@@ -714,7 +821,10 @@ async function replaceTeacher(event) {
       message: '班主任替换成功',
       data: {
         classId: classId,
-        newTeacher: newTeacher
+        newTeacher: {
+          ...newTeacher,
+          _id: headTeacherId
+        }
       }
     };
   } catch (error) {
@@ -722,3 +832,244 @@ async function replaceTeacher(event) {
     throw new Error('替换班主任失败: ' + error.message);
   }
 }
+
+// 获取我的班级（班主任查看自己负责的班级）
+async function getMyClasses(event) {
+  try {
+    const { teacherId } = event;
+    
+    if (!teacherId) {
+    return {
+      code: -1,
+        message: '教师ID不能为空'
+      };
+    }
+    
+    console.log('获取我的班级，教师ID:', teacherId);
+    
+    // 查找该教师作为班主任的所有班级
+    const result = await db.collection('classes').where({
+      headTeacherId: teacherId,
+      status: 'active'
+    }).get();
+    
+    console.log(`找到 ${result.data.length} 个班级`);
+    
+    // 处理班级数据，包含学生信息
+    const myClasses = result.data.map(classInfo => {
+      const classStudents = (classInfo.students || []).map(student => {
+    return {
+          _id: student._id,
+          studentId: student.studentId,
+          name: student.name,
+          grade: student.grade,
+          // 可以在这里添加学生的成绩信息等
+          latestScore: null // 暂时为空，后续可以从成绩表中获取
+        };
+      });
+      
+    return {
+        _id: classInfo._id,
+        className: classInfo.className,
+        grade: classInfo.grade,
+        subject: classInfo.subject || '',
+        headTeacher: classInfo.headTeacher,
+        headTeacherId: classInfo.headTeacherId,
+        school: classInfo.school || '',
+        studentCount: classInfo.studentCount || 0,
+        classStudents: classStudents, // 班级学生列表
+        createTime: classInfo.createTime ? new Date(classInfo.createTime).toISOString() : new Date().toISOString(),
+        updateTime: classInfo.updateTime ? new Date(classInfo.updateTime).toISOString() : new Date().toISOString()
+      };
+    });
+    
+    console.log('处理后的班级数据:', myClasses.length > 0 ? {
+      className: myClasses[0].className,
+      studentCount: myClasses[0].studentCount,
+      studentsLength: myClasses[0].classStudents.length
+    } : '无班级');
+    
+      return {
+        code: 0,
+      message: '获取我的班级成功',
+      data: myClasses
+    };
+  } catch (error) {
+    console.error('获取我的班级失败:', error);
+    throw new Error('获取我的班级失败: ' + error.message);
+  }
+}
+
+// 获取我的班级（包含成绩信息）
+async function getMyClassesWithScores(event) {
+  try {
+    const { teacherId, includeScores } = event;
+    
+    if (!teacherId) {
+      return {
+        code: -1,
+        message: '教师ID不能为空'
+      };
+    }
+    
+    console.log('获取我的班级（含成绩），教师ID:', teacherId);
+    
+    // 查找该教师作为班主任的所有班级
+    const result = await db.collection('classes').where({
+      headTeacherId: teacherId,
+      status: 'active'
+    }).get();
+    
+    console.log(`找到 ${result.data.length} 个班级`);
+    
+    // 处理班级数据，包含学生信息和成绩
+    const myClasses = await Promise.all(result.data.map(async classInfo => {
+      const classStudents = await Promise.all((classInfo.students || []).map(async student => {
+        let latestScore = null;
+        
+        // 如果需要包含成绩，查询学生的最新成绩
+        if (includeScores && student._id) {
+          try {
+            const scoreResult = await db.collection('student_scores')
+              .where({
+                student_id: student.studentId || student._id
+              })
+              .orderBy('exam_date', 'desc')
+              .limit(1)
+              .get();
+            
+            if (scoreResult.data.length > 0) {
+              const score = scoreResult.data[0];
+              
+              // 计算成绩等级
+              let scoreLevel = 'fail';
+              if (score.score >= 90) scoreLevel = 'excellent';
+              else if (score.score >= 80) scoreLevel = 'good';
+              else if (score.score >= 70) scoreLevel = 'average';
+              else if (score.score >= 60) scoreLevel = 'pass';
+              
+              // 格式化日期
+              let formattedDate = '';
+              if (score.exam_date) {
+                const date = new Date(score.exam_date);
+                formattedDate = `${date.getMonth() + 1}/${date.getDate()}`;
+              }
+              
+              latestScore = {
+                subject: score.subject,
+                score: score.score,
+                examDate: score.exam_date,
+                examType: score.exam_type,
+                scoreLevel: scoreLevel,
+                formattedDate: formattedDate
+              };
+            }
+          } catch (error) {
+            console.log(`获取学生 ${student.name} 成绩失败:`, error);
+          }
+        }
+          
+          return {
+            _id: student._id,
+            studentId: student.studentId,
+            name: student.name,
+            grade: student.grade,
+          latestScore: latestScore
+        };
+      }));
+      
+      return {
+        _id: classInfo._id,
+        className: classInfo.className,
+        grade: classInfo.grade,
+        subject: classInfo.subject || '',
+        headTeacher: classInfo.headTeacher,
+        headTeacherId: classInfo.headTeacherId,
+        school: classInfo.school || '',
+        studentCount: classInfo.studentCount || 0,
+        classStudents: classStudents, // 班级学生列表
+        createTime: classInfo.createTime ? new Date(classInfo.createTime).toISOString() : new Date().toISOString(),
+        updateTime: classInfo.updateTime ? new Date(classInfo.updateTime).toISOString() : new Date().toISOString()
+      };
+    }));
+    
+    console.log('处理后的班级数据（含成绩）:', myClasses.length > 0 ? {
+      className: myClasses[0].className,
+      studentCount: myClasses[0].studentCount,
+      studentsLength: myClasses[0].classStudents.length,
+      hasScores: myClasses[0].classStudents.some(s => s.latestScore)
+    } : '无班级');
+    
+    return {
+      code: 0,
+      message: '获取我的班级成功',
+      data: myClasses
+    };
+  } catch (error) {
+    console.error('获取我的班级（含成绩）失败:', error);
+    throw new Error('获取我的班级（含成绩）失败: ' + error.message);
+  }
+}
+
+// 获取历史班级
+async function getHistoryClasses(event) {
+  try {
+    const { teacherId } = event;
+    
+    if (!teacherId) {
+    return {
+      code: -1,
+        message: '教师ID不能为空'
+      };
+    }
+    
+    console.log('获取历史班级，教师ID:', teacherId);
+    
+    // 查找该教师作为班主任的所有班级（包括非活跃状态）
+    const result = await db.collection('classes').where({
+      headTeacherId: teacherId
+    }).get();
+    
+    console.log(`找到 ${result.data.length} 个历史班级`);
+    
+    // 处理班级数据
+    const historyClasses = result.data.map(classInfo => {
+      const classStudents = (classInfo.students || []).map(student => {
+          return {
+            _id: student._id,
+            studentId: student.studentId,
+            name: student.name,
+            grade: student.grade,
+          latestScore: null // 历史班级暂不加载成绩，提高性能
+        };
+      });
+      
+      return {
+        _id: classInfo._id,
+        className: classInfo.className,
+        grade: classInfo.grade,
+        subject: classInfo.subject || '',
+        headTeacher: classInfo.headTeacher,
+        headTeacherId: classInfo.headTeacherId,
+        school: classInfo.school || '',
+        studentCount: classInfo.studentCount || 0,
+        classStudents: classStudents,
+        status: classInfo.status || 'active',
+        createTime: classInfo.createTime ? new Date(classInfo.createTime).toISOString() : new Date().toISOString(),
+        updateTime: classInfo.updateTime ? new Date(classInfo.updateTime).toISOString() : new Date().toISOString()
+      };
+    });
+    
+    console.log('处理后的历史班级数据:', historyClasses.length);
+    
+    return {
+      code: 0,
+      message: '获取历史班级成功',
+      data: historyClasses
+    };
+  } catch (error) {
+    console.error('获取历史班级失败:', error);
+    throw new Error('获取历史班级失败: ' + error.message);
+  }
+}
+

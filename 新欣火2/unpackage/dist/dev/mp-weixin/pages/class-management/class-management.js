@@ -288,8 +288,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 28));
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/defineProperty */ 11));
 var _toConsumableArray2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ 18));
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 31));
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 //
 //
 //
@@ -891,7 +894,7 @@ var _default = {
     loadTeacherList: function loadTeacherList() {
       var _this2 = this;
       return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
-        var res;
+        var res, academicAccounts;
         return _regenerator.default.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
@@ -914,6 +917,27 @@ var _default = {
                   _this2.filteredTeachers = (0, _toConsumableArray2.default)(res.result.data);
                   console.log('教师列表加载成功，数量:', _this2.teacherList.length);
                   console.log('教师列表数据:', _this2.teacherList);
+
+                  // 检查是否包含教务账号
+                  academicAccounts = _this2.teacherList.filter(function (teacher) {
+                    return teacher.mobile === '18186191270' || teacher.username === '18186191270' || teacher.teacherName && teacher.teacherName.includes('教务') ||
+                    // 检查手机号用户名且姓名只有1个字的账号
+                    teacher.username && /^1\d{10}$/.test(teacher.username) && teacher.teacherName && teacher.teacherName.length === 1;
+                  });
+                  if (academicAccounts.length > 0) {
+                    console.log('⚠️ 警告：教师列表中仍包含教务账号:', academicAccounts);
+                    // 详细显示每个教务账号的信息
+                    academicAccounts.forEach(function (account) {
+                      console.log('📋 教务账号详细信息:', _objectSpread({
+                        _id: account._id,
+                        username: account.username,
+                        teacherName: account.teacherName,
+                        mobile: account.mobile
+                      }, account));
+                    });
+                  } else {
+                    console.log('✅ 教师列表已正确过滤，不包含教务账号');
+                  }
                 } else {
                   console.error('加载教师列表失败:', res.result.message);
                   _this2.showToastMessage('加载老师列表失败: ' + res.result.message);

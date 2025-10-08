@@ -107,15 +107,12 @@ var render = function () {
   var g1 = _vm.filteredStudents.length
   var l0 =
     g1 > 0
-      ? _vm.__map(_vm.filteredStudents, function (student, __i1__) {
+      ? _vm.__map(_vm.studentItems, function (student, __i2__) {
           var $orig = _vm.__get_orig(student)
-          var m0 =
-            !student.isClass && student.latestScore
-              ? _vm.getScoreColor(student.grade, student.latestScore.score)
-              : null
+          var g2 = student.name.charAt(0)
           return {
             $orig: $orig,
-            m0: m0,
+            g2: g2,
           }
         })
       : null
@@ -260,6 +257,41 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   data: function data() {
     return {
@@ -273,44 +305,56 @@ var _default = {
       // 记录班课状态和人数
       myClasses: [],
       // 从班级管理绑定的班级
+      allHistoryClasses: [],
+      // 所有历史班级数据
       showMyClasses: false,
       // 是否显示班级管理的班级
       teacherSubject: '',
       // 老师的科目
       typeList: ['班级', '学生'],
-      selectedType: '班级'
+      selectedType: '班级',
+      selectedYear: '当前学年',
+      // 选中的学年
+      availableYears: ['当前学年'],
+      // 可选的学年列表
+      showYearPickerModal: false // 是否显示学年选择器
     };
   },
+
   computed: {
     filteredStudents: function filteredStudents() {
       var _this = this;
+      // 根据选中的学年过滤班级
+      var classesToShow = this.myClasses;
+      if (this.selectedYear !== '当前学年') {
+        classesToShow = this.allHistoryClasses.filter(function (c) {
+          return _this.getClassYear(c.className) === _this.selectedYear;
+        });
+      }
       if (this.selectedType === '班级') {
         // 班级tab：显示所有班级，不需要左侧筛选
-        return this.myClasses.map(function (myClass) {
+        return classesToShow.map(function (myClass) {
           return {
             _id: myClass._id,
             name: myClass.className,
             grade: myClass.grade,
-            studentCount: myClass.classStudents.length,
+            subject: myClass.subject,
+            studentCount: myClass.classStudents ? myClass.classStudents.length : myClass.studentCount || 0,
             isClass: true // 标记这是班级数据
           };
         });
       } else {
         // 学生tab：显示选中班级的学生
-        var selectedClass = this.myClasses.find(function (c) {
+        var selectedClass = classesToShow.find(function (c) {
           return c.className === _this.selectedLeft;
         });
-        if (selectedClass) {
+        if (selectedClass && selectedClass.classStudents) {
           return selectedClass.classStudents.map(function (student) {
-            // 过滤成绩，只显示与老师相同科目的成绩
-            var filteredScore = null;
-            if (student.latestScore && _this.teacherSubject && student.latestScore.subject === _this.teacherSubject) {
-              filteredScore = student.latestScore;
-            }
             return _objectSpread(_objectSpread({}, student), {}, {
               className: selectedClass.className,
               grade: student.grade,
-              latestScore: filteredScore,
+              latestScore: student.latestScore,
+              // 显示最新成绩
               isClass: false // 标记这是学生数据
             });
           });
@@ -318,6 +362,27 @@ var _default = {
 
         return [];
       }
+    },
+    classItems: function classItems() {
+      var _this2 = this;
+      return this.filteredStudents.filter(function (item) {
+        return item.isClass;
+      }).map(function (item) {
+        return _objectSpread(_objectSpread({}, item), {}, {
+          _id: 'class_' + item._id,
+          // 添加前缀避免与学生ID冲突
+          classYear: _this2.getClassYear(item.name) // 添加学年信息
+        });
+      });
+    },
+    studentItems: function studentItems() {
+      return this.filteredStudents.filter(function (item) {
+        return !item.isClass;
+      }).map(function (item) {
+        return _objectSpread(_objectSpread({}, item), {}, {
+          _id: 'student_' + item._id // 添加前缀避免与班级ID冲突
+        });
+      });
     }
   },
   onLoad: function onLoad() {
@@ -385,14 +450,14 @@ var _default = {
       }
     },
     loadMyStudents: function loadMyStudents() {
-      var _this2 = this;
+      var _this3 = this;
       return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
         var result;
         return _regenerator.default.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                if (_this2.userInfo) {
+                if (_this3.userInfo) {
                   _context.next = 3;
                   break;
                 }
@@ -411,14 +476,14 @@ var _default = {
                   name: 'student-hours',
                   data: {
                     action: 'getMyStudents',
-                    teacherId: _this2.userInfo._id || _this2.userInfo.uid
+                    teacherId: _this3.userInfo._id || _this3.userInfo.uid
                   }
                 });
               case 7:
                 result = _context.sent;
                 if (result.result.success) {
-                  _this2.students = result.result.data || [];
-                  _this2.updateLeftList();
+                  _this3.students = result.result.data || [];
+                  _this3.updateLeftList();
                 } else {
                   uni.showToast({
                     title: result.result.message || '加载失败',
@@ -448,24 +513,26 @@ var _default = {
       }))();
     },
     loadMyClasses: function loadMyClasses() {
-      var _this3 = this;
+      var _this4 = this;
       return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
         var teacherId, result;
         return _regenerator.default.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                if (_this3.userInfo) {
+                if (_this4.userInfo) {
                   _context2.next = 2;
                   break;
                 }
                 return _context2.abrupt("return");
               case 2:
                 _context2.prev = 2;
-                console.log('用户信息:', _this3.userInfo);
-                console.log('用户信息所有字段:', Object.keys(_this3.userInfo));
-                teacherId = _this3.userInfo._id || _this3.userInfo.uid || _this3.userInfo.id || _this3.userInfo.teacherId;
+                console.log('用户信息:', _this4.userInfo);
+                console.log('用户信息所有字段:', Object.keys(_this4.userInfo));
+                teacherId = _this4.userInfo._id || _this4.userInfo.uid || _this4.userInfo.id || _this4.userInfo.teacherId;
                 console.log('使用的teacherId:', teacherId);
+
+                // 加载当前学年的班级
                 _context2.next = 9;
                 return uniCloud.callFunction({
                   name: 'class-management',
@@ -476,29 +543,122 @@ var _default = {
                 });
               case 9:
                 result = _context2.sent;
-                if (result.result.code === 0) {
-                  _this3.myClasses = result.result.data || [];
-                  console.log('加载的班级数据:', _this3.myClasses);
-                  _this3.updateLeftList();
-                } else {
-                  console.log('加载班级失败:', result.result.message);
+                if (!(result.result.code === 0)) {
+                  _context2.next = 23;
+                  break;
                 }
+                _this4.myClasses = result.result.data || [];
+                console.log('加载的班级数据:', _this4.myClasses);
+                console.log('班级数量:', _this4.myClasses.length);
+
+                // 加载历史班级数据
                 _context2.next = 16;
+                return _this4.loadHistoryClasses(teacherId);
+              case 16:
+                // 更新可用学年列表
+                _this4.updateAvailableYears();
+                _this4.updateLeftList();
+
+                // 调试计算属性
+                console.log('filteredStudents:', _this4.filteredStudents);
+                console.log('classItems:', _this4.classItems);
+                if (_this4.classItems.length > 0) {
+                  console.log('第一个班级项目:', _this4.classItems[0]);
+                }
+                _context2.next = 24;
                 break;
-              case 13:
-                _context2.prev = 13;
+              case 23:
+                console.log('加载班级失败:', result.result.message);
+              case 24:
+                _context2.next = 29;
+                break;
+              case 26:
+                _context2.prev = 26;
                 _context2.t0 = _context2["catch"](2);
                 console.error('加载我的班级失败:', _context2.t0);
-              case 16:
+              case 29:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, null, [[2, 13]]);
+        }, _callee2, null, [[2, 26]]);
       }))();
     },
+    loadHistoryClasses: function loadHistoryClasses(teacherId) {
+      var _this5 = this;
+      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
+        var result;
+        return _regenerator.default.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                _context3.next = 3;
+                return uniCloud.callFunction({
+                  name: 'class-management',
+                  data: {
+                    action: 'getHistoryClasses',
+                    teacherId: teacherId
+                  }
+                });
+              case 3:
+                result = _context3.sent;
+                if (result.result.code === 0) {
+                  _this5.allHistoryClasses = result.result.data || [];
+                  console.log('加载的历史班级数据:', _this5.allHistoryClasses);
+                }
+                _context3.next = 10;
+                break;
+              case 7:
+                _context3.prev = 7;
+                _context3.t0 = _context3["catch"](0);
+                console.error('加载历史班级失败:', _context3.t0);
+              case 10:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, null, [[0, 7]]);
+      }))();
+    },
+    updateAvailableYears: function updateAvailableYears() {
+      var _this6 = this;
+      var years = new Set(['当前学年']);
+
+      // 从当前班级中提取学年
+      this.myClasses.forEach(function (cls) {
+        var year = _this6.getClassYear(cls.className);
+        if (year) years.add(year);
+      });
+
+      // 从历史班级中提取学年
+      this.allHistoryClasses.forEach(function (cls) {
+        var year = _this6.getClassYear(cls.className);
+        if (year) years.add(year);
+      });
+      this.availableYears = Array.from(years).sort(function (a, b) {
+        if (a === '当前学年') return -1;
+        if (b === '当前学年') return 1;
+        return b.localeCompare(a); // 降序排列
+      });
+    },
+    showYearPicker: function showYearPicker() {
+      var _this7 = this;
+      uni.showActionSheet({
+        itemList: this.availableYears,
+        success: function success(res) {
+          _this7.selectedYear = _this7.availableYears[res.tapIndex];
+          _this7.updateLeftList();
+        }
+      });
+    },
+    getClassYear: function getClassYear(className) {
+      // 从班级名称中提取学年，如 "25秋三年级数学龙班" -> "25秋"
+      var match = className.match(/^(\d{2}[春秋])/);
+      return match ? match[1] : '';
+    },
     updateLeftList: function updateLeftList() {
-      var _this4 = this;
+      var _this8 = this;
       this.leftList = [];
       this.classStatusMap = {};
       this.selectedLeft = ''; // 默认清空选中项
@@ -518,7 +678,7 @@ var _default = {
 
         // 统计每个班级的学生数量
         this.myClasses.forEach(function (myClass) {
-          _this4.classStatusMap[myClass.className] = {
+          _this8.classStatusMap[myClass.className] = {
             total: myClass.classStudents.length,
             inRead: myClass.classStudents.length,
             isOver: false,
@@ -535,20 +695,17 @@ var _default = {
     },
     showStudentDetail: function showStudentDetail(item) {
       if (item.isClass) {
-        // 班级详情
-        var content = "\u73ED\u7EA7\u540D\u79F0\uFF1A".concat(item.name, "\n\u5E74\u7EA7\uFF1A").concat(item.grade, "\n\u73ED\u7EA7\u6570\u91CF\uFF1A").concat(item.studentCount, "\u4E2A");
-        uni.showModal({
-          title: '班级详情',
-          content: content,
-          showCancel: false,
-          confirmText: '确定'
-        });
+        // 如果是班级，切换到学生tab并选择该班级
+        console.log('点击班级，切换到学生视图:', item.name);
+        this.selectedType = '学生';
+        this.selectedLeft = item.name;
+        this.updateLeftList();
       } else {
-        // 学生详情
-        var _content = "\u59D3\u540D\uFF1A".concat(item.name, "\n\u5E74\u7EA7\uFF1A").concat(item.grade, "\n\u5B66\u53F7\uFF1A").concat(item.studentId).concat(item.latestScore ? "\n\u6700\u8FD1\u6210\u7EE9\uFF1A".concat(item.latestScore.score, "\u5206\uFF08").concat(item.latestScore.subject, "\uFF09\n\u8003\u8BD5\u65E5\u671F\uFF1A").concat(item.latestScore.examDate) : '');
+        // 如果是学生，显示学生详情
+        var content = "\u59D3\u540D\uFF1A".concat(item.name, "\n\u5E74\u7EA7\uFF1A").concat(item.grade, "\n\u5B66\u53F7\uFF1A").concat(item.studentId).concat(item.latestScore ? "\n\u6700\u8FD1\u6210\u7EE9\uFF1A".concat(item.latestScore.score, "\u5206\uFF08").concat(item.latestScore.subject, "\uFF09\n\u8003\u8BD5\u65E5\u671F\uFF1A").concat(item.latestScore.examDate) : '');
         uni.showModal({
           title: '学生详情',
-          content: _content,
+          content: content,
           showCancel: false,
           confirmText: '确定'
         });
